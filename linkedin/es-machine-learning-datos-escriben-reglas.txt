@@ -1,0 +1,6 @@
+En mi primera clase de Data Science me quedé con una idea: en programación tradicional tú escribes las reglas; en Machine Learning, los datos las escriben por ti. Lo explico con ejemplos propios, el mini proyecto que voy a montar y por qué NO voy a construir un clasificador de setas.
+
+Lo cuento con más detalle en el cuaderno:
+https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/
+
+#MachineLearning #Fundamentos #DataScience

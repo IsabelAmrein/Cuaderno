@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151716">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<title>Machine learning: when the data writes the rules | Isabel&#x27;s notebook</title>
+<meta name="description" content="What machine learning is, how it differs from programming with rules, and why the hard part isn&#x27;t training a model but keeping it working.">
+<link rel="canonical" href="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/">
+<link rel="alternate" hreflang="es" href="https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/"><link rel="alternate" hreflang="en" href="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/"><link rel="alternate" hreflang="x-default" href="https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Isabel&#x27;s notebook">
+<meta property="og:title" content="Machine learning: when the data writes the rules">
+<meta property="og:description" content="What machine learning is, how it differs from programming with rules, and why the hard part isn&#x27;t training a model but keeping it working.">
+<meta property="og:url" content="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/">
+<meta property="og:image" content="https://isabelamrein.github.io/Cuaderno/assets/og/en-machine-learning-data-writes-the-rules.png">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Isabel Amrein De Luca">
+<link rel="alternate" type="application/rss+xml" title="Isabel&#x27;s notebook" href="/Cuaderno/en/rss.xml">
+<link rel="icon" type="image/svg+xml" href="/Cuaderno/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=f7e5d21f">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Machine learning: when the data writes the rules", "description": "What machine learning is, how it differs from programming with rules, and why the hard part isn't training a model but keeping it working.", "datePublished": "2026-10-11", "dateModified": "2026-10-11", "inLanguage": "en", "image": "https://isabelamrein.github.io/Cuaderno/assets/og/en-machine-learning-data-writes-the-rules.png", "keywords": "machine-learning, fundamentals, data-science", "mainEntityOfPage": "https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/", "author": {"@type": "Person", "name": "Isabel Amrein De Luca", "jobTitle": "Product Manager", "sameAs": ["https://www.linkedin.com/in/isabel-amrein-de-luca"]}}</script>
+</head>
+<body class="accent-aqua">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+<a class="brand" href="/Cuaderno/en/">Isabel&#x27;s notebook</a>
+<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/blog/" aria-current=page>Articles</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
+</div></header>
+<main id="main">
+<article>
+<header class="post-head"><div class="wrap"><div>
+<div class="post-meta"><time datetime="2026-10-11">Oct 11, 2026</time><span>5 min read</span></div>
+<h1>Machine learning: when the data writes the rules</h1><div class="tags"><span>machine-learning</span><span>fundamentals</span><span>data-science</span></div></div><svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false"><path d="M14 14V186H246" fill="none" stroke="currentColor" stroke-opacity=".35"/><line x1="151.6" y1="73.3" x2="151.6" y2="113.8" stroke="currentColor" stroke-opacity=".35"/><line x1="71.9" y1="87.4" x2="71.9" y2="75.3" stroke="currentColor" stroke-opacity=".35"/><line x1="45.7" y1="83.5" x2="45.7" y2="62.6" stroke="currentColor" stroke-opacity=".35"/><line x1="202.3" y1="134.7" x2="202.3" y2="138.2" stroke="currentColor" stroke-opacity=".35"/><line x1="105.9" y1="111.0" x2="105.9" y2="91.7" stroke="currentColor" stroke-opacity=".35"/><line x1="197.0" y1="153.2" x2="197.0" y2="135.7" stroke="currentColor" stroke-opacity=".35"/><line x1="165.3" y1="153.0" x2="165.3" y2="120.4" stroke="currentColor" stroke-opacity=".35"/><line x1="115.4" y1="132.3" x2="115.4" y2="96.3" stroke="currentColor" stroke-opacity=".35"/><line x1="111.6" y1="92.4" x2="111.6" y2="94.4" stroke="currentColor" stroke-opacity=".35"/><line x1="60.3" y1="82.5" x2="60.3" y2="69.7" stroke="currentColor" stroke-opacity=".35"/><line x1="208.0" y1="182.6" x2="208.0" y2="141.0" stroke="currentColor" stroke-opacity=".35"/><line x1="105.8" y1="71.5" x2="105.8" y2="91.6" stroke="currentColor" stroke-opacity=".35"/><line x1="146.4" y1="128.8" x2="146.4" y2="111.2" stroke="currentColor" stroke-opacity=".35"/><line x1="90.7" y1="56.3" x2="90.7" y2="84.3" stroke="currentColor" stroke-opacity=".35"/><line x1="60.7" y1="57.0" x2="60.7" y2="69.9" stroke="currentColor" stroke-opacity=".35"/><line x1="113.2" y1="70.1" x2="113.2" y2="95.2" stroke="currentColor" stroke-opacity=".35"/><line x1="50.8" y1="76.6" x2="50.8" y2="65.1" stroke="currentColor" stroke-opacity=".35"/><line x1="142.9" y1="108.3" x2="142.9" y2="109.6" stroke="currentColor" stroke-opacity=".35"/><line x1="148.3" y1="110.0" x2="148.3" y2="112.1" stroke="currentColor" stroke-opacity=".35"/><line x1="166.3" y1="88.7" x2="166.3" y2="120.8" stroke="currentColor" stroke-opacity=".35"/><line x1="139.0" y1="95.0" x2="139.0" y2="107.7" stroke="currentColor" stroke-opacity=".35"/><line x1="102.3" y1="103.2" x2="102.3" y2="89.9" stroke="currentColor" stroke-opacity=".35"/><line x1="92.1" y1="108.6" x2="92.1" y2="85.0" stroke="currentColor" stroke-opacity=".35"/><line x1="132.9" y1="48.7" x2="132.9" y2="104.7" stroke="currentColor" stroke-opacity=".35"/><line x1="229.3" y1="139.8" x2="229.3" y2="151.2" stroke="currentColor" stroke-opacity=".35"/><line x1="74.1" y1="45.9" x2="74.1" y2="76.3" stroke="currentColor" stroke-opacity=".35"/><line x1="20.8" y1="17.4" x2="20.8" y2="50.6" stroke="currentColor" stroke-opacity=".35"/><line x1="56.9" y1="120.4" x2="56.9" y2="68.0" stroke="currentColor" stroke-opacity=".35"/><line x1="14.0" y1="47.3" x2="246.0" y2="159.3" stroke="currentColor" stroke-width="2.5"/><circle cx="151.6" cy="73.3" r="3.2" fill="var(--ink)"/><circle cx="71.9" cy="87.4" r="3.2" fill="var(--ink)"/><circle cx="45.7" cy="83.5" r="3.2" fill="var(--ink)"/><circle cx="202.3" cy="134.7" r="3.2" fill="var(--ink)"/><circle cx="105.9" cy="111.0" r="3.2" fill="var(--ink)"/><circle cx="197.0" cy="153.2" r="3.2" fill="var(--ink)"/><circle cx="165.3" cy="153.0" r="3.2" fill="var(--ink)"/><circle cx="115.4" cy="132.3" r="3.2" fill="var(--ink)"/><circle cx="111.6" cy="92.4" r="3.2" fill="var(--ink)"/><circle cx="60.3" cy="82.5" r="3.2" fill="var(--ink)"/><circle cx="208.0" cy="182.6" r="3.2" fill="var(--ink)"/><circle cx="105.8" cy="71.5" r="3.2" fill="var(--ink)"/><circle cx="146.4" cy="128.8" r="3.2" fill="var(--ink)"/><circle cx="90.7" cy="56.3" r="3.2" fill="var(--ink)"/><circle cx="60.7" cy="57.0" r="3.2" fill="var(--ink)"/><circle cx="113.2" cy="70.1" r="3.2" fill="var(--ink)"/><circle cx="50.8" cy="76.6" r="3.2" fill="var(--ink)"/><circle cx="142.9" cy="108.3" r="3.2" fill="var(--ink)"/><circle cx="148.3" cy="110.0" r="3.2" fill="var(--ink)"/><circle cx="166.3" cy="88.7" r="3.2" fill="var(--ink)"/><circle cx="139.0" cy="95.0" r="3.2" fill="var(--ink)"/><circle cx="102.3" cy="103.2" r="3.2" fill="var(--ink)"/><circle cx="92.1" cy="108.6" r="3.2" fill="var(--ink)"/><circle cx="132.9" cy="48.7" r="3.2" fill="var(--ink)"/><circle cx="229.3" cy="139.8" r="3.2" fill="var(--ink)"/><circle cx="74.1" cy="45.9" r="3.2" fill="var(--ink)"/><circle cx="20.8" cy="17.4" r="3.2" fill="var(--ink)"/><circle cx="56.9" cy="120.4" r="3.2" fill="var(--ink)"/></svg></div></header>
+<div class="prose"><p>My first class of the master's answered a question that seems obvious until you try to explain it: what exactly is machine learning? These are my notes, rewritten with my own examples, plus a mini project I'm going to build to put it to the test.</p>
+<h2>What it is and where it fits</h2>
+<p>Artificial Intelligence is the broad field: getting machines to do things we associate with intelligence. Machine learning (ML) is one of its branches: instead of telling the computer what to do step by step, you give it examples and let it discover the patterns on its own.</p>
+<p>Data Science is the craft around it. It combines statistics, programming and knowledge of the problem to understand data, make predictions and take better decisions.</p>
+<h2>The idea that stuck with me: flipping the diagram</h2>
+<p>In traditional programming you write the rules, the program applies them to the data and produces answers. In ML the flow is reversed: you provide the data and the correct answers, and the algorithm works out the rules. Those learned rules are what we call a model.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Inputs</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traditional programming</td>
+<td>Rules and data</td>
+<td>Answers</td>
+</tr>
+<tr>
+<td>Machine learning</td>
+<td>Data and answers</td>
+<td>Rules (the model)</td>
+</tr>
+</tbody>
+</table></div>
+<p>An example with junk email:</p>
+<ul>
+<li><strong>With rules:</strong> you write "if the message contains <em>prize</em> and <em>urgent</em>, it's spam". It works until spammers change their wording and you have to rewrite the rules by hand.</li>
+<li><strong>With ML:</strong> you show it thousands of emails someone has already marked as spam or not spam. The model finds which combinations of features tend to go with each label, and it adapts when you give it new examples.</li>
+</ul>
+<h2>Four uses that keep showing up</h2>
+<p><strong>Recommendation.</strong> Picture a cinema chain. If I know a customer likes releases from a certain genre and usually goes on Fridays, I can tell them a film of that genre is coming this week, with free seats in the area they usually pick. I could even feature the actor they've watched most often. With their permission, of course: good personalization also means respecting privacy.</p>
+<p><strong>Game strategy.</strong> Some models adjust difficulty to each player's level so the challenge is demanding but never impossible. Sometimes the difference is a matter of millimetres.</p>
+<p><strong>Classification.</strong> The spam filter is the classic example. A more serious one: models that help detect pneumonia in chest X-rays, deployed in clinical settings during the pandemic.</p>
+<p><strong>Prediction.</strong> <a href="https://blog.google/outreach-initiatives/sustainability/flood-hub-ai-flood-forecasting-more-countries/">Google's Flood Hub</a> forecasts river floods up to seven days ahead by combining weather forecasts and satellite imagery. It started as a pilot in India in 2018 with about 48 hours of lead time. A week's notice gives people time to reach safety.</p>
+<h2>How an ML project works, in five steps</h2>
+<ol>
+<li><strong>Define the problem:</strong> what do I want to predict and what decision will I make with it?</li>
+<li><strong>Label the data:</strong> examples together with their correct answer.</li>
+<li><strong>Train the model:</strong> the algorithm looks for patterns.</li>
+<li><strong>Predict:</strong> use the model on data it hasn't seen.</li>
+<li><strong>Monitor:</strong> check that it keeps getting things right as the world changes.</li>
+</ol>
+<h2>The hard part isn't the model</h2>
+<p>What surprised me most is that training the model is usually the lightest part of the project. The difficulty is all around it:</p>
+<ul>
+<li><strong>The data.</strong> It arrives incomplete, unlabelled or imbalanced. A model can only be as good as the data it learns from.</li>
+<li><strong>The training.</strong> The big risk is overfitting: the model memorises the examples and fails on new cases. You guard against it by splitting the data into training, validation and test sets.</li>
+<li><strong>The deployment.</strong> Integrating the model into real systems and maintaining it. Models degrade over time because the data changes, so they need retraining.</li>
+</ul>
+<p>Launching a model is the easy part. Keeping it useful is the real job.</p>
+<h2>Mini project: an image classifier</h2>
+<p><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a> is a free Google tool that trains classification models in your browser, no coding needed. This is my plan:</p>
+<ol>
+<li>Pick three objects from my desk (for example a mug, a notebook and a pair of headphones).</li>
+<li>Take about 50 photos of each with the webcam, varying background, light and angle.</li>
+<li>Train the model and test it with new photos I didn't use for training.</li>
+<li>Note where it fails and why.</li>
+</ol>
+<p>I want to see how much the result depends on the variety of the data: if every photo has the same background, what is the model really learning? Once it's built, I'll update this article with my results.</p>
+<h2>A project I won't build (and what it teaches)</h2>
+<p>My first idea was a mushroom classifier: edible or poisonous. I've deliberately ruled it out as an application. A model trained on a handful of photos will make mistakes, and in this problem the mistakes don't cost the same. Calling a toxic mushroom "edible" can be fatal. Calling an edible one "toxic" only costs you a dinner.</p>
+<p>That's why it matters to look at more than the overall accuracy percentage. Here the key metric would be <em>recall</em>: of all the toxic mushrooms, how many does the model manage to flag as toxic? Also, many poisonous mushrooms look very much like edible ones, and identifying them safely is a job for an expert, not a photo.</p>
+<p>The lesson is about design: choosing the right metric and thinking about the context of use are part of building a model. When real risk is involved, the model assists a person; it doesn't decide for them. And just in case: never use a photo model to decide what to eat.</p>
+<h2>What I take away</h2>
+<p>Machine learning isn't magic and it isn't reserved for experts. It's a different way of solving problems in which data quality and maintenance weigh more than the algorithm itself. In the next article I'll share how the classifier went.</p></div>
+<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/blog/">Back to articles</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Read in English</a></footer>
+</article>
+</main>
+<footer class="site-foot"><div class="wrap">
+<span>© 2026 Isabel Amrein De Luca</span>
+<span style="display:flex;gap:1.5rem"><a href="https://www.linkedin.com/in/isabel-amrein-de-luca" rel="me noopener" target="_blank">LinkedIn</a> <a href="/Cuaderno/en/rss.xml">RSS</a></span>
+</div></footer>
+<script src="/Cuaderno/assets/main.js?v=7dad29fb" defer></script>
+</body>
+</html>

@@ -21,7 +21,11 @@
     "en": "Notes, mini projects and mistakes from my master's in Data Science and generative AI, and whatever comes next."
   },
   "description": {
-    "es": "Cuaderno público de aprendizaje sobre Data Science e IA generativa: apuntes, mini proyectos y reflexiones.",
-    "en": "A public learning notebook on Data Science and generative AI: notes, mini projects and reflections."
+    "es": "Cuaderno público de Isabel Amrein De Luca, Product Manager con formación en estadística: apuntes y mini proyectos de Data Science e IA generativa aplicados a productos financieros.",
+    "en": "Public notebook by Isabel Amrein De Luca, a Product Manager with a statistics background: notes and mini projects on Data Science and generative AI applied to financial products."
+  },
+  "job_title": {
+    "es": "Product Manager",
+    "en": "Product Manager"
   }
 }

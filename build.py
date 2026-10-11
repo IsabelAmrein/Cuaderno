@@ -272,6 +272,11 @@ def rows(posts, lang):
     return "".join(out)
 
 
+def author_ld(l):
+    return {"@type": "Person", "name": CFG["name"], "jobTitle": CFG.get("job_title", {}).get(l, ""),
+            "sameAs": [CFG["linkedin"]]}
+
+
 # ---------- construcción ----------
 def main():
     if OUT.exists():
@@ -304,7 +309,7 @@ def main():
                 accent=meta.get("accent", "aqua") if meta.get("accent", "aqua") in ACCENTS else "aqua",
                 linkedin=meta.get("linkedin", ""), html=render_md(body), minutes=max(1, round(words / 200)),
                 url=p(l, "blog", slug)))
-        posts[l].sort(key=lambda x: x["date"], reverse=True)
+        posts[l].sort(key=lambda x: (x["date"], x["id"]), reverse=True)
     by_id = {l: {x["id"]: x for x in posts[l]} for l in LANGS}
 
     for l in LANGS:
@@ -324,7 +329,7 @@ def main():
         write(OUT / l / "index.html", page(l, title=site_title, desc=CFG["description"][l], body=hero, url=p(l),
                                            alts=alts_for(), jsonld={"@context": "https://schema.org", "@type": "WebSite",
                                            "name": site_title, "url": absu(p(l)), "inLanguage": l,
-                                           "author": {"@type": "Person", "name": CFG["name"], "sameAs": [CFG["linkedin"]]}}))
+                                           "author": author_ld(l)}))
 
         # lista de artículos
         all_tags = sorted({g for x in posts[l] for g in x["tags"]})
@@ -340,7 +345,7 @@ def main():
         af = ROOT / "content" / l / "about.md"
         if af.exists():
             meta, abody = parse(af)
-            body = (f'<section class="section"><div class="wrap"><h1 class="page-title">{esc(meta.get("title", t["about"]))}</h1></div>'
+            body = (f'<section class="section"><div class="prose-head"><h1 class="page-title">{esc(meta.get("title", t["about"]))}</h1></div>'
                     f'<article class="prose" style="margin-top:0">{render_md(abody)}</article></section>')
             write(OUT / l / "about" / "index.html", page(l, title=meta.get("title", t["about"]), desc=meta.get("summary", CFG["description"][l]),
                                                          body=body, url=p(l, "about"), alts=alts_for("about"), active="about"))
@@ -363,7 +368,7 @@ def main():
             ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": x["title"], "description": x["summary"],
                   "datePublished": x["date"].isoformat(), "dateModified": x["updated"].isoformat(), "inLanguage": l,
                   "image": absu(BASE + og_path), "keywords": ", ".join(x["tags"]), "mainEntityOfPage": absu(x["url"]),
-                  "author": {"@type": "Person", "name": CFG["name"], "sameAs": [CFG["linkedin"]]}}
+                  "author": author_ld(l)}
             write(OUT / l / "blog" / x["slug"] / "index.html", page(l, title=x["title"], desc=x["summary"], body=body, url=x["url"],
                                                                      alts=alts, og=BASE + og_path, accent=x["accent"], kind="article",
                                                                      jsonld=ld, active="blog"))

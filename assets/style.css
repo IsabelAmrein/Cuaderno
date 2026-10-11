@@ -87,6 +87,7 @@ a:hover{text-decoration-thickness:2px}
 .post-head h1{font-family:var(--f-display);font-weight:500;font-size:clamp(2rem,5vw,3.1rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 var(--s4);text-wrap:balance;color:var(--accent)}
 .post-meta{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);font-family:var(--f-ui);font-size:var(--t-sm);color:var(--mute);margin-bottom:var(--s3)}
 .motif{color:var(--accent);width:100%;height:auto}
+.prose-head{width:min(100% - 2.5rem,var(--measure));margin-inline:auto}
 .prose{width:min(100% - 2.5rem,var(--measure));margin:var(--s7) auto var(--s8)}
 .prose>*+*{margin-top:var(--s5)}
 .prose h2{font-family:var(--f-display);font-weight:500;font-size:var(--t-lg);letter-spacing:-.015em;line-height:1.2;margin-top:var(--s7);color:var(--accent)}

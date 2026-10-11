@@ -1,0 +1,6 @@
+In my first Data Science class one idea stuck with me - in traditional programming you write the rules; in machine learning, the data writes them for you. I explain it with my own examples, the mini project I'm about to build, and why I will NOT build a mushroom classifier.
+
+Full write-up in the notebook:
+https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/
+
+#MachineLearning #Fundamentals #DataScience
