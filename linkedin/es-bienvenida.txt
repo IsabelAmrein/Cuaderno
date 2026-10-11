@@ -1,6 +1,6 @@
 Durante los próximos 9 meses voy a escribir en público lo que aprendo en mi máster de Data Science e IA generativa. Esta es la idea y las reglas que me pongo.
 
 Lo cuento con más detalle en el cuaderno:
-https://TU-USUARIO.github.io/cuaderno/es/blog/bienvenida/
+https://isabelamrein.github.io/Cuaderno/es/blog/bienvenida/
 
 #Meta #Aprendizaje
