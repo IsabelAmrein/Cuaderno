@@ -1,0 +1,8 @@
+«No hay viento favorable para el que no sabe dónde va.» Mi segunda clase del máster fue sobre estrategia de datos, y la idea es sencilla - primero el propósito, después el plan. Cuento cómo situar una organización (control, optimización, transformación), las herramientas de diagnóstico del Club de CDOs y mi proyecto para acercar el dato a marketing y ventas.
+
+Lo cuento con más detalle en el cuaderno:
+https://isabelamrein.github.io/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/
+
+Gracias a Rafael Fernández Campos por la clase.
+
+#EstrategiaDeDatos #DataDriven #Fundamentos

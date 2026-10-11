@@ -18,6 +18,9 @@ summary: Resumen de 1-2 frases (sale en buscadores y LinkedIn).
 linkedin: Gancho opcional para el post de LinkedIn.
 teacher: Nombre Apellido  # opcional: profesor/a de la clase (sale en la cabecera y en un agradecimiento final)
 teacher_url: https://...  # opcional: enlace a su perfil
+hero: compass            # ilustración de cabecera propia: iceberg, compass, cookie (si no, se genera una por defecto)
+quote: Frase breve        # opcional: aparece bajo el título en la imagen de LinkedIn
+order: 1                 # opcional: desempata el orden si dos artículos tienen la misma fecha
 draft: false             # true = no se publica
 ---
 ```

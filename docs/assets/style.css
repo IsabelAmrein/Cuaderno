@@ -110,6 +110,17 @@ a:hover{text-decoration-thickness:2px}
 .lvl-desc{font-size:1rem;line-height:1.6}
 .lvl-effort{margin-top:auto!important;padding-top:var(--s3);font-family:var(--f-ui);font-size:var(--t-sm);color:var(--mute);display:flex;align-items:center;gap:var(--s3)}
 .meter{display:inline-flex;gap:4px}.meter i{width:18px;height:6px;border-radius:3px;background:var(--line)}.meter i.on{background:var(--accent)}
+.hl{font-weight:700;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:.22em}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) .3rem;margin:var(--s6) 0}
+.steps .nw{display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
+.steps .st{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.4rem .6rem;font-family:var(--f-ui);font-size:.8rem}
+.steps .sep{color:var(--mute);font-size:1rem}
+.steps .focus{display:inline-flex;flex-direction:column;gap:.3rem;border:2px dashed var(--accent);border-radius:12px;padding:.4rem .5rem}
+.steps .focus .row{display:flex;align-items:center;gap:.3rem}
+.steps .focus .st{background:var(--accent);color:var(--paper);border-color:var(--accent);font-weight:600}
+.steps .focus .sep{color:var(--accent)}
+.steps .focus small{color:var(--accent);text-align:center;font-family:var(--f-ui);font-size:.72rem}
+.lvl-meter{font-family:var(--f-ui);font-size:var(--t-sm);color:var(--mute);display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
 .table-wrap{overflow-x:auto}
 .prose table{border-collapse:collapse;width:100%;font-size:.95rem}
 .prose th,.prose td{border-bottom:1px solid var(--line);padding:var(--s2) var(--s3);text-align:left}

@@ -142,7 +142,49 @@ def motif_svg(key):
 COOKIE_PTS = [(60, 114), (76, 126), (88, 98), (102, 110), (112, 86), (126, 70), (136, 88), (148, 58), (150, 76), (96, 134), (120, 104)]
 
 
+def compass_svg():
+    s = ['<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">',
+         '<g stroke="var(--mute)" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"><line x1="190" y1="120" x2="246" y2="120"/><line x1="176" y1="140" x2="226" y2="140"/><line x1="198" y1="160" x2="240" y2="160"/></g>',
+         '<circle cx="95" cy="125" r="62" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>',
+         '<g stroke="var(--accent)" stroke-width="3" stroke-linecap="round"><line x1="95" y1="69" x2="95" y2="79"/><line x1="95" y1="171" x2="95" y2="181"/><line x1="39" y1="125" x2="49" y2="125"/><line x1="141" y1="125" x2="151" y2="125"/></g>',
+         '<g transform="rotate(37 95 125)"><polygon points="95,81 87,125 103,125" fill="var(--accent)"/><polygon points="95,169 87,125 103,125" fill="var(--mute)"/></g>',
+         '<circle cx="95" cy="125" r="5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"/>',
+         '<line x1="124" y1="86" x2="158" y2="42" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>',
+         '<line x1="164" y1="38" x2="164" y2="8" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>',
+         '<polygon points="164,8 192,18 164,28" fill="var(--accent)"/>', "</svg>"]
+    return "".join(s)
+
+
+def draw_compass(d, col):
+    import math
+    k, ox, oy = 1.5, 745, 100
+    P = lambda x, y: (ox + x * k, oy + y * k)
+    mute = (86, 93, 90)
+    for (x1, y1, x2, y2) in ((190, 120, 246, 120), (176, 140, 226, 140), (198, 160, 240, 160)):
+        d.line([P(x1, y1), P(x2, y2)], fill=mute, width=5)
+    cx, cy = P(95, 125)
+    d.ellipse([cx - 62 * k, cy - 62 * k, cx + 62 * k, cy + 62 * k], fill="#1E2220", outline=col, width=5)
+    for (x1, y1, x2, y2) in ((95, 69, 95, 79), (95, 171, 95, 181), (39, 125, 49, 125), (141, 125, 151, 125)):
+        d.line([P(x1, y1), P(x2, y2)], fill=col, width=5)
+    a = math.radians(37)
+    def rot(x, y):
+        dx, dy = x - 95, y - 125
+        return P(95 + dx * math.cos(a) - dy * math.sin(a), 125 + dx * math.sin(a) + dy * math.cos(a))
+    d.polygon([rot(95, 81), rot(87, 125), rot(103, 125)], fill=col)
+    d.polygon([rot(95, 169), rot(87, 125), rot(103, 125)], fill="#98A39E")
+    d.ellipse([cx - 8, cy - 8, cx + 8, cy + 8], fill="#151716", outline=col, width=3)
+    (ax, ay), (bx, by) = P(124, 86), P(158, 42)
+    n = 9
+    for i in range(n + 1):
+        px, py = ax + (bx - ax) * i / n, ay + (by - ay) * i / n
+        d.ellipse([px - 3, py - 3, px + 3, py + 3], fill=col)
+    d.line([P(164, 38), P(164, 8)], fill="#E9EDEA", width=5)
+    d.polygon([P(164, 8), P(192, 18), P(164, 28)], fill=col)
+
+
 def hero_svg(name):
+    if name == "compass":
+        return compass_svg()
     if name == "iceberg":
         dots = "".join(f'<circle cx="{x}" cy="{y}" r="3.6" fill="var(--ink)"/>' for x, y in ICE_DOTS)
         return ('<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">'
@@ -227,7 +269,7 @@ def draw_scatter(d, key, col):
         d.ellipse([X(x) - 6, Y(y) - 6, X(x) + 6, Y(y) + 6], fill="#E9EDEA")
 
 
-def og_image(path, title, key, accent, site_title, hero=None):
+def og_image(path, title, key, accent, site_title, hero=None, quote=None):
     W, H = 1200, 630
     img = Image.new("RGB", (W, H), "#151716")
     d = ImageDraw.Draw(img)
@@ -241,21 +283,43 @@ def og_image(path, title, key, accent, site_title, hero=None):
         draw_cookie(d, col)
     elif hero == "iceberg":
         draw_iceberg(d, col)
+    elif hero == "compass":
+        draw_compass(d, col)
     else:
         draw_scatter(d, key, col)
-    f = font(58, bold=True)
-    words, lines, cur = title.split(), [], ""
-    for w in words:
-        t = (cur + " " + w).strip()
-        if d.textlength(t, font=f) > 640 and cur:
-            lines.append(cur); cur = w
-        else:
-            cur = t
-    lines.append(cur)
-    y = 150
+    def wrap_title(size):
+        f = font(size, bold=True)
+        lines, cur = [], ""
+        for w in title.split():
+            t = (cur + " " + w).strip()
+            if d.textlength(t, font=f) > 640 and cur:
+                lines.append(cur); cur = w
+            else:
+                cur = t
+        lines.append(cur)
+        return f, lines
+    f, lines = wrap_title(58)
+    step = 74
+    if len(lines) > 3:
+        f, lines = wrap_title(48)
+        step = 62
+    y = 140
     for ln in lines[:5]:
         d.text((70, y), ln, font=f, fill="#E9EDEA")
-        y += 74
+        y += step
+    if quote:
+        qf, qw, qlines, qcur = font(28), 620, [], ""
+        for w in quote.split():
+            t = (qcur + " " + w).strip()
+            if d.textlength(t, font=qf) > qw and qcur:
+                qlines.append(qcur); qcur = w
+            else:
+                qcur = t
+        qlines.append(qcur)
+        qy = y + 22
+        for ln in qlines[:3]:
+            d.text((70, qy), ln, font=qf, fill=col)
+            qy += 38
     d.text((70, H - 80), site_title, font=font(30, mono=True), fill="#98A39E")
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)
@@ -383,9 +447,9 @@ def main():
                 updated=dt.date.fromisoformat(meta.get("updated", meta["date"])),
                 summary=meta.get("summary", ""), tags=meta.get("tags", []) if isinstance(meta.get("tags", []), list) else [meta["tags"]],
                 accent=meta.get("accent", "aqua") if meta.get("accent", "aqua") in ACCENTS else "aqua",
-                linkedin=meta.get("linkedin", ""), teacher=meta.get("teacher", ""), hero=meta.get("hero", ""), teacher_url=meta.get("teacher_url", ""), html=render_md(body), minutes=max(1, round(words / 200)),
+                linkedin=meta.get("linkedin", ""), teacher=meta.get("teacher", ""), order=int(meta.get("order", 0)), quote=meta.get("quote", ""), hero=meta.get("hero", ""), teacher_url=meta.get("teacher_url", ""), html=render_md(body), minutes=max(1, round(words / 200)),
                 url=p(l, "blog", slug)))
-        posts[l].sort(key=lambda x: (x["date"], x["id"]), reverse=True)
+        posts[l].sort(key=lambda x: (x["date"], x["order"], x["id"]), reverse=True)
     by_id = {l: {x["id"]: x for x in posts[l]} for l in LANGS}
 
     for l in LANGS:
@@ -430,7 +494,7 @@ def main():
         for x in posts[l]:
             alts = {ol: by_id[ol][x["id"]]["url"] for ol in LANGS if x["id"] in by_id[ol]}
             og_path = f"/assets/og/{l}-{x['slug']}.png"
-            og_image(OUT / og_path.lstrip("/"), x["title"], x["id"], x["accent"], site_title, hero=x["hero"])
+            og_image(OUT / og_path.lstrip("/"), x["title"], x["id"], x["accent"], site_title, hero=x["hero"], quote=x["quote"])
             tags = "".join(f"<span>{esc(g)}</span>" for g in x["tags"])
             share = f"https://www.linkedin.com/sharing/share-offsite/?url={absu(x['url'])}"
             tname = esc(x["teacher"])
