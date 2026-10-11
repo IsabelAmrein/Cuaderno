@@ -16,9 +16,12 @@ accent: aqua             # aqua, sand, coral, violet, rose, moss
 tags: [python, pandas]
 summary: Resumen de 1-2 frases (sale en buscadores y LinkedIn).
 linkedin: Gancho opcional para el post de LinkedIn.
+teacher: Nombre Apellido  # opcional: profesor/a de la clase (sale en la cabecera y en un agradecimiento final)
+teacher_url: https://...  # opcional: enlace a su perfil
 draft: false             # true = no se publica
 ---
 ```
+Diagramas propios: guarda el SVG/HTML en `content/es/snippets/nombre.html` (y su versión en `en/`) e insértalo en el artículo con `{{include:nombre}}` en una línea aparte.
 Imágenes: ponlas en `content/images/` y enlázalas como `/assets/img/nombre.png`.
 
 ## Publicar en GitHub Pages (gratis)

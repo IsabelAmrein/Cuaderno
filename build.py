@@ -38,7 +38,8 @@ T = {
                plot_label="Gráfico de puntos con una recta de regresión que se recalcula al añadir datos",
                list_lede="Apuntes y mini proyectos de lo que voy aprendiendo, explicados con mis propios ejemplos.",
                cta="Lo cuento con más detalle en el cuaderno:", nf="Página no encontrada",
-               nf_text="Esa página no existe o se ha movido.", home="Ir al inicio", rights="Todos los derechos reservados"),
+               nf_text="Esa página no existe o se ha movido.", home="Ir al inicio", rights="Todos los derechos reservados",
+               class_by="Clase de", thanks="Gracias a {name} por la clase en la que se basa este artículo.", thanks_short="Gracias a {name} por la clase."),
     "en": dict(name="English", articles="Articles", about="About", latest="Latest articles",
                all="See all articles", min="min read", topics="Topic", all_topics="All",
                skip="Skip to content", theme="Theme", share="Share on LinkedIn",
@@ -47,7 +48,8 @@ T = {
                plot_label="Scatter plot with a regression line that refits as you add data",
                list_lede="Notes and mini projects from what I'm learning, explained with my own examples.",
                cta="Full write-up in the notebook:", nf="Page not found",
-               nf_text="That page doesn't exist or has moved.", home="Go to home", rights="All rights reserved"),
+               nf_text="That page doesn't exist or has moved.", home="Go to home", rights="All rights reserved",
+               class_by="Class by", thanks="Thanks to {name} for the class this article is based on.", thanks_short="Thanks to {name} for the class."),
 }
 MONTHS = {
     "es": "ene feb mar abr may jun jul ago sep oct nov dic".split(),
@@ -136,6 +138,42 @@ def motif_svg(key):
     return "".join(s)
 
 
+# ---------- ilustraciones de cabecera a medida (campo hero: del artículo) ----------
+COOKIE_PTS = [(60, 114), (76, 126), (88, 98), (102, 110), (112, 86), (126, 70), (136, 88), (148, 58), (150, 76), (96, 134), (120, 104)]
+
+
+def hero_svg(name):
+    if name != "cookie":
+        return None
+    s = ['<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">',
+         '<circle cx="105" cy="100" r="72" fill="#D9B25F" stroke="#8A6A1F" stroke-width="2.5"/>',
+         '<line x1="14" y1="150" x2="170" y2="41" stroke="var(--paper)" stroke-opacity=".85" stroke-width="8" stroke-linecap="round"/>',
+         '<line x1="14" y1="150" x2="170" y2="41" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/>']
+    s += [f'<circle cx="{x}" cy="{y}" r="5.2" fill="#5B4010"/>' for x, y in COOKIE_PTS]
+    s.append('<rect x="182" y="64" width="68" height="112" rx="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>')
+    s += [f'<line x1="194" y1="{y}" x2="{x2}" y2="{y}" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>'
+          for y, x2 in ((94, 238), (114, 238), (134, 238), (154, 222))]
+    s.append("</svg>")
+    return "".join(s)
+
+
+def draw_cookie(d, col):
+    k, ox, oy = 1.5, 745, 100
+    P = lambda x, y: (ox + x * k, oy + y * k)
+    cx, cy = P(105, 100)
+    d.ellipse([cx - 72 * k, cy - 72 * k, cx + 72 * k, cy + 72 * k], fill="#D9B25F", outline="#8A6A1F", width=4)
+    d.line([P(14, 150), P(170, 41)], fill="#151716", width=14)
+    d.line([P(14, 150), P(170, 41)], fill=col, width=7)
+    for x, y in COOKIE_PTS:
+        px, py = P(x, y)
+        d.ellipse([px - 8, py - 8, px + 8, py + 8], fill="#5B4010")
+    x0, y0 = P(182, 64)
+    x1, y1 = P(250, 176)
+    d.rounded_rectangle([x0, y0, x1, y1], radius=10, fill="#1E2220", outline=col, width=5)
+    for y, xe in ((94, 238), (114, 238), (134, 238), (154, 222)):
+        d.line([P(194, y), P(xe, y)], fill=col, width=5)
+
+
 # ---------- imagen Open Graph (para la vista previa en LinkedIn) ----------
 def font(size, bold=False, mono=False):
     names = (["DejaVuSansMono.ttf"] if mono else ["DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"])
@@ -148,16 +186,7 @@ def font(size, bold=False, mono=False):
     return ImageFont.load_default(size)
 
 
-def og_image(path, title, key, accent, site_title):
-    W, H = 1200, 630
-    img = Image.new("RGB", (W, H), "#151716")
-    d = ImageDraw.Draw(img)
-    for x in range(0, W, 40):
-        d.line([(x, 0), (x, H)], fill="#1E2220")
-    for y in range(0, H, 40):
-        d.line([(0, y), (W, y)], fill="#1E2220")
-    col = ACCENTS.get(accent, ACCENTS["aqua"])
-    d.rectangle([0, 0, W, 16], fill=col)
+def draw_scatter(d, key, col):
     pts = motif_points(key)
     m, b = ols(pts)
     ox, oy, pw, ph = 800, 90, 340, 300
@@ -168,6 +197,22 @@ def og_image(path, title, key, accent, site_title):
     d.line([(X(0), Y(b)), (X(1), Y(m + b))], fill=col, width=5)
     for x, y in pts:
         d.ellipse([X(x) - 6, Y(y) - 6, X(x) + 6, Y(y) + 6], fill="#E9EDEA")
+
+
+def og_image(path, title, key, accent, site_title, hero=None):
+    W, H = 1200, 630
+    img = Image.new("RGB", (W, H), "#151716")
+    d = ImageDraw.Draw(img)
+    for x in range(0, W, 40):
+        d.line([(x, 0), (x, H)], fill="#1E2220")
+    for y in range(0, H, 40):
+        d.line([(0, y), (W, y)], fill="#1E2220")
+    col = ACCENTS.get(accent, ACCENTS["aqua"])
+    d.rectangle([0, 0, W, 16], fill=col)
+    if hero == "cookie":
+        draw_cookie(d, col)
+    else:
+        draw_scatter(d, key, col)
     f = font(58, bold=True)
     words, lines, cur = title.split(), [], ""
     for w in words:
@@ -299,15 +344,16 @@ def main():
             meta, body = parse(f)
             if str(meta.get("draft", "")).lower() == "true":
                 continue
-            slug = meta.get("slug", f.stem)
             words = len(re.findall(r"\w+", body))
+            body = re.sub(r"\{\{include:(\w+)\}\}", lambda m: (ROOT / "content" / l / "snippets" / f"{m.group(1)}.html").read_text(encoding="utf-8"), body)
+            slug = meta.get("slug", f.stem)
             posts[l].append(dict(
                 id=meta.get("id", slug), slug=slug, lang=l, title=meta["title"],
                 date=dt.date.fromisoformat(meta["date"]),
                 updated=dt.date.fromisoformat(meta.get("updated", meta["date"])),
                 summary=meta.get("summary", ""), tags=meta.get("tags", []) if isinstance(meta.get("tags", []), list) else [meta["tags"]],
                 accent=meta.get("accent", "aqua") if meta.get("accent", "aqua") in ACCENTS else "aqua",
-                linkedin=meta.get("linkedin", ""), html=render_md(body), minutes=max(1, round(words / 200)),
+                linkedin=meta.get("linkedin", ""), teacher=meta.get("teacher", ""), hero=meta.get("hero", ""), teacher_url=meta.get("teacher_url", ""), html=render_md(body), minutes=max(1, round(words / 200)),
                 url=p(l, "blog", slug)))
         posts[l].sort(key=lambda x: (x["date"], x["id"]), reverse=True)
     by_id = {l: {x["id"]: x for x in posts[l]} for l in LANGS}
@@ -354,15 +400,19 @@ def main():
         for x in posts[l]:
             alts = {ol: by_id[ol][x["id"]]["url"] for ol in LANGS if x["id"] in by_id[ol]}
             og_path = f"/assets/og/{l}-{x['slug']}.png"
-            og_image(OUT / og_path.lstrip("/"), x["title"], x["id"], x["accent"], site_title)
+            og_image(OUT / og_path.lstrip("/"), x["title"], x["id"], x["accent"], site_title, hero=x["hero"])
             tags = "".join(f"<span>{esc(g)}</span>" for g in x["tags"])
             share = f"https://www.linkedin.com/sharing/share-offsite/?url={absu(x['url'])}"
-            alt_link = "".join(f'<a href="{u}" hreflang="{ol}" lang="{ol}">{T[ol]["other"]}</a>' for ol, u in alts.items() if ol != l)
+            tname = esc(x["teacher"])
+            tlink = f'<a href="{esc(x["teacher_url"])}" rel="noopener" target="_blank">{tname}</a>' if x["teacher_url"] else f"<strong>{tname}</strong>"
+            meta_teacher = f'<span>{t["class_by"]} {tname}</span>' if x["teacher"] else ""
+            credit = f'<p class="credit">{t["thanks"].format(name=tlink)}</p>' if x["teacher"] else ""
+            alt_link = "".join(f'<a href="{u}" hreflang="{ol}" lang="{ol}">{t["other"]}</a>' for ol, u in alts.items() if ol != l)
             body = f"""<article>
 <header class="post-head"><div class="wrap"><div>
-<div class="post-meta"><time datetime="{x['date'].isoformat()}">{fmt_date(x['date'], l)}</time><span>{x['minutes']} {t['min']}</span></div>
-<h1>{esc(x['title'])}</h1><div class="tags">{tags}</div></div>{motif_svg(x['id'])}</div></header>
-<div class="prose">{x['html']}</div>
+<div class="post-meta"><time datetime="{x['date'].isoformat()}">{fmt_date(x['date'], l)}</time><span>{x['minutes']} {t['min']}</span>{meta_teacher}</div>
+<h1>{esc(x['title'])}</h1><div class="tags">{tags}</div></div>{hero_svg(x['hero']) or motif_svg(x['id'])}</div></header>
+<div class="prose">{x['html']}{credit}</div>
 <footer class="post-foot"><a href="{share}" target="_blank" rel="noopener">{t['share']}</a><a href="{p(l, 'blog')}">{t['back']}</a>{alt_link}</footer>
 </article>"""
             ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": x["title"], "description": x["summary"],
@@ -375,7 +425,8 @@ def main():
             # borrador para LinkedIn (fuera de docs, no se publica)
             hook = x["linkedin"] or x["summary"]
             hashtags = " ".join("#" + re.sub(r"[^\w]", "", g.title().replace(" ", "")) for g in x["tags"])
-            write(ROOT / "linkedin" / f"{l}-{x['slug']}.txt", f"{hook}\n\n{t['cta']}\n{absu(x['url'])}\n\n{hashtags}\n")
+            thanks_line = (t["thanks_short"].format(name=x["teacher"]) + "\n\n") if x["teacher"] else ""
+            write(ROOT / "linkedin" / f"{l}-{x['slug']}.txt", f"{hook}\n\n{t['cta']}\n{absu(x['url'])}\n\n{thanks_line}{hashtags}\n")
 
         # RSS
         items = "".join(
