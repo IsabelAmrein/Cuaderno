@@ -3,7 +3,7 @@ id: ml-reglas
 title: "Machine Learning: cuando los datos escriben las reglas"
 date: 2026-10-11
 accent: aqua
-hero: cookie
+hero: iceberg
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentos, data-science]
 summary: Qué es el Machine Learning, cómo se construye un proyecto de principio a fin y por qué entrenar el modelo es solo la punta del iceberg.

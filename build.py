@@ -143,6 +143,14 @@ COOKIE_PTS = [(60, 114), (76, 126), (88, 98), (102, 110), (112, 86), (126, 70), 
 
 
 def hero_svg(name):
+    if name == "iceberg":
+        dots = "".join(f'<circle cx="{x}" cy="{y}" r="3.6" fill="var(--ink)"/>' for x, y in ICE_DOTS)
+        return ('<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">'
+                '<rect x="0" y="100" width="260" height="100" fill="var(--accent)" fill-opacity=".07"/>'
+                f'<polygon points="{_pts(ICE_TIP)}" fill="var(--accent)"/>'
+                f'<polygon points="{_pts(ICE_BODY)}" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
+                '<line x1="0" y1="100" x2="260" y2="100" stroke="var(--accent)" stroke-opacity=".6" stroke-width="2"/>'
+                + dots + '</svg>')
     if name != "cookie":
         return None
     s = ['<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">',
@@ -155,6 +163,26 @@ def hero_svg(name):
           for y, x2 in ((94, 238), (114, 238), (134, 238), (154, 222))]
     s.append("</svg>")
     return "".join(s)
+
+
+ICE_TIP = [(86, 100), (112, 52), (124, 62), (148, 24), (180, 100)]
+ICE_BODY = [(62, 100), (204, 100), (240, 128), (230, 172), (146, 190), (52, 172), (28, 128)]
+ICE_DOTS = [(66, 132), (92, 150), (84, 116), (116, 136), (130, 164), (146, 124), (166, 150), (188, 130), (204, 152), (110, 112), (176, 114), (150, 176)]
+
+
+def _pts(poly):
+    return " ".join(f"{x},{y}" for x, y in poly)
+
+
+def draw_iceberg(d, col):
+    k, ox, oy = 1.5, 745, 100
+    P = lambda x, y: (ox + x * k, oy + y * k)
+    d.line([P(0, 100), P(260, 100)], fill="#3A6B5F", width=4)
+    d.polygon([P(*p) for p in ICE_BODY], fill="#1E2220", outline=col, width=4)
+    d.polygon([P(*p) for p in ICE_TIP], fill=col)
+    for x, y in ICE_DOTS:
+        px, py = P(x, y)
+        d.ellipse([px - 5.5, py - 5.5, px + 5.5, py + 5.5], fill="#E9EDEA")
 
 
 def draw_cookie(d, col):
@@ -211,6 +239,8 @@ def og_image(path, title, key, accent, site_title, hero=None):
     d.rectangle([0, 0, W, 16], fill=col)
     if hero == "cookie":
         draw_cookie(d, col)
+    elif hero == "iceberg":
+        draw_iceberg(d, col)
     else:
         draw_scatter(d, key, col)
     f = font(58, bold=True)

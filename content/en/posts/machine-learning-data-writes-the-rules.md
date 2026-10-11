@@ -3,7 +3,7 @@ id: ml-reglas
 title: "Machine learning: when the data writes the rules"
 date: 2026-10-11
 accent: aqua
-hero: cookie
+hero: iceberg
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentals, data-science]
 summary: What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.
