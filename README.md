@@ -12,7 +12,7 @@ Cabecera de un artículo:
 id: mi-articulo          # el mismo en ES y EN
 title: Título
 date: 2026-11-02
-accent: teal             # cobalt, magenta, teal, amber, violet, moss
+accent: aqua             # aqua, sand, coral, violet, rose, moss
 tags: [python, pandas]
 summary: Resumen de 1-2 frases (sale en buscadores y LinkedIn).
 linkedin: Gancho opcional para el post de LinkedIn.

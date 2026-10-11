@@ -26,8 +26,8 @@ U = urlparse(CFG["base_url"])
 ORIGIN = f"{U.scheme}://{U.netloc}"
 BASE = U.path.rstrip("/")          # "" en sitios de usuario, "/cuaderno" en sitios de proyecto
 
-ACCENTS = {"cobalt": "#2540D9", "magenta": "#B8236B", "teal": "#0B7A75",
-           "amber": "#9A5B05", "violet": "#6A3DC4", "moss": "#3F7D20"}
+ACCENTS = {"aqua": "#6FE3C5", "sand": "#D9B25F", "coral": "#F29277",
+           "violet": "#B79BFF", "rose": "#F08AB0", "moss": "#9BD774"}
 
 T = {
     "es": dict(name="Español", articles="Artículos", about="Sobre mí", latest="Últimos artículos",
@@ -150,13 +150,13 @@ def font(size, bold=False, mono=False):
 
 def og_image(path, title, key, accent, site_title):
     W, H = 1200, 630
-    img = Image.new("RGB", (W, H), "#F1F3F6")
+    img = Image.new("RGB", (W, H), "#151716")
     d = ImageDraw.Draw(img)
     for x in range(0, W, 40):
-        d.line([(x, 0), (x, H)], fill="#E1E5EC")
+        d.line([(x, 0), (x, H)], fill="#1E2220")
     for y in range(0, H, 40):
-        d.line([(0, y), (W, y)], fill="#E1E5EC")
-    col = ACCENTS.get(accent, ACCENTS["cobalt"])
+        d.line([(0, y), (W, y)], fill="#1E2220")
+    col = ACCENTS.get(accent, ACCENTS["aqua"])
     d.rectangle([0, 0, W, 16], fill=col)
     pts = motif_points(key)
     m, b = ols(pts)
@@ -167,7 +167,7 @@ def og_image(path, title, key, accent, site_title):
         d.line([(X(x), Y(y)), (X(x), Y(m * x + b))], fill=col + "66" if False else col, width=1)
     d.line([(X(0), Y(b)), (X(1), Y(m + b))], fill=col, width=5)
     for x, y in pts:
-        d.ellipse([X(x) - 6, Y(y) - 6, X(x) + 6, Y(y) + 6], fill="#161B33")
+        d.ellipse([X(x) - 6, Y(y) - 6, X(x) + 6, Y(y) + 6], fill="#E9EDEA")
     f = font(58, bold=True)
     words, lines, cur = title.split(), [], ""
     for w in words:
@@ -179,15 +179,15 @@ def og_image(path, title, key, accent, site_title):
     lines.append(cur)
     y = 150
     for ln in lines[:5]:
-        d.text((70, y), ln, font=f, fill="#161B33")
+        d.text((70, y), ln, font=f, fill="#E9EDEA")
         y += 74
-    d.text((70, H - 80), site_title, font=font(30, mono=True), fill="#576078")
+    d.text((70, H - 80), site_title, font=font(30, mono=True), fill="#98A39E")
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)
 
 
 # ---------- plantilla común ----------
-def page(lang, *, title, desc, body, url, alts=None, og=None, accent="cobalt", kind="website",
+def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kind="website",
          jsonld=None, active=None, hero=False):
     t = T[lang]
     site_title = CFG["title"][lang]
@@ -208,11 +208,12 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="cobalt", k
     if CFG.get("email"):
         foot_links += f' <a href="mailto:{esc(CFG["email"])}">Email</a>'
     return f"""<!doctype html>
-<html lang="{lang}" data-theme="light">
+<html lang="{lang}" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){{try{{var t=localStorage.getItem('theme');if(!t){{t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}}document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}}})()</script>
+<meta name="theme-color" content="#151716">
+<script>(function(){{try{{var t=localStorage.getItem('theme');if(!t){{t='dark'}}document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}}})()</script>
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{absu(url)}">
@@ -229,7 +230,7 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="cobalt", k
 <link rel="alternate" type="application/rss+xml" title="{esc(site_title)}" href="{p(lang)}rss.xml">
 <link rel="icon" type="image/svg+xml" href="{BASE}/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap">
 <link rel="stylesheet" href="{BASE}/assets/style.css?v={v}">
 {ld}
 </head>
@@ -300,7 +301,7 @@ def main():
                 date=dt.date.fromisoformat(meta["date"]),
                 updated=dt.date.fromisoformat(meta.get("updated", meta["date"])),
                 summary=meta.get("summary", ""), tags=meta.get("tags", []) if isinstance(meta.get("tags", []), list) else [meta["tags"]],
-                accent=meta.get("accent", "cobalt") if meta.get("accent", "cobalt") in ACCENTS else "cobalt",
+                accent=meta.get("accent", "aqua") if meta.get("accent", "aqua") in ACCENTS else "aqua",
                 linkedin=meta.get("linkedin", ""), html=render_md(body), minutes=max(1, round(words / 200)),
                 url=p(l, "blog", slug)))
         posts[l].sort(key=lambda x: x["date"], reverse=True)
@@ -308,7 +309,7 @@ def main():
 
     for l in LANGS:
         t, site_title = T[l], CFG["title"][l]
-        og_image(OUT / "assets/og" / f"{l}-home.png", site_title, "home-" + l, "cobalt", CFG["name"])
+        og_image(OUT / "assets/og" / f"{l}-home.png", site_title, "home-" + l, "aqua", CFG["name"])
         alts_for = lambda *parts: {x: p(x, *parts) for x in LANGS}
 
         # inicio

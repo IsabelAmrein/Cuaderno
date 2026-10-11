@@ -2,7 +2,7 @@
 id: bienvenida
 title: Por qué abro este cuaderno
 date: 2026-10-11
-accent: cobalt
+accent: aqua
 tags: [meta, aprendizaje]
 summary: Estudio un máster de Data Science e IA generativa y voy a documentar lo que aprendo con mis propios ejemplos, no con copias de las clases.
 linkedin: Durante los próximos 9 meses voy a escribir en público lo que aprendo en mi máster de Data Science e IA generativa. Esta es la idea y las reglas que me pongo.

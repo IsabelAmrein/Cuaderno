@@ -2,7 +2,7 @@
 id: bienvenida
 title: Why I'm opening this notebook
 date: 2026-10-11
-accent: cobalt
+accent: aqua
 tags: [meta, learning]
 summary: I'm studying a master's in Data Science and generative AI and I'll document what I learn using my own examples, not copies of the course material.
 linkedin: For the next 9 months I'll be writing in public about what I learn in my master's in Data Science and generative AI. Here's the idea and the rules I'm setting myself.
