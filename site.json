@@ -1,0 +1,27 @@
+{
+  "name": "Isabel Amrein De Luca",
+  "base_url": "https://TU-USUARIO.github.io/cuaderno",
+  "custom_domain": "",
+  "linkedin": "https://www.linkedin.com/in/isabel-amrein-de-luca",
+  "email": "",
+  "langs": [
+    "es",
+    "en"
+  ],
+  "title": {
+    "es": "Cuaderno de Isabel",
+    "en": "Isabel's notebook"
+  },
+  "hero": {
+    "es": "Aprendo datos e IA generativa y lo dejo por escrito.",
+    "en": "I'm learning data and generative AI, and writing it down."
+  },
+  "intro": {
+    "es": "Apuntes, mini proyectos y errores de mi máster en Data Science e IA generativa, y lo que venga después.",
+    "en": "Notes, mini projects and mistakes from my master's in Data Science and generative AI, and whatever comes next."
+  },
+  "description": {
+    "es": "Cuaderno público de aprendizaje sobre Data Science e IA generativa: apuntes, mini proyectos y reflexiones.",
+    "en": "A public learning notebook on Data Science and generative AI: notes, mini projects and reflections."
+  }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>Isabel&#x27;s notebook</title><link>https://TU-USUARIO.github.io/cuaderno/en/</link><description>A public learning notebook on Data Science and generative AI: notes, mini projects and reflections.</description><language>en</language>
+<atom:link href="https://TU-USUARIO.github.io/cuaderno/en/rss.xml" rel="self" type="application/rss+xml"/><item><title>Why I&#x27;m opening this notebook</title><link>https://TU-USUARIO.github.io/cuaderno/en/blog/welcome/</link><guid isPermaLink="true">https://TU-USUARIO.github.io/cuaderno/en/blog/welcome/</guid><pubDate>Sun, 11 Oct 2026 08:00:00 +0000</pubDate><description>I&#x27;m studying a master&#x27;s in Data Science and generative AI and I&#x27;ll document what I learn using my own examples, not copies of the course material.</description><category>meta</category><category>learning</category></item></channel></rss>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>Cuaderno de Isabel</title><link>https://TU-USUARIO.github.io/cuaderno/es/</link><description>Cuaderno público de aprendizaje sobre Data Science e IA generativa: apuntes, mini proyectos y reflexiones.</description><language>es</language>
+<atom:link href="https://TU-USUARIO.github.io/cuaderno/es/rss.xml" rel="self" type="application/rss+xml"/><item><title>Por qué abro este cuaderno</title><link>https://TU-USUARIO.github.io/cuaderno/es/blog/bienvenida/</link><guid isPermaLink="true">https://TU-USUARIO.github.io/cuaderno/es/blog/bienvenida/</guid><pubDate>Sun, 11 Oct 2026 08:00:00 +0000</pubDate><description>Estudio un máster de Data Science e IA generativa y voy a documentar lo que aprendo con mis propios ejemplos, no con copias de las clases.</description><category>meta</category><category>aprendizaje</category></item></channel></rss>
