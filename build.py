@@ -139,109 +139,9 @@ def motif_svg(key):
 
 
 # ---------- ilustraciones de cabecera a medida (campo hero: del artículo) ----------
-COOKIE_PTS = [(60, 114), (76, 126), (88, 98), (102, 110), (112, 86), (126, 70), (136, 88), (148, 58), (150, 76), (96, 134), (120, 104)]
-
-
-def compass_svg():
-    s = ['<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">',
-         '<g stroke="var(--mute)" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"><line x1="190" y1="120" x2="246" y2="120"/><line x1="176" y1="140" x2="226" y2="140"/><line x1="198" y1="160" x2="240" y2="160"/></g>',
-         '<circle cx="95" cy="125" r="62" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>',
-         '<g stroke="var(--accent)" stroke-width="3" stroke-linecap="round"><line x1="95" y1="69" x2="95" y2="79"/><line x1="95" y1="171" x2="95" y2="181"/><line x1="39" y1="125" x2="49" y2="125"/><line x1="141" y1="125" x2="151" y2="125"/></g>',
-         '<g transform="rotate(37 95 125)"><polygon points="95,81 87,125 103,125" fill="var(--accent)"/><polygon points="95,169 87,125 103,125" fill="var(--mute)"/></g>',
-         '<circle cx="95" cy="125" r="5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"/>',
-         '<line x1="124" y1="86" x2="158" y2="42" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>',
-         '<line x1="164" y1="38" x2="164" y2="8" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>',
-         '<polygon points="164,8 192,18 164,28" fill="var(--accent)"/>', "</svg>"]
-    return "".join(s)
-
-
-def draw_compass(d, col):
-    import math
-    k, ox, oy = 1.5, 745, 100
-    P = lambda x, y: (ox + x * k, oy + y * k)
-    mute = (86, 93, 90)
-    for (x1, y1, x2, y2) in ((190, 120, 246, 120), (176, 140, 226, 140), (198, 160, 240, 160)):
-        d.line([P(x1, y1), P(x2, y2)], fill=mute, width=5)
-    cx, cy = P(95, 125)
-    d.ellipse([cx - 62 * k, cy - 62 * k, cx + 62 * k, cy + 62 * k], fill="#1E2220", outline=col, width=5)
-    for (x1, y1, x2, y2) in ((95, 69, 95, 79), (95, 171, 95, 181), (39, 125, 49, 125), (141, 125, 151, 125)):
-        d.line([P(x1, y1), P(x2, y2)], fill=col, width=5)
-    a = math.radians(37)
-    def rot(x, y):
-        dx, dy = x - 95, y - 125
-        return P(95 + dx * math.cos(a) - dy * math.sin(a), 125 + dx * math.sin(a) + dy * math.cos(a))
-    d.polygon([rot(95, 81), rot(87, 125), rot(103, 125)], fill=col)
-    d.polygon([rot(95, 169), rot(87, 125), rot(103, 125)], fill="#98A39E")
-    d.ellipse([cx - 8, cy - 8, cx + 8, cy + 8], fill="#151716", outline=col, width=3)
-    (ax, ay), (bx, by) = P(124, 86), P(158, 42)
-    n = 9
-    for i in range(n + 1):
-        px, py = ax + (bx - ax) * i / n, ay + (by - ay) * i / n
-        d.ellipse([px - 3, py - 3, px + 3, py + 3], fill=col)
-    d.line([P(164, 38), P(164, 8)], fill="#E9EDEA", width=5)
-    d.polygon([P(164, 8), P(192, 18), P(164, 28)], fill=col)
-
-
 def hero_svg(name):
-    if name == "compass":
-        return compass_svg()
-    if name == "iceberg":
-        dots = "".join(f'<circle cx="{x}" cy="{y}" r="3.6" fill="var(--ink)"/>' for x, y in ICE_DOTS)
-        return ('<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">'
-                '<rect x="0" y="100" width="260" height="100" fill="var(--accent)" fill-opacity=".07"/>'
-                f'<polygon points="{_pts(ICE_TIP)}" fill="var(--accent)"/>'
-                f'<polygon points="{_pts(ICE_BODY)}" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
-                '<line x1="0" y1="100" x2="260" y2="100" stroke="var(--accent)" stroke-opacity=".6" stroke-width="2"/>'
-                + dots + '</svg>')
-    if name != "cookie":
-        return None
-    s = ['<svg class="motif" viewBox="0 0 260 200" aria-hidden="true" focusable="false">',
-         '<circle cx="105" cy="100" r="72" fill="#D9B25F" stroke="#8A6A1F" stroke-width="2.5"/>',
-         '<line x1="14" y1="150" x2="170" y2="41" stroke="var(--paper)" stroke-opacity=".85" stroke-width="8" stroke-linecap="round"/>',
-         '<line x1="14" y1="150" x2="170" y2="41" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/>']
-    s += [f'<circle cx="{x}" cy="{y}" r="5.2" fill="#5B4010"/>' for x, y in COOKIE_PTS]
-    s.append('<rect x="182" y="64" width="68" height="112" rx="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>')
-    s += [f'<line x1="194" y1="{y}" x2="{x2}" y2="{y}" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>'
-          for y, x2 in ((94, 238), (114, 238), (134, 238), (154, 222))]
-    s.append("</svg>")
-    return "".join(s)
-
-
-ICE_TIP = [(86, 100), (112, 52), (124, 62), (148, 24), (180, 100)]
-ICE_BODY = [(62, 100), (204, 100), (240, 128), (230, 172), (146, 190), (52, 172), (28, 128)]
-ICE_DOTS = [(66, 132), (92, 150), (84, 116), (116, 136), (130, 164), (146, 124), (166, 150), (188, 130), (204, 152), (110, 112), (176, 114), (150, 176)]
-
-
-def _pts(poly):
-    return " ".join(f"{x},{y}" for x, y in poly)
-
-
-def draw_iceberg(d, col):
-    k, ox, oy = 1.5, 745, 100
-    P = lambda x, y: (ox + x * k, oy + y * k)
-    d.line([P(0, 100), P(260, 100)], fill="#3A6B5F", width=4)
-    d.polygon([P(*p) for p in ICE_BODY], fill="#1E2220", outline=col, width=4)
-    d.polygon([P(*p) for p in ICE_TIP], fill=col)
-    for x, y in ICE_DOTS:
-        px, py = P(x, y)
-        d.ellipse([px - 5.5, py - 5.5, px + 5.5, py + 5.5], fill="#E9EDEA")
-
-
-def draw_cookie(d, col):
-    k, ox, oy = 1.5, 745, 100
-    P = lambda x, y: (ox + x * k, oy + y * k)
-    cx, cy = P(105, 100)
-    d.ellipse([cx - 72 * k, cy - 72 * k, cx + 72 * k, cy + 72 * k], fill="#D9B25F", outline="#8A6A1F", width=4)
-    d.line([P(14, 150), P(170, 41)], fill="#151716", width=14)
-    d.line([P(14, 150), P(170, 41)], fill=col, width=7)
-    for x, y in COOKIE_PTS:
-        px, py = P(x, y)
-        d.ellipse([px - 8, py - 8, px + 8, py + 8], fill="#5B4010")
-    x0, y0 = P(182, 64)
-    x1, y1 = P(250, 176)
-    d.rounded_rectangle([x0, y0, x1, y1], radius=10, fill="#1E2220", outline=col, width=5)
-    for y, xe in ((94, 238), (114, 238), (134, 238), (154, 222)):
-        d.line([P(194, y), P(xe, y)], fill=col, width=5)
+    art_file = ROOT / "content" / "art" / f"{name}.svg"
+    return art_file.read_text(encoding="utf-8") if art_file.exists() else None
 
 
 # ---------- imagen Open Graph (para la vista previa en LinkedIn) ----------
@@ -279,12 +179,12 @@ def og_image(path, title, key, accent, site_title, hero=None, quote=None):
         d.line([(0, y), (W, y)], fill="#1E2220")
     col = ACCENTS.get(accent, ACCENTS["aqua"])
     d.rectangle([0, 0, W, 16], fill=col)
-    if hero == "cookie":
-        draw_cookie(d, col)
-    elif hero == "iceberg":
-        draw_iceberg(d, col)
-    elif hero == "compass":
-        draw_compass(d, col)
+    art_png = (ROOT / "content" / "art" / f"{hero}.png") if hero else None
+    if art_png and art_png.exists():
+        pic = Image.open(art_png).convert("RGBA")
+        sc = min(430 / pic.width, 380 / pic.height)
+        pic = pic.resize((int(pic.width * sc), int(pic.height * sc)))
+        img.paste(pic, (740 + (430 - pic.width) // 2, 130 + (380 - pic.height) // 2), pic)
     else:
         draw_scatter(d, key, col)
     def wrap_title(size):
@@ -353,6 +253,7 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kin
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#151716">
 <script>(function(){{try{{var t=localStorage.getItem('theme');if(!t){{t='dark'}}document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}}})()</script>
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('anim')</script>
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{absu(url)}">
@@ -368,8 +269,8 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kin
 <meta name="author" content="{esc(CFG['name'])}">
 <link rel="alternate" type="application/rss+xml" title="{esc(site_title)}" href="{p(lang)}rss.xml">
 <link rel="icon" type="image/svg+xml" href="{BASE}/assets/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="preload" href="{BASE}/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{BASE}/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{BASE}/assets/style.css?v={v}">
 {ld}
 </head>
@@ -423,6 +324,7 @@ def main():
     (OUT / "assets").mkdir(parents=True)
     for f in ("style.css", "main.js", "favicon.svg"):
         shutil.copy(ROOT / "assets" / f, OUT / "assets" / f)
+    shutil.copytree(ROOT / "assets" / "fonts", OUT / "assets" / "fonts")
     if (ROOT / "content/images").exists():
         shutil.copytree(ROOT / "content/images", OUT / "assets/img")
     (OUT / ".nojekyll").write_text("")

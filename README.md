@@ -1,45 +1,49 @@
-# Cuaderno: guía rápida
+# Cuaderno de Isabel
 
-## Cómo funciona
-- `content/es/posts/*.md` y `content/en/posts/*.md`: artículos. Para enlazar la versión ES y EN usa el mismo `id:` en ambos.
-- `site.json`: nombre, enlace de LinkedIn, dirección del sitio y textos de portada.
-- `python3 build.py` genera la carpeta `docs/` (la web) y los borradores de LinkedIn en `linkedin/`.
-- Requisitos (una vez): `pip install markdown pillow`.
+Blog personal estático y bilingüe (español e inglés) sobre Data Science e IA generativa. Se genera con Python y se publica gratis en GitHub Pages.
 
-Cabecera de un artículo:
+- **Web:** https://isabelamrein.github.io/Cuaderno/
+- **Documentación completa:** [`documentacion/`](documentacion/README.md)
+- **Equipo de agentes (Arquitecto y subagentes):** [`documentacion/agentes`](documentacion/agentes/ARQUITECTO.md)
+
+## Estructura
+| Carpeta o archivo | Qué es |
+|---|---|
+| `content/` | Artículos, Sobre mí, componentes y arte |
+| `assets/` | Estilos, scripts, favicon y tipografías |
+| `herramientas/` | Generadores de diagramas e ilustraciones |
+| `build.py` | Genera el sitio |
+| `site.json` | Configuración del sitio |
+| `docs/` | **Salida**: lo que publica GitHub Pages. No se edita a mano |
+| `linkedin/` | Borradores de publicaciones |
+| `documentacion/` | Arquitectura, decisiones, agentes y roadmap |
+| `BRAND.md` | Identidad visual y norma de ilustración |
+
+## Generar el sitio
+```
+pip install markdown pillow
+python3 build.py
+```
+
+## Un artículo nuevo
+Crea dos archivos Markdown con el mismo `id`, uno en `content/es/posts/` y otro en `content/en/posts/`.
+
 ```
 ---
-id: mi-articulo          # el mismo en ES y EN
+id: mi-articulo
 title: Título
 date: 2026-11-02
 accent: aqua             # aqua, sand, coral, violet, rose, moss
+hero: compass            # cabecera de content/art (opcional)
+quote: Frase breve       # sale bajo el título en la imagen de LinkedIn (opcional)
+teacher: Nombre Apellido # crédito de la clase (opcional)
 tags: [python, pandas]
-summary: Resumen de 1-2 frases (sale en buscadores y LinkedIn).
-linkedin: Gancho opcional para el post de LinkedIn.
-teacher: Nombre Apellido  # opcional: profesor/a de la clase (sale en la cabecera y en un agradecimiento final)
-teacher_url: https://...  # opcional: enlace a su perfil
-hero: compass            # ilustración de cabecera propia: iceberg, compass, cookie (si no, se genera una por defecto)
-quote: Frase breve        # opcional: aparece bajo el título en la imagen de LinkedIn
-order: 1                 # opcional: desempata el orden si dos artículos tienen la misma fecha
-draft: false             # true = no se publica
+summary: Resumen de una o dos frases.
+linkedin: Gancho para el post de LinkedIn.
+draft: false
 ---
 ```
-Diagramas propios: guarda el SVG/HTML en `content/es/snippets/nombre.html` (y su versión en `en/`) e insértalo en el artículo con `{{include:nombre}}` en una línea aparte.
-Imágenes: ponlas en `content/images/` y enlázalas como `/assets/img/nombre.png`.
+Los componentes se insertan con `{{include:nombre}}` (archivos en `content/es|en/snippets/`).
 
-## Publicar en GitHub Pages (gratis)
-1. Crea un repositorio público (por ejemplo `cuaderno`) y sube todo el proyecto.
-2. Settings, Pages, Source: *Deploy from a branch*, rama `main`, carpeta `/docs`.
-3. En `site.json`, cambia `base_url` a `https://TU-USUARIO.github.io/cuaderno` y vuelve a ejecutar `build.py`.
-4. Si más adelante compras dominio o hosting: pon el dominio en `base_url` y `custom_domain`, ejecuta `build.py` y sube el contenido de `docs/`.
-
-## LinkedIn
-- **Semiautomático (recomendado):** cada artículo genera `linkedin/<idioma>-<slug>.txt` con gancho, enlace y hashtags. Lo pegas en LinkedIn en un minuto. La vista previa (imagen y título) se genera sola.
-- **Automático:** cada idioma tiene un feed (`/es/rss.xml`, `/en/rss.xml`). Puedes conectarlo con Make, Zapier o Buffer para que publique en tu perfil al detectar un artículo nuevo. Los textos serán más genéricos que los borradores.
-- Tras publicar un artículo nuevo, pega su URL en el LinkedIn Post Inspector para refrescar la vista previa.
-
-## SEO: lista de comprobación
-- Ya incluido: títulos y descripciones únicos, URL canónicas, `hreflang` ES/EN, datos estructurados `BlogPosting`, `sitemap.xml`, `robots.txt`, RSS, imágenes Open Graph, HTML semántico.
-- Da de alta el sitio en Google Search Console y Bing Webmaster Tools y envía `sitemap.xml`.
-- Revisa cada versión con PageSpeed Insights (Lighthouse) y el Rich Results Test de Google.
-- Escribe cada `summary` pensando en una búsqueda real y enlaza entre tus artículos.
+## Publicar
+Sigue [`documentacion/PUBLICAR.md`](documentacion/PUBLICAR.md) para no dejar archivos obsoletos en el repositorio.
