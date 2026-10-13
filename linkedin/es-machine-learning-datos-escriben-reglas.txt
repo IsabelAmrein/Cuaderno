@@ -1,6 +1,6 @@
-En mi primera clase de Data Science me quedé con una idea: en programación tradicional tú escribes las reglas; en Machine Learning, los datos las escriben por ti. Resumo cómo se construye un proyecto (una montaña con tres tramos), las tres formas de crear un modelo, por qué entrenarlo es solo la punta del iceberg y el mini proyecto de reciclaje que voy a montar.
+En mi primera clase de Data Science me quedé con una idea: en programación tradicional tú escribes las reglas; en Machine Learning, los datos las escriben por ti. Resumo cómo se construye un proyecto (una montaña con tres tramos), las tres formas de crear un modelo, por qué entrenarlo es solo la punta del iceberg y el proyecto de reciclaje con el que lo pongo a prueba.
 
-Lo cuento con más detalle en el cuaderno:
+Lo cuento con más detalle en Rumbo:
 https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/
 
 Gracias a Daniel Sáenz por la clase.

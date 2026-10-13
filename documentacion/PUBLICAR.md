@@ -2,6 +2,8 @@
 
 Hazlo siempre así para no dejar archivos que ya no valen en el repositorio.
 
+Cada zip trae `documentacion/CHANGELOG.md` con lo que cambia en esa versión: léelo antes de publicar.
+
 1. **Descomprime** `cuaderno.zip`.
 2. **Abre tu carpeta `Cuaderno`** (la que tienes clonada de GitHub). Activa los archivos ocultos con `Cmd + Shift + .` en Finder y **no toques la carpeta `.git`**.
 3. **Borra todo lo demás** de esa carpeta: `assets`, `content`, `docs`, `herramientas`, `linkedin`, `documentacion` y los archivos sueltos. Así se eliminan los restos de versiones anteriores.

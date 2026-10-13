@@ -61,68 +61,42 @@
     if (motif) requestAnimationFrame(function () { motif.classList.add('play'); });
   }
 
-  /* ---- Gráfico de portada: regresión lineal que se reajusta al añadir datos ---- */
-  var canvas = document.getElementById('plot');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seed = [[.05,.2],[.1,.34],[.15,.22],[.2,.4],[.27,.33],[.32,.5],[.38,.42],[.44,.58],[.5,.47],
-              [.55,.66],[.62,.55],[.68,.72],[.74,.62],[.8,.8],[.86,.7],[.92,.86],[.97,.78]];
-  var pts = seed.slice();
-  var cur = fit(pts), target = cur, raf = null, w = 0, h = 0;
+  /* ---- Orbes vivos junto a los proyectos «en marcha» ---- */
+  var vivos = document.querySelectorAll('.orb-live');
+  if (vivos.length && window.ThinkingOrbs) {
+    var oscuro = function () { return root.getAttribute('data-theme') !== 'light'; };
+    var color = function (el) { return getComputedStyle(el).getPropertyValue('--accent').trim(); };
+    var lista = Array.prototype.map.call(vivos, function (cv) { return { cv: cv, orb: ThinkingOrbs.mount(cv, { state: 'composing', size: 20, dark: oscuro(), color: color(cv) }) }; });
+    document.addEventListener('themechange', function () { lista.forEach(function (o) { o.orb.update({ dark: oscuro(), color: color(o.cv) }); }); });
+  }
 
-  function fit(p) {
-    var n = p.length, sx = 0, sy = 0, sxy = 0, sxx = 0;
-    p.forEach(function (q) { sx += q[0]; sy += q[1]; sxy += q[0] * q[1]; sxx += q[0] * q[0]; });
-    var d = n * sxx - sx * sx;
-    var m = d ? (n * sxy - sx * sy) / d : 0;
-    return { m: m, b: (sy - m * sx) / n };
-  }
-  function css(v) { return getComputedStyle(canvas).getPropertyValue(v).trim(); }
-  function size() {
-    var r = canvas.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
-    w = r.width; h = r.height;
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  function X(x) { return 24 + x * (w - 48); }
-  function Y(y) { return h - 24 - y * (h - 48); }
-  function draw() {
-    var ink = css('--ink'), accent = css('--accent'), line = css('--line');
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = line; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(0)); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(0), Y(1)); ctx.stroke();
-    ctx.strokeStyle = accent; ctx.globalAlpha = .4;
-    pts.forEach(function (p) {
-      ctx.beginPath(); ctx.moveTo(X(p[0]), Y(p[1])); ctx.lineTo(X(p[0]), Y(cur.m * p[0] + cur.b)); ctx.stroke();
+  /* ---- Indicador "pensando": aparece solo si cargar algo tarda más de 140 ms ---- */
+  var think = document.getElementById('think');
+  if (think && window.ThinkingOrbs) {
+    var orb = null, timer = 0;
+    var isDark = function () { return root.getAttribute('data-theme') !== 'light'; };
+    var tint = function () { return getComputedStyle(document.body).getPropertyValue('--accent').trim(); };
+    var show = function (state, delay) {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        think.hidden = false;
+        if (!orb) orb = ThinkingOrbs.mount(think.querySelector('canvas'), { state: state, size: 32, dark: isDark(), color: tint() });
+        else { orb.update({ state: state, dark: isDark(), color: tint() }); orb.resume(); }
+      }, delay);
+    };
+    var hide = function () { clearTimeout(timer); think.hidden = true; if (orb) orb.pause(); };
+    document.addEventListener('themechange', function () { if (orb) orb.update({ dark: isDark(), color: tint() }); });
+    var demo = /[?&]orbs\b/.test(location.search);
+    if (demo) { show('composing', 0); setTimeout(hide, 4000); }
+    else if (document.readyState !== 'complete') { show('composing', 140); window.addEventListener('load', hide); }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if ((a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+      var u = new URL(a.href, location.href);
+      if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search)) return;
+      show('composing', 140);
     });
-    ctx.globalAlpha = 1; ctx.lineWidth = 2.5;
-    ctx.beginPath(); ctx.moveTo(X(0), Y(cur.b)); ctx.lineTo(X(1), Y(cur.m + cur.b)); ctx.stroke();
-    ctx.fillStyle = ink;
-    pts.forEach(function (p) { ctx.beginPath(); ctx.arc(X(p[0]), Y(p[1]), 4, 0, 6.2832); ctx.fill(); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) hide(); });
   }
-  function step() {
-    var dm = target.m - cur.m, db = target.b - cur.b;
-    if (reduce || (Math.abs(dm) < .001 && Math.abs(db) < .001)) { cur = target; draw(); raf = null; return; }
-    cur = { m: cur.m + dm * .18, b: cur.b + db * .18 };
-    draw(); raf = requestAnimationFrame(step);
-  }
-  function add(x, y) {
-    if (pts.length >= 80) return;
-    pts.push([Math.min(1, Math.max(0, x)), Math.min(1, Math.max(0, y))]);
-    target = fit(pts);
-    if (!raf) raf = requestAnimationFrame(step);
-  }
-  canvas.addEventListener('pointerdown', function (e) {
-    var r = canvas.getBoundingClientRect();
-    add((e.clientX - r.left - 24) / (w - 48), 1 - (e.clientY - r.top - 24) / (h - 48));
-  });
-  canvas.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); add(Math.random(), Math.random()); }
-  });
-  var reset = document.getElementById('plot-reset');
-  if (reset) reset.addEventListener('click', function () { pts = seed.slice(); target = fit(pts); if (!raf) raf = requestAnimationFrame(step); });
-  window.addEventListener('resize', function () { size(); draw(); });
-  document.addEventListener('themechange', draw);
-  size(); draw();
 })();

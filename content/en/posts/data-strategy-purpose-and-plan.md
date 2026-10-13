@@ -4,12 +4,13 @@ title: "Data strategy: purpose first, then the plan"
 date: 2026-10-11
 order: 1
 accent: aqua
+projects: [formacion]
 hero: compass
 quote: There is no favourable wind for those who don't know where they're going.
 teacher: Rafael Fernández Campos
 tags: [data-strategy, data-driven, fundamentals]
 summary: A data strategy is a purpose plus a plan. How to place an organization by its maturity, and why data only creates value if the people who use it understand it.
-linkedin: “There is no favourable wind for those who don't know where they're going.” My second master's class was about data strategy, and the idea is simple - purpose first, then the plan. I cover how to place an organization (control, optimization, transformation), the diagnostic tools from the CDO Club, and my project to bring data closer to marketing and sales.
+linkedin: “There is no favourable wind for those who don't know where they're going.” My second Data Science and generative AI class was about data strategy, and the idea is simple - purpose first, then the plan. I cover how to place an organization (control, optimization, transformation), the diagnostic tools from the CDO Club, and my project to bring data closer to marketing and sales.
 ---
 
 This class was hard for me at first: during the first part I wasn't clear on where we were heading. In the end everything clicked, and it left me with an idea that works as well for a single project as for a whole team: before talking about data, you have to know what it's for.

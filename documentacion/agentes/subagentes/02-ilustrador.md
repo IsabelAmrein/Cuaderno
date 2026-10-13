@@ -10,7 +10,7 @@
 
 ## Entradas
 - Idea central del artículo
-- Norma de estilo de `BRAND.md`
+- Norma de estilo de `BRAND.md` (sin cuadrículas de fondo)
 - Fotos propias de Isabel, si las hay
 
 ## Salidas
@@ -38,5 +38,5 @@
 
 ## Lo que no hace
 - Usar imágenes de terceros sin licencia
-- Usar material del máster
+- Usar material de la formación
 - Incluir caras de terceros o de niños

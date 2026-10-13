@@ -208,3 +208,28 @@ def galletas(lang):
     body += '<line x1="20" y1="268" x2="660" y2="268" stroke="var(--line)" stroke-dasharray="5 6"/>'
     body += lane(290, L["t2"], L["s2"], [("ing", L["ing"], L["ing_s"], False), ("coo", L["coo"], L["coo_s"], False), ("rec", L["rec"], L["rec_m"], True)], L["tag2"], 2)
     return f'<figure class="diagram"><svg viewBox="0 0 680 540" role="img" aria-label="{L["label"]}">{body}</svg><figcaption>{L["cap"]}</figcaption></figure>'
+
+
+# ---------- contenedores de reciclaje (cabecera del clasificador) ----------
+def bins_scene(deco=True, crop=False):
+    b = '<rect x="0" y="0" width="680" height="370" rx="12" fill="#0F1E1F"/>'
+    b += '<g fill="#E9EDEA" fill-opacity=".5">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.8"/>' for x, y in [(40, 30), (120, 60), (300, 26), (420, 40), (600, 34), (640, 90), (70, 120)]) + "</g>"
+    b += '<rect x="0" y="318" width="680" height="52" rx="12" fill="#0B1413"/><rect x="0" y="318" width="680" height="14" fill="#0B1413"/>'
+    pal = [("#E3B72E", "#B8912A", "#F2CD54"), ("#3F73C4", "#2F5896", "#5E92E0"), ("#3E9A5A", "#2F7544", "#5CB878"), ("#7D8789", "#5E686A", "#A0AAAC")]
+    xs = [105, 225, 345, 465]
+    for x, (main, shade, lid) in zip(xs, pal):
+        b += f'<ellipse cx="{x+50}" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/>'
+        b += f'<polygon points="{x},160 {x+100},160 {x+92},316 {x+8},316" fill="{main}"/>'
+        b += f'<polygon points="{x+66},160 {x+100},160 {x+92},316 {x+62},316" fill="{shade}"/>'
+        b += f'<polygon points="{x+6},166 {x+16},166 {x+22},310 {x+12},310" fill="#FFFFFF" fill-opacity=".14"/>'
+        b += f'<rect x="{x+34}" y="130" width="32" height="12" rx="5" fill="{lid}"/>'
+        b += f'<rect x="{x-6}" y="140" width="112" height="22" rx="6" fill="{lid}"/><rect x="{x-6}" y="154" width="112" height="8" rx="4" fill="{shade}" fill-opacity=".55"/>'
+        b += f'<circle cx="{x+18}" cy="316" r="7" fill="#1B201E"/><circle cx="{x+82}" cy="316" r="7" fill="#1B201E"/>'
+    ic = '#F4FBFA'
+    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="143" y="214" width="24" height="34" rx="3"/><ellipse cx="155" cy="214" rx="12" ry="3.5"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="261" y="208" width="28" height="38" rx="3"/></g><g stroke="#3F73C4" stroke-width="2.5" stroke-linecap="round"><line x1="267" y1="219" x2="283" y2="219"/><line x1="267" y1="227" x2="283" y2="227"/><line x1="267" y1="235" x2="278" y2="235"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="385" y="224" width="20" height="28" rx="4"/><rect x="391" y="210" width="8" height="16" rx="2"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="501" y="216" width="28" height="32" rx="3"/></g><path d="M507 216 C507 204 523 204 523 216" fill="none" stroke="{ic}" stroke-opacity=".92" stroke-width="3"/>'
+    b += '<g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="4" fill="#CFE9F5" fill-opacity=".92"/><rect x="157" y="50" width="6" height="14" rx="2" fill="#CFE9F5" fill-opacity=".92"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/></g>'
+    b += '<path d="M214 34 C200 62 186 94 170 126" fill="none" stroke="#6FE3C5" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><polygon points="170,128 163,114 177,116" fill="#6FE3C5"/>'
+    return _svg(680, 370, b, "Cuatro contenedores de reciclaje: amarillo, azul, verde y gris", "Ilustración semirrealista de cuatro contenedores con una botella cayendo en el amarillo.", deco, vb="84 28 508 304" if crop else None)

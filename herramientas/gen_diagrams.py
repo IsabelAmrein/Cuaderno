@@ -99,7 +99,7 @@ def siete(lang):
     k = [0]
     def nw(inner):
         k[0] += 1
-        return f'<span class="nw" style="--d:{k[0]*0.14:.2f}s">{sep}{inner}</span>'
+        return f'<span class="nw" style="--d:{k[0]*0.06:.2f}s">{sep}{inner}</span>'
     s = f'<span class="st" style="--d:0s">{pre[0]}</span>' + "".join(nw(box(t)) for t in pre[1:])
     s += nw(f'<span class="focus"><span class="row">{box(mid[0])}{sep}{box(mid[1])}</span><small>{cap}</small></span>')
     s += "".join(nw(box(t)) for t in post)
@@ -157,6 +157,6 @@ for l in ("es", "en"):
     (ROOT / f"content/{l}/snippets/galletas.html").write_text(art.galletas(l) + "\n", encoding="utf-8")
 
 (ROOT / "content/art").mkdir(exist_ok=True)
-for name, fn in (("compass", lambda d: art.compass_scene(d, crop=True)), ("iceberg", art.iceberg_scene)):
+for name, fn in (("compass", lambda d: art.compass_scene(d, crop=True)), ("iceberg", art.iceberg_scene), ("bins", lambda d: art.bins_scene(d, crop=True))):
     (ROOT / f"content/art/{name}.svg").write_text(fn(True), encoding="utf-8")
 print("art ok")

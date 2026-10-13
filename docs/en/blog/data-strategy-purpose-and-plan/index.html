@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#151716">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
-<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('anim')</script>
-<title>Data strategy: purpose first, then the plan | Isabel&#x27;s notebook</title>
+<script>if('IntersectionObserver' in window){var d=document.documentElement;d.classList.add('anim');if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('rm')}</script>
+<title>Data strategy: purpose first, then the plan | Rumbo</title>
 <meta name="description" content="A data strategy is a purpose plus a plan. How to place an organization by its maturity, and why data only creates value if the people who use it understand it.">
 <link rel="canonical" href="https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/">
 <link rel="alternate" hreflang="es" href="https://isabelamrein.github.io/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/"><link rel="alternate" hreflang="en" href="https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/"><link rel="alternate" hreflang="x-default" href="https://isabelamrein.github.io/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Isabel&#x27;s notebook">
+<meta property="og:site_name" content="Rumbo">
 <meta property="og:title" content="Data strategy: purpose first, then the plan">
 <meta property="og:description" content="A data strategy is a purpose plus a plan. How to place an organization by its maturity, and why data only creates value if the people who use it understand it.">
 <meta property="og:url" content="https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/">
@@ -19,23 +19,23 @@
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Isabel Amrein De Luca">
-<link rel="alternate" type="application/rss+xml" title="Isabel&#x27;s notebook" href="/Cuaderno/en/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="Rumbo" href="/Cuaderno/en/rss.xml">
 <link rel="icon" type="image/svg+xml" href="/Cuaderno/assets/favicon.svg">
 <link rel="preload" href="/Cuaderno/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/Cuaderno/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=6de732c6">
+<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=28e6310a">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Data strategy: purpose first, then the plan", "description": "A data strategy is a purpose plus a plan. How to place an organization by its maturity, and why data only creates value if the people who use it understand it.", "datePublished": "2026-10-11", "dateModified": "2026-10-11", "inLanguage": "en", "image": "https://isabelamrein.github.io/Cuaderno/assets/og/en-data-strategy-purpose-and-plan.png", "keywords": "data-strategy, data-driven, fundamentals", "mainEntityOfPage": "https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/", "author": {"@type": "Person", "name": "Isabel Amrein De Luca", "jobTitle": "Lending Product Manager", "sameAs": ["https://www.linkedin.com/in/isabel-amrein-de-luca"]}}</script>
 </head>
 <body class="accent-aqua">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
-<a class="brand" href="/Cuaderno/en/">Isabel&#x27;s notebook</a>
-<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/blog/" aria-current=page>Articles</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
+<span class="brandbox"><a class="brand" href="/Cuaderno/en/">Rumbo</a><span class="think" id="think" role="status" hidden><canvas aria-hidden="true"></canvas><span>Thinking…</span></span></span>
+<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/projects/">Projects</a><a href="/Cuaderno/en/blog/" aria-current=page>Entries</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
 </div></header>
 <main id="main">
 <article>
 <header class="post-head"><div class="wrap"><div>
-<div class="post-meta"><time datetime="2026-10-11">Oct 11, 2026</time><span>5 min read</span><span>Class by Rafael Fernández Campos</span></div>
+<div class="post-meta"><time datetime="2026-10-11">Oct 11, 2026</time><span>5 min read</span><span>Class by Rafael Fernández Campos</span><span>Projects: <a href="/Cuaderno/en/projects/formacion/">Training in Data Science and AI</a></span></div>
 <h1>Data strategy: purpose first, then the plan</h1><div class="tags"><span>data-strategy</span><span>data-driven</span><span>fundamentals</span></div></div><svg class="motif" viewBox="196 10 372 350" aria-hidden="true" focusable="false"><rect x="0" y="0" width="680" height="370" rx="12" fill="#151716"/><ellipse cx="340" cy="328" rx="128" ry="16" fill="#000" fill-opacity=".4"/><circle cx="340" cy="180" r="134" fill="#8B9599"/><circle cx="340" cy="180" r="124" fill="#C3CBCE"/><path d="M224.4 137.9 A123 123 0 0 1 382.1 64.4" fill="none" stroke="#F1F5F6" stroke-width="9" stroke-linecap="round"/><path d="M455.6 222.1 A123 123 0 0 1 297.9 295.6" fill="none" stroke="#5E686C" stroke-width="9" stroke-linecap="round"/><circle cx="340" cy="180" r="112" fill="#7C868A"/><circle cx="340" cy="180" r="106" fill="#1B201E"/><g transform="rotate(-90 340 180)"><circle cx="340" cy="180" r="96" fill="none" stroke="#8FA09A" stroke-width="10" stroke-dasharray="2.4 15.05" stroke-dashoffset="1.2"/><circle cx="340" cy="180" r="96" fill="none" stroke="#6FE3C5" stroke-width="16" stroke-dasharray="3.5 48.86" stroke-dashoffset="1.75"/></g><circle cx="340" cy="180" r="72" fill="none" stroke="#2C3230" stroke-width="2"/><polygon points="340,84 331,102 349,102" fill="#6FE3C5"/><g class="cp-needle" transform="rotate(55 340 180)"><polygon points="340,100 326,180 340,180" fill="#7EF0D6"/><polygon points="340,100 354,180 340,180" fill="#2FA88F"/><polygon points="340,260 326,180 340,180" fill="#E4E9E7"/><polygon points="340,260 354,180 340,180" fill="#9AA3A0"/></g><circle cx="340" cy="180" r="11" fill="#AEB7BA" stroke="#6E787C" stroke-width="2"/><circle cx="340" cy="180" r="4.5" fill="#1B201E"/><circle cx="337" cy="176" r="2" fill="#FFFFFF"/><ellipse cx="294" cy="126" rx="72" ry="30" transform="rotate(-32 294 126)" fill="#FFFFFF" fill-opacity=".09"/><path d="M258 120 A92 92 0 0 1 330 92" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/><circle class="cp-dot" style="--d:1.20s" cx="414.0" cy="128.0" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.32s" cx="429.3" cy="117.3" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.44s" cx="444.7" cy="106.7" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.56s" cx="460.0" cy="96.0" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.68s" cx="475.3" cy="85.3" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.80s" cx="490.7" cy="74.7" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.92s" cx="506.0" cy="64.0" r="3.2" fill="#6FE3C5"/><ellipse cx="512" cy="62" rx="14" ry="5" fill="#000" fill-opacity=".35"/><g class="cp-flag"><line x1="512" y1="60" x2="512" y2="20" stroke="#E9EDEA" stroke-width="3.5" stroke-linecap="round"/><polygon points="512,20 546,31 512,42" fill="#6FE3C5"/></g></svg></div></header>
 <div class="prose"><p>This class was hard for me at first: during the first part I wasn't clear on where we were heading. In the end everything clicked, and it left me with an idea that works as well for a single project as for a whole team: before talking about data, you have to know what it's for.</p>
 <h2>Starting with the destination</h2>
@@ -44,7 +44,7 @@
 <p>There is no favourable wind for those who don't know where they're going.</p>
 </blockquote>
 <p>Every project, whether for a team or a whole company, starts with an objective. A strategy, he explained, is a <span class="hl">purpose</span> plus a <span class="hl">plan</span>. The purpose defines what value we want to create and how we'll measure it; the plan turns it into actions. The full path goes through seven stops, and this class focused on the two in the middle: diagnosing where we are and designing how to get there.</p>
-<div class="steps" role="group" aria-label="The seven stops of a data strategy, with diagnosis and design highlighted"><span class="st" style="--d:0s">Stakeholders</span><span class="nw" style="--d:0.14s"><span class="sep">›</span><span class="st">Value</span></span><span class="nw" style="--d:0.28s"><span class="sep">›</span><span class="st">KPIs</span></span><span class="nw" style="--d:0.42s"><span class="sep">›</span><span class="focus"><span class="row"><span class="st">Diagnosis</span><span class="sep">›</span><span class="st">Design</span></span><small>what we covered in class</small></span></span><span class="nw" style="--d:0.56s"><span class="sep">›</span><span class="st">Execution</span></span><span class="nw" style="--d:0.70s"><span class="sep">›</span><span class="st">Re-evaluation</span></span></div>
+<div class="steps" role="group" aria-label="The seven stops of a data strategy, with diagnosis and design highlighted"><span class="st" style="--d:0s">Stakeholders</span><span class="nw" style="--d:0.06s"><span class="sep">›</span><span class="st">Value</span></span><span class="nw" style="--d:0.12s"><span class="sep">›</span><span class="st">KPIs</span></span><span class="nw" style="--d:0.18s"><span class="sep">›</span><span class="focus"><span class="row"><span class="st">Diagnosis</span><span class="sep">›</span><span class="st">Design</span></span><small>what we covered in class</small></span></span><span class="nw" style="--d:0.24s"><span class="sep">›</span><span class="st">Execution</span></span><span class="nw" style="--d:0.30s"><span class="sep">›</span><span class="st">Re-evaluation</span></span></div>
 
 <h2>Data-driven organizations</h2>
 <p>A <em>data-driven</em> organization puts data at the centre of its decisions. What I liked most is that the starting point isn't technology but the question: they know how to ask the right business questions so they can answer them with data. These are the traits that come up most, in my own words:</p>
@@ -87,13 +87,14 @@
 <p>If I take one word from the class, it's <span class="hl">ecosystem</span>. The leap to transformation comes when data models relate to each other in the best possible way and create an ecosystem where each area's data feeds the others.</p>
 <h2>What I take away</h2>
 <p>Before choosing technology, you have to be clear about what it's for. Then, diagnose honestly where we are and build a small, repeatable plan. And remember that data only creates value if the person using it understands it.</p><p class="credit">Thanks to <strong>Rafael Fernández Campos</strong> for the class this article is based on.</p></div>
-<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/blog/">Back to articles</a><a href="/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/" hreflang="es" lang="es">Leer en español</a></footer>
+<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/blog/">Back to entries</a><a href="/Cuaderno/en/projects/formacion/">See the project: Training in Data Science and AI</a><a href="/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/" hreflang="es" lang="es">Leer en español</a></footer>
 </article>
 </main>
 <footer class="site-foot"><div class="wrap">
 <span>© 2026 Isabel Amrein De Luca</span>
 <span style="display:flex;gap:1.5rem"><a href="https://www.linkedin.com/in/isabel-amrein-de-luca" rel="me noopener" target="_blank">LinkedIn</a> <a href="/Cuaderno/en/rss.xml">RSS</a></span>
 </div></footer>
-<script src="/Cuaderno/assets/main.js?v=74c3f37e" defer></script>
+<script src="/Cuaderno/assets/vendor/thinking-orbs.js?v=5307696f" defer></script>
+<script src="/Cuaderno/assets/main.js?v=96c1e58c" defer></script>
 </body>
 </html>

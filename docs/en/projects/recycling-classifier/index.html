@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151716">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<script>if('IntersectionObserver' in window){var d=document.documentElement;d.classList.add('anim');if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('rm')}</script>
+<title>Recycling classifier | Rumbo</title>
+<meta name="description" content="A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle.">
+<link rel="canonical" href="https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/">
+<link rel="alternate" hreflang="es" href="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/"><link rel="alternate" hreflang="en" href="https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/"><link rel="alternate" hreflang="x-default" href="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rumbo">
+<meta property="og:title" content="Recycling classifier">
+<meta property="og:description" content="A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle.">
+<meta property="og:url" content="https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/">
+<meta property="og:image" content="https://isabelamrein.github.io/Cuaderno/assets/og/en-p-recycling-classifier.png">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Isabel Amrein De Luca">
+<link rel="alternate" type="application/rss+xml" title="Rumbo" href="/Cuaderno/en/rss.xml">
+<link rel="icon" type="image/svg+xml" href="/Cuaderno/assets/favicon.svg">
+<link rel="preload" href="/Cuaderno/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Cuaderno/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=28e6310a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Recycling classifier", "description": "A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle.", "inLanguage": "en", "dateCreated": "2026-10-12", "dateModified": "2026-10-12", "keywords": "Teachable Machine, Custom AI, Images", "image": "https://isabelamrein.github.io/Cuaderno/assets/og/en-p-recycling-classifier.png", "mainEntityOfPage": "https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/", "author": {"@type": "Person", "name": "Isabel Amrein De Luca", "jobTitle": "Lending Product Manager", "sameAs": ["https://www.linkedin.com/in/isabel-amrein-de-luca"]}}</script>
+</head>
+<body class="accent-moss">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap">
+<span class="brandbox"><a class="brand" href="/Cuaderno/en/">Rumbo</a><span class="think" id="think" role="status" hidden><canvas aria-hidden="true"></canvas><span>Thinking…</span></span></span>
+<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/projects/" aria-current=page>Projects</a><a href="/Cuaderno/en/blog/">Entries</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/proyectos/clasificador-reciclaje/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
+</div></header>
+<main id="main">
+<article>
+<header class="post-head"><div class="wrap"><div>
+<div class="post-meta"><span class="chip status s-en-marcha"><canvas class="orb-live" aria-hidden="true"></canvas>In progress</span><time datetime="2026-10-12">Updated Oct 12, 2026</time></div>
+<h1>Recycling classifier</h1><p class="subtitle">Which bin does this go in? One photo and an answer</p><div class="tags"><span>Teachable Machine</span><span>Custom AI</span><span>Images</span></div></div><svg class="motif" viewBox="84 28 508 304" aria-hidden="true" focusable="false"><rect x="0" y="0" width="680" height="370" rx="12" fill="#0F1E1F"/><g fill="#E9EDEA" fill-opacity=".5"><circle cx="40" cy="30" r="1.8"/><circle cx="120" cy="60" r="1.8"/><circle cx="300" cy="26" r="1.8"/><circle cx="420" cy="40" r="1.8"/><circle cx="600" cy="34" r="1.8"/><circle cx="640" cy="90" r="1.8"/><circle cx="70" cy="120" r="1.8"/></g><rect x="0" y="318" width="680" height="52" rx="12" fill="#0B1413"/><rect x="0" y="318" width="680" height="14" fill="#0B1413"/><ellipse cx="155" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="105,160 205,160 197,316 113,316" fill="#E3B72E"/><polygon points="171,160 205,160 197,316 167,316" fill="#B8912A"/><polygon points="111,166 121,166 127,310 117,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="139" y="130" width="32" height="12" rx="5" fill="#F2CD54"/><rect x="99" y="140" width="112" height="22" rx="6" fill="#F2CD54"/><rect x="99" y="154" width="112" height="8" rx="4" fill="#B8912A" fill-opacity=".55"/><circle cx="123" cy="316" r="7" fill="#1B201E"/><circle cx="187" cy="316" r="7" fill="#1B201E"/><ellipse cx="275" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="225,160 325,160 317,316 233,316" fill="#3F73C4"/><polygon points="291,160 325,160 317,316 287,316" fill="#2F5896"/><polygon points="231,166 241,166 247,310 237,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="259" y="130" width="32" height="12" rx="5" fill="#5E92E0"/><rect x="219" y="140" width="112" height="22" rx="6" fill="#5E92E0"/><rect x="219" y="154" width="112" height="8" rx="4" fill="#2F5896" fill-opacity=".55"/><circle cx="243" cy="316" r="7" fill="#1B201E"/><circle cx="307" cy="316" r="7" fill="#1B201E"/><ellipse cx="395" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="345,160 445,160 437,316 353,316" fill="#3E9A5A"/><polygon points="411,160 445,160 437,316 407,316" fill="#2F7544"/><polygon points="351,166 361,166 367,310 357,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="379" y="130" width="32" height="12" rx="5" fill="#5CB878"/><rect x="339" y="140" width="112" height="22" rx="6" fill="#5CB878"/><rect x="339" y="154" width="112" height="8" rx="4" fill="#2F7544" fill-opacity=".55"/><circle cx="363" cy="316" r="7" fill="#1B201E"/><circle cx="427" cy="316" r="7" fill="#1B201E"/><ellipse cx="515" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="465,160 565,160 557,316 473,316" fill="#7D8789"/><polygon points="531,160 565,160 557,316 527,316" fill="#5E686A"/><polygon points="471,166 481,166 487,310 477,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="499" y="130" width="32" height="12" rx="5" fill="#A0AAAC"/><rect x="459" y="140" width="112" height="22" rx="6" fill="#A0AAAC"/><rect x="459" y="154" width="112" height="8" rx="4" fill="#5E686A" fill-opacity=".55"/><circle cx="483" cy="316" r="7" fill="#1B201E"/><circle cx="547" cy="316" r="7" fill="#1B201E"/><g fill="#F4FBFA" fill-opacity=".92"><rect x="143" y="214" width="24" height="34" rx="3"/><ellipse cx="155" cy="214" rx="12" ry="3.5"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="261" y="208" width="28" height="38" rx="3"/></g><g stroke="#3F73C4" stroke-width="2.5" stroke-linecap="round"><line x1="267" y1="219" x2="283" y2="219"/><line x1="267" y1="227" x2="283" y2="227"/><line x1="267" y1="235" x2="278" y2="235"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="385" y="224" width="20" height="28" rx="4"/><rect x="391" y="210" width="8" height="16" rx="2"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="501" y="216" width="28" height="32" rx="3"/></g><path d="M507 216 C507 204 523 204 523 216" fill="none" stroke="#F4FBFA" stroke-opacity=".92" stroke-width="3"/><g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="4" fill="#CFE9F5" fill-opacity=".92"/><rect x="157" y="50" width="6" height="14" rx="2" fill="#CFE9F5" fill-opacity=".92"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/></g><path d="M214 34 C200 62 186 94 170 126" fill="none" stroke="#6FE3C5" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><polygon points="170,128 163,114 177,116" fill="#6FE3C5"/></svg></div></header>
+<div class="prose"><h2>What I want to solve</h2>
+<p>Almost every child has a phone or tablet at home, and pointing at an object and seeing the answer is a way to learn recycling through play. This project builds that model with a no-code tool, to understand how it is trained and where it fails.</p>
+<h2>How I build it</h2>
+<ol>
+<li><strong>Define the classes.</strong> In Spain, four: yellow bin (plastic packaging, cans and cartons), blue (paper and cardboard), green (glass) and general waste. Rules vary by municipality, so this is a starting point.</li>
+<li><strong>Gather data.</strong> About 50 photos per class using objects from my home, varying background, light and angle.</li>
+<li><strong>Train and test</strong> the model with new objects I haven't photographed before.</li>
+<li><strong>Note where it fails and why.</strong></li>
+</ol>
+<h2>What I want to check</h2>
+<ul>
+<li><strong>How much it depends on the data.</strong> If every photo has the same background, what is the model really learning?</li>
+<li><strong>Which cases confuse it.</strong> A carton looks like cardboard, but it goes in the yellow bin.</li>
+<li><strong>Which mistakes cost more.</strong> Putting something non-recyclable in the yellow bin can spoil the recycling of everything else, whereas leaving a recyclable package in general waste simply loses it. It's the design lesson from the machine learning entry, with much less risk.</li>
+</ul>
+<h2>What I use</h2>
+<p>Teachable Machine, a free Google tool that trains image classification models in the browser, no coding needed. It corresponds to the <em>Custom AI</em> level in the machine learning entry.</p>
+<h2>Results</h2>
+<p>I'll publish them here once the tests are done: how many photos I used per class, the accuracy per class, the cases that fail and what I learned.</p>
+<blockquote>
+<p>It's an educational tool meant to be used with an adult nearby. It doesn't replace each municipality's official guidance.</p>
+</blockquote></div>
+<section class="section related"><div class="wrap"><h2>Related entries</h2><ul class="log"><li data-tags="machine-learning,fundamentals,data-science"><a class="log-row accent-aqua" href="/Cuaderno/en/blog/machine-learning-data-writes-the-rules/"><time datetime="2026-10-11">Oct 11, 2026</time><div><h3>Machine learning: when the data writes the rules</h3><p>What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.</p><span class="tags"><span>machine-learning</span><span>fundamentals</span><span>data-science</span></span></div></a></li></ul></div></section>
+<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/projects/">Back to projects</a><a href="/Cuaderno/es/proyectos/clasificador-reciclaje/" hreflang="es" lang="es">Leer en español</a></footer>
+</article>
+</main>
+<footer class="site-foot"><div class="wrap">
+<span>© 2026 Isabel Amrein De Luca</span>
+<span style="display:flex;gap:1.5rem"><a href="https://www.linkedin.com/in/isabel-amrein-de-luca" rel="me noopener" target="_blank">LinkedIn</a> <a href="/Cuaderno/en/rss.xml">RSS</a></span>
+</div></footer>
+<script src="/Cuaderno/assets/vendor/thinking-orbs.js?v=5307696f" defer></script>
+<script src="/Cuaderno/assets/main.js?v=96c1e58c" defer></script>
+</body>
+</html>

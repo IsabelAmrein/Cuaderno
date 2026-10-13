@@ -1,6 +1,6 @@
-“There is no favourable wind for those who don't know where they're going.” My second master's class was about data strategy, and the idea is simple - purpose first, then the plan. I cover how to place an organization (control, optimization, transformation), the diagnostic tools from the CDO Club, and my project to bring data closer to marketing and sales.
+“There is no favourable wind for those who don't know where they're going.” My second Data Science and generative AI class was about data strategy, and the idea is simple - purpose first, then the plan. I cover how to place an organization (control, optimization, transformation), the diagnostic tools from the CDO Club, and my project to bring data closer to marketing and sales.
 
-Full write-up in the notebook:
+Full write-up on Rumbo:
 https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/
 
 Thanks to Rafael Fernández Campos for the class.

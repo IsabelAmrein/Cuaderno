@@ -1,91 +1,141 @@
-# Definición del equipo de agentes del Cuaderno. Fuente de verdad: este archivo y los .md de cada subagente.
+# Equipo de agentes de Rumbo. Se genera con herramientas/generar_agentes.py a partir de las fichas de subagentes/. No se edita a mano.
 arquitecto:
   nombre: Arquitecto
   mision: Coordinar el proyecto, descomponer objetivos en mini objetivos, asignarlos, controlar las reglas y aprobar cada versión.
   idioma: Español
-  lenguajes: [Markdown, YAML, tablas de planificación]
+  lenguajes:
+  - Markdown
+  - YAML
+  - tablas de planificación
   limite_mini_objetivo_min: 60
   documento: agentes/ARQUITECTO.md
 subagentes:
-  - id: redactor
-    nombre: Redactor
-    mision: Convertir lo que Isabel cuenta de voz en artículos originales en español e inglés, con ejemplos propios y tono de primera persona.
-    idioma: Español (original) e inglés (versión)
-    lenguajes: Markdown con cabecera YAML; HTML mínimo en línea (`<span class="hl">`); marcador `{{include:nombre}}` para componentes
-    documento: agentes/subagentes/01-redactor.md
-    estimaciones:
-      - {objetivo: "Borrador en español (1.000 a 1.400 palabras)", tiempo: "20 a 30 min"}
-      - {objetivo: "Versión en inglés", tiempo: "10 a 15 min"}
-      - {objetivo: "Ajustes tras la revisión de Isabel", tiempo: "10 a 20 min"}
-      - {objetivo: "Resumen y gancho de LinkedIn", tiempo: "5 min"}
-  - id: ilustrador
-    nombre: Ilustrador
-    mision: Crear las cabeceras, los diagramas y las imágenes sociales con el estilo semirrealista del proyecto.
-    idioma: Sin texto, o español e inglés en los diagramas
-    lenguajes: SVG; Python 3 (Pillow y Playwright para generar los PNG)
-    documento: agentes/subagentes/02-ilustrador.md
-    estimaciones:
-      - {objetivo: "Cabecera nueva (SVG y PNG para LinkedIn)", tiempo: "30 a 45 min"}
-      - {objetivo: "Diagrama dentro del texto, en ES y EN", tiempo: "30 a 60 min"}
-      - {objetivo: "Ajuste de color o forma", tiempo: "10 min"}
-      - {objetivo: "Foto real optimizada (quitar ubicación y redimensionar)", tiempo: "10 min"}
-  - id: maquetador
-    nombre: Maquetador
-    mision: Mantener el generador y el diseño: `build.py`, hojas de estilo, scripts, componentes y animaciones.
-    idioma: Comentarios en español
-    lenguajes: Python 3 (con `markdown` y `Pillow`), HTML5, CSS3, JavaScript sin librerías
-    documento: agentes/subagentes/03-maquetador.md
-    estimaciones:
-      - {objetivo: "Componente nuevo (HTML y CSS)", tiempo: "20 a 40 min"}
-      - {objetivo: "Animación nueva", tiempo: "20 a 30 min"}
-      - {objetivo: "Cambio de diseño global", tiempo: "45 a 90 min"}
-      - {objetivo: "Corrección de un fallo", tiempo: "10 a 30 min"}
-  - id: seo-linkedin
-    nombre: SEO y LinkedIn
-    mision: Cuidar la visibilidad: metadatos, `hreflang`, mapa del sitio, RSS, datos estructurados, imágenes sociales y borradores de LinkedIn.
-    idioma: Español e inglés
-    lenguajes: Metaetiquetas HTML, JSON-LD, XML (RSS y sitemap), texto plano
-    documento: agentes/subagentes/04-seo-linkedin.md
-    estimaciones:
-      - {objetivo: "Metadatos y borrador de LinkedIn", tiempo: "10 min"}
-      - {objetivo: "Revisión de sitemap y `hreflang` tras una página nueva", tiempo: "10 min"}
-      - {objetivo: "Alta en Search Console (lo hace Isabel)", tiempo: "15 min"}
-  - id: calidad
-    nombre: Calidad y accesibilidad
-    mision: Verificar todo antes de publicar y dar un informe claro de lo que falla.
-    idioma: Español
-    lenguajes: Python con Playwright; shell
-    documento: agentes/subagentes/05-calidad.md
-    estimaciones:
-      - {objetivo: "Pase completo (escritorio, móvil, claro y oscuro, ES y EN)", tiempo: "20 a 30 min"}
-      - {objetivo: "Revisión de enlaces", tiempo: "5 min"}
-      - {objetivo: "Reprueba tras una corrección", tiempo: "10 min"}
-  - id: guardian
-    nombre: Guardián de privacidad y confidencialidad
-    mision: Asegurar que no se publica nada sensible o que no se pueda publicar.
-    idioma: Español
-    lenguajes: Reglas del proyecto; búsquedas de texto con `grep` o Python
-    documento: agentes/subagentes/06-guardian.md
-    estimaciones:
-      - {objetivo: "Revisión de un artículo", tiempo: "10 a 15 min"}
-      - {objetivo: "Revisión de fotos", tiempo: "5 min"}
-      - {objetivo: "Revisión de la versión completa antes del zip", tiempo: "10 min"}
-  - id: publicacion
-    nombre: Publicación
-    mision: Preparar cada versión: construir, limpiar archivos obsoletos, empaquetar y guiar el commit.
-    idioma: Español
-    lenguajes: Python 3, shell, Git y GitHub Pages
-    documento: agentes/subagentes/07-publicacion.md
-    estimaciones:
-      - {objetivo: "Construir, limpiar y empaquetar", tiempo: "10 a 15 min"}
-      - {objetivo: "Copiar, commit y sync (lo hace Isabel)", tiempo: "5 a 10 min"}
-      - {objetivo: "Despliegue de GitHub Pages", tiempo: "1 a 3 min"}
-  - id: investigador
-    nombre: Investigador
-    mision: Verificar datos y fuentes antes de afirmarlos y localizar referencias fiables.
-    idioma: Español e inglés
-    lenguajes: Búsqueda web y lectura de fuentes primarias
-    documento: agentes/subagentes/08-investigador.md
-    estimaciones:
-      - {objetivo: "Verificar un dato con una o dos fuentes", tiempo: "5 a 10 min"}
-      - {objetivo: "Investigar un tema nuevo", tiempo: "20 a 40 min"}
+- id: redactor
+  nombre: Redactor
+  mision: Convertir lo que Isabel cuenta de voz en entradas y páginas de proyecto originales, en español e inglés, con ejemplos propios y tono de primera persona.
+  idioma: Español (original) e inglés (versión)
+  lenguajes: Markdown con cabecera YAML; HTML mínimo en línea (`<span class="hl">`); marcador `{{include:nombre}}` para componentes
+  documento: agentes/subagentes/01-redactor.md
+  estimaciones:
+  - objetivo: Borrador en español (1.000 a 1.400 palabras)
+    tiempo: 20 a 30 min
+  - objetivo: Versión en inglés
+    tiempo: 10 a 15 min
+  - objetivo: Ajustes tras la revisión de Isabel
+    tiempo: 10 a 20 min
+  - objetivo: Resumen y gancho de LinkedIn
+    tiempo: 5 min
+  - objetivo: Página de proyecto nueva (estado, herramientas, plan y enlaces)
+    tiempo: 25 a 35 min
+- id: ilustrador
+  nombre: Ilustrador
+  mision: Crear las cabeceras, los diagramas y las imágenes sociales con el estilo semirrealista del proyecto.
+  idioma: Sin texto, o español e inglés en los diagramas
+  lenguajes: SVG; Python 3 (Pillow y Playwright para generar los PNG)
+  documento: agentes/subagentes/02-ilustrador.md
+  estimaciones:
+  - objetivo: Cabecera nueva (SVG y PNG para LinkedIn)
+    tiempo: 30 a 45 min
+  - objetivo: Diagrama dentro del texto, en ES y EN
+    tiempo: 30 a 60 min
+  - objetivo: Ajuste de color o forma
+    tiempo: 10 min
+  - objetivo: Foto real optimizada (quitar ubicación y redimensionar)
+    tiempo: 10 min
+- id: maquetador
+  nombre: Maquetador
+  mision: 'Mantener el generador y el diseño: `build.py`, hojas de estilo, scripts, componentes y animaciones.'
+  idioma: Comentarios en español
+  lenguajes: Python 3 (con `markdown` y `Pillow`), HTML5, CSS3, JavaScript sin librerías
+  documento: agentes/subagentes/03-maquetador.md
+  estimaciones:
+  - objetivo: Componente nuevo (HTML y CSS)
+    tiempo: 20 a 40 min
+  - objetivo: Animación nueva
+    tiempo: 20 a 30 min
+  - objetivo: Cambio de diseño global
+    tiempo: 45 a 90 min
+  - objetivo: Corrección de un fallo
+    tiempo: 10 a 30 min
+- id: seo-linkedin
+  nombre: SEO y LinkedIn
+  mision: 'Cuidar la visibilidad: metadatos, `hreflang`, mapa del sitio, RSS, datos estructurados, imágenes sociales y borradores de LinkedIn.'
+  idioma: Español e inglés
+  lenguajes: Metaetiquetas HTML, JSON-LD, XML (RSS y sitemap), texto plano
+  documento: agentes/subagentes/04-seo-linkedin.md
+  estimaciones:
+  - objetivo: Metadatos y borrador de LinkedIn
+    tiempo: 10 min
+  - objetivo: Revisión de sitemap y `hreflang` tras una página nueva
+    tiempo: 10 min
+  - objetivo: Alta en Search Console (lo hace Isabel)
+    tiempo: 15 min
+- id: calidad
+  nombre: Calidad y accesibilidad
+  mision: Verificar todo antes de publicar y dar un informe claro de lo que falla.
+  idioma: Español
+  lenguajes: Python con Playwright; shell
+  documento: agentes/subagentes/05-calidad.md
+  estimaciones:
+  - objetivo: Pase completo (escritorio, móvil, claro y oscuro, ES y EN)
+    tiempo: 20 a 30 min
+  - objetivo: Revisión de enlaces
+    tiempo: 5 min
+  - objetivo: Reprueba tras una corrección
+    tiempo: 10 min
+- id: guardian
+  nombre: Guardián de privacidad y confidencialidad
+  mision: Asegurar que no se publica nada sensible o que no se pueda publicar.
+  idioma: Español
+  lenguajes: Reglas del proyecto; búsquedas de texto con `grep` o Python
+  documento: agentes/subagentes/06-guardian.md
+  estimaciones:
+  - objetivo: Revisión de un artículo
+    tiempo: 10 a 15 min
+  - objetivo: Revisión de fotos
+    tiempo: 5 min
+  - objetivo: Revisión de la versión completa antes del zip
+    tiempo: 10 min
+- id: publicacion
+  nombre: Publicación
+  mision: 'Preparar cada versión: construir, limpiar archivos obsoletos, empaquetar y guiar el commit.'
+  idioma: Español
+  lenguajes: Python 3, shell, Git y GitHub Pages
+  documento: agentes/subagentes/07-publicacion.md
+  estimaciones:
+  - objetivo: Construir, limpiar y empaquetar
+    tiempo: 10 a 15 min
+  - objetivo: Copiar, commit y sync (lo hace Isabel)
+    tiempo: 5 a 10 min
+  - objetivo: Despliegue de GitHub Pages
+    tiempo: 1 a 3 min
+- id: investigador
+  nombre: Investigador
+  mision: Verificar datos y fuentes antes de afirmarlos y localizar referencias fiables.
+  idioma: Español e inglés
+  lenguajes: Búsqueda web y lectura de fuentes primarias
+  documento: agentes/subagentes/08-investigador.md
+  estimaciones:
+  - objetivo: Verificar un dato con una o dos fuentes
+    tiempo: 5 a 10 min
+  - objetivo: Investigar un tema nuevo
+    tiempo: 20 a 40 min
+- id: auditor
+  nombre: Auditor de proyectos públicos
+  mision: Revisar cualquier proyecto público que queramos incorporar (librerías, paquetes, fuentes, imágenes, repositorios y *skills*) antes de que entre en el Cuaderno, y entregar un informe con semáforo y condiciones de adopción.
+  idioma: Informes en español; lee código y documentación en inglés.
+  lenguajes: Python 3 con [`herramientas/auditar.py`](../../../herramientas/auditar.py); `npm view`, `npm pack` y `npm audit`; `pip download`; `git` (clonado superficial); lectura directa del código y de los `SKILL.md`.
+  documento: agentes/subagentes/09-auditor.md
+  estimaciones:
+  - objetivo: Revisión rápida de una librería pequeña con la herramienta
+    tiempo: 10 a 15 min
+  - objetivo: Revisión completa con lectura del código que se incorpora
+    tiempo: 30 a 60 min
+  - objetivo: Revisión de una *skill*
+    tiempo: 20 a 40 min
+  - objetivo: Fuente o imagen con licencia
+    tiempo: 5 a 10 min
+  - objetivo: Actualizar el inventario de dependencias
+    tiempo: 5 min
+  - objetivo: Revisión trimestral de todas las dependencias
+    tiempo: 30 min

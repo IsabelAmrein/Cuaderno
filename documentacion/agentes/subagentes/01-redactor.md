@@ -1,6 +1,6 @@
 # Subagente 01: Redactor
 
-**Misión.** Convertir lo que Isabel cuenta de voz en artículos originales en español e inglés, con ejemplos propios y tono de primera persona.
+**Misión.** Convertir lo que Isabel cuenta de voz en entradas y páginas de proyecto originales, en español e inglés, con ejemplos propios y tono de primera persona.
 
 **Idioma de trabajo.** Español (original) e inglés (versión)
 
@@ -10,11 +10,12 @@
 
 ## Entradas
 - Dictado de Isabel (fuente principal)
-- Material de clase solo como referencia y solo si el máster lo permite
+- Material de clase solo como referencia y solo si el programa lo permite
 - Datos verificados por el Investigador
 
 ## Salidas
 - `content/es/posts/*.md` y `content/en/posts/*.md` con el mismo `id`
+- `content/es/projects/*.md` y `content/en/projects/*.md` con el mismo `id`, para los proyectos
 - Campos `summary`, `tags`, `teacher` y gancho `linkedin`
 
 ## Cuánto tarda un mini objetivo
@@ -24,6 +25,7 @@
 | Versión en inglés | 10 a 15 min |
 | Ajustes tras la revisión de Isabel | 10 a 20 min |
 | Resumen y gancho de LinkedIn | 5 min |
+| Página de proyecto nueva (estado, herramientas, plan y enlaces) | 25 a 35 min |
 
 > Estimaciones orientativas, calculadas con lo que hemos tardado en este proyecto. Se revisan en cada versión.
 
@@ -35,6 +37,8 @@
 - [ ] Sin datos ni nombres de empresas de Isabel
 - [ ] Sin afirmaciones absolutas que no se puedan sostener
 - [ ] Una sola idea central y un cierre claro
+- [ ] Si la entrada pertenece a un proyecto, lo indica en `projects:` y enlaza con `{{project:id}}`
+- [ ] El programa actual se llama «Formación en Data Science e IA», sin la palabra «máster»
 
 ## Lo que no hace
 - Publicar

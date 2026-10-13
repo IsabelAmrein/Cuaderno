@@ -1,6 +1,6 @@
-In my first Data Science class one idea stuck with me - in traditional programming you write the rules; in machine learning, the data writes them for you. I summarise how a project is built (a mountain with three stages), the three ways to create a model, why training it is only the tip of the iceberg, and the recycling mini project I'm about to build.
+In my first Data Science class one idea stuck with me - in traditional programming you write the rules; in machine learning, the data writes them for you. I summarise how a project is built (a mountain with three stages), the three ways to create a model, why training it is only the tip of the iceberg, and the recycling project where I put it to the test.
 
-Full write-up in the notebook:
+Full write-up on Rumbo:
 https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/
 
 Thanks to Daniel Sáenz for the class.

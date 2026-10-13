@@ -32,6 +32,7 @@
 - [ ] Fotos sin datos de ubicación
 - [ ] Sin datos personales en los ejemplos
 - [ ] Sin servicios de terceros que rastreen
+- [ ] Todo lo incluido de terceros tiene licencia libre y su aviso de licencia en el proyecto
 - [ ] Si hay planes de trabajo, recordar a Isabel que confirme que puede publicarlos
 
 ## Lo que no hace

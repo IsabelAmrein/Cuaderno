@@ -1,0 +1,6 @@
+I'm building a recycling classifier - a photo of an object and the answer to which bin it goes in. I share the plan, how I train it and, above all, where it fails.
+
+Full write-up on Rumbo:
+https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/
+
+#TeachableMachine #CustomAi #Images

@@ -4,13 +4,14 @@ title: "Machine learning: when the data writes the rules"
 date: 2026-10-11
 accent: aqua
 hero: iceberg
+projects: [formacion, reciclaje]
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentals, data-science]
 summary: What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.
-linkedin: In my first Data Science class one idea stuck with me - in traditional programming you write the rules; in machine learning, the data writes them for you. I summarise how a project is built (a mountain with three stages), the three ways to create a model, why training it is only the tip of the iceberg, and the recycling mini project I'm about to build.
+linkedin: In my first Data Science class one idea stuck with me - in traditional programming you write the rules; in machine learning, the data writes them for you. I summarise how a project is built (a mountain with three stages), the three ways to create a model, why training it is only the tip of the iceberg, and the recycling project where I put it to the test.
 ---
 
-My first class of the master's answered a question that seems obvious until you try to explain it: what exactly is machine learning? These are my notes, rewritten with my own examples, plus a mini project I'm going to build to put it to the test.
+My first Data Science and generative AI class answered a question that seems obvious until you try to explain it: what exactly is machine learning? These are my notes, rewritten with my own examples, and a separate project where I put it to the test.
 
 ## What it is and where it fits
 
@@ -106,22 +107,9 @@ Luckily you don't have to climb the whole mountain from scratch in every project
 
 An API saves you almost everything under the water. An end-to-end project puts it all in your hands.
 
-## Mini project: which bin does this go in?
+## Putting it into practice
 
-To practise the Custom AI level I'll use Teachable Machine, a free Google tool that trains classification models in your browser, no coding needed. I want to build a waste classifier that, from a photo, says which bin each object goes in. I picture it as an educational toy: almost every child has a phone or tablet at home, and pointing at an object and seeing the answer is a way to learn recycling through play.
-
-This is my plan:
-
-1. **Define the classes.** In Spain, four: yellow bin (plastic packaging, cans and cartons), blue (paper and cardboard), green (glass) and general waste. Rules vary by municipality, so this is a starting point.
-2. **Gather data.** About 50 photos per class using objects from my home, varying background, light and angle.
-3. **Train and test** the model with new objects I haven't photographed before.
-4. **Note where it fails and why.**
-
-I want to check two things. First, how much the result depends on the variety of the data: if every photo has the same background, what is the model really learning? Second, which cases confuse it: a carton looks like cardboard but goes in the yellow bin.
-
-Here, with much less risk, the lesson of the next section shows up: mistakes don't cost the same in both directions. Putting something non-recyclable in the yellow bin can spoil the recycling of everything else, whereas leaving a recyclable package in general waste simply loses it. And as an educational tool, it's meant to be used with an adult nearby and doesn't replace each municipality's official guidance.
-
-Once it's built, I'll update this article with my results.
+To put it to the test I'm building a recycling classifier with Teachable Machine, the Custom AI level tool: a photo of an object and the answer to which bin it goes in. It has its own page, with the plan, the tests and the results: [Recycling classifier]({{project:reciclaje}}).
 
 ## A project I won't build (and what it teaches)
 
@@ -133,4 +121,4 @@ The lesson is about design: choosing the right metric and thinking about the con
 
 ## What I take away
 
-Machine learning isn't magic and it isn't reserved for experts. It's a different way of solving problems in which data quality and maintenance weigh more than the algorithm itself, and training the model is only the tip of the iceberg. In the next article I'll share how the classifier went.
+Machine learning isn't magic and it isn't reserved for experts. It's a different way of solving problems in which data quality and maintenance weigh more than the algorithm itself, and training the model is only the tip of the iceberg. You can follow how the classifier is going on [its project page]({{project:reciclaje}}).

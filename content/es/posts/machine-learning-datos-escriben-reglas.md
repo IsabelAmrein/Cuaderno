@@ -4,13 +4,14 @@ title: "Machine Learning: cuando los datos escriben las reglas"
 date: 2026-10-11
 accent: aqua
 hero: iceberg
+projects: [formacion, reciclaje]
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentos, data-science]
 summary: Qué es el Machine Learning, cómo se construye un proyecto de principio a fin y por qué entrenar el modelo es solo la punta del iceberg.
-linkedin: En mi primera clase de Data Science me quedé con una idea: en programación tradicional tú escribes las reglas; en Machine Learning, los datos las escriben por ti. Resumo cómo se construye un proyecto (una montaña con tres tramos), las tres formas de crear un modelo, por qué entrenarlo es solo la punta del iceberg y el mini proyecto de reciclaje que voy a montar.
+linkedin: En mi primera clase de Data Science me quedé con una idea: en programación tradicional tú escribes las reglas; en Machine Learning, los datos las escriben por ti. Resumo cómo se construye un proyecto (una montaña con tres tramos), las tres formas de crear un modelo, por qué entrenarlo es solo la punta del iceberg y el proyecto de reciclaje con el que lo pongo a prueba.
 ---
 
-Mi primera clase del máster respondió a una pregunta que parece obvia hasta que intentas explicarla: ¿qué es exactamente el Machine Learning? Estos son mis apuntes, reescritos con mis propios ejemplos, más un mini proyecto que voy a montar para ponerlo a prueba.
+Mi primera clase de Data Science e IA generativa respondió a una pregunta que parece obvia hasta que intentas explicarla: ¿qué es exactamente el Machine Learning? Estos son mis apuntes, reescritos con mis propios ejemplos, y un proyecto aparte con el que lo pongo a prueba.
 
 ## Qué es y dónde encaja
 
@@ -106,22 +107,9 @@ Por suerte no hace falta escalar toda la montaña desde cero en cada proyecto. E
 
 Una API te ahorra casi todo lo que hay bajo el agua. Un proyecto end-to-end te lo pone todo en las manos.
 
-## Mini proyecto: ¿en qué contenedor va esto?
+## Lo llevo a la práctica
 
-Para practicar el nivel Custom AI voy a usar Teachable Machine, una herramienta gratuita de Google que entrena modelos de clasificación desde el navegador, sin programar. Quiero montar un clasificador de residuos que, a partir de una foto, diga a qué contenedor va cada objeto. Lo imagino como un juguete educativo: casi todos los niños tienen un móvil o una tablet en casa, y apuntar a un objeto y ver la respuesta es una forma de aprender a reciclar jugando.
-
-Este es mi plan:
-
-1. **Definir las clases.** En España, cuatro: contenedor amarillo (envases de plástico, latas y briks), azul (papel y cartón), verde (vidrio) y resto. Las normas varían según el municipio, así que es un punto de partida.
-2. **Reunir datos.** Unas 50 fotos por clase con objetos de mi casa, variando fondo, luz y ángulo.
-3. **Entrenar y probar** el modelo con objetos nuevos que no haya fotografiado antes.
-4. **Anotar dónde falla y por qué.**
-
-Quiero comprobar dos cosas. La primera, cuánto depende el resultado de la variedad de los datos: si todas las fotos tienen el mismo fondo, ¿qué está aprendiendo realmente el modelo? La segunda, qué casos le confunden: un brik parece cartón pero va al contenedor amarillo.
-
-Aquí aparece, con mucho menos riesgo, la lección del siguiente apartado: los errores no cuestan lo mismo en los dos sentidos. Meter en el amarillo algo que no es reciclable puede estropear el reciclaje del resto, mientras que dejar un envase reciclable en "resto" simplemente lo pierde. Y como herramienta educativa, es para usar con un adulto cerca y no sustituye las indicaciones oficiales de cada municipio.
-
-Cuando lo tenga montado, actualizaré este artículo con mis resultados.
+Para ponerlo a prueba estoy construyendo un clasificador de reciclaje con Teachable Machine, la herramienta del nivel Custom AI: una foto de un objeto y la respuesta de a qué contenedor va. Tiene su propia página, con el plan, las pruebas y los resultados: [Clasificador de reciclaje]({{project:reciclaje}}).
 
 ## Un proyecto que no voy a construir (y qué enseña)
 
@@ -133,4 +121,4 @@ La lección es de diseño: elegir la métrica adecuada y pensar en el contexto d
 
 ## Lo que me llevo
 
-El Machine Learning no es magia ni algo reservado a expertos. Es una forma distinta de resolver problemas en la que pesan más la calidad de los datos y el mantenimiento que el algoritmo en sí, y entrenar el modelo es solo la punta del iceberg. En el próximo artículo contaré cómo me ha ido con el clasificador.
+El Machine Learning no es magia ni algo reservado a expertos. Es una forma distinta de resolver problemas en la que pesan más la calidad de los datos y el mantenimiento que el algoritmo en sí, y entrenar el modelo es solo la punta del iceberg. Puedes seguir cómo me va con el clasificador en [su página de proyecto]({{project:reciclaje}}).

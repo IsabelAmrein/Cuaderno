@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#151716">
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
-<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window)document.documentElement.classList.add('anim')</script>
-<title>Machine learning: when the data writes the rules | Isabel&#x27;s notebook</title>
+<script>if('IntersectionObserver' in window){var d=document.documentElement;d.classList.add('anim');if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('rm')}</script>
+<title>Machine learning: when the data writes the rules | Rumbo</title>
 <meta name="description" content="What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.">
 <link rel="canonical" href="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/">
 <link rel="alternate" hreflang="es" href="https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/"><link rel="alternate" hreflang="en" href="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/"><link rel="alternate" hreflang="x-default" href="https://isabelamrein.github.io/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Isabel&#x27;s notebook">
+<meta property="og:site_name" content="Rumbo">
 <meta property="og:title" content="Machine learning: when the data writes the rules">
 <meta property="og:description" content="What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.">
 <meta property="og:url" content="https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/">
@@ -19,25 +19,25 @@
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Isabel Amrein De Luca">
-<link rel="alternate" type="application/rss+xml" title="Isabel&#x27;s notebook" href="/Cuaderno/en/rss.xml">
+<link rel="alternate" type="application/rss+xml" title="Rumbo" href="/Cuaderno/en/rss.xml">
 <link rel="icon" type="image/svg+xml" href="/Cuaderno/assets/favicon.svg">
 <link rel="preload" href="/Cuaderno/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/Cuaderno/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=6de732c6">
+<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=28e6310a">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Machine learning: when the data writes the rules", "description": "What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.", "datePublished": "2026-10-11", "dateModified": "2026-10-11", "inLanguage": "en", "image": "https://isabelamrein.github.io/Cuaderno/assets/og/en-machine-learning-data-writes-the-rules.png", "keywords": "machine-learning, fundamentals, data-science", "mainEntityOfPage": "https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/", "author": {"@type": "Person", "name": "Isabel Amrein De Luca", "jobTitle": "Lending Product Manager", "sameAs": ["https://www.linkedin.com/in/isabel-amrein-de-luca"]}}</script>
 </head>
 <body class="accent-aqua">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap">
-<a class="brand" href="/Cuaderno/en/">Isabel&#x27;s notebook</a>
-<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/blog/" aria-current=page>Articles</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
+<span class="brandbox"><a class="brand" href="/Cuaderno/en/">Rumbo</a><span class="think" id="think" role="status" hidden><canvas aria-hidden="true"></canvas><span>Thinking…</span></span></span>
+<nav class="nav" aria-label="Principal"><a href="/Cuaderno/en/projects/">Projects</a><a href="/Cuaderno/en/blog/" aria-current=page>Entries</a><a href="/Cuaderno/en/about/">About</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Español</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Theme">Theme</button></nav>
 </div></header>
 <main id="main">
 <article>
 <header class="post-head"><div class="wrap"><div>
-<div class="post-meta"><time datetime="2026-10-11">Oct 11, 2026</time><span>10 min read</span><span>Class by Daniel Sáenz</span></div>
+<div class="post-meta"><time datetime="2026-10-11">Oct 11, 2026</time><span>9 min read</span><span>Class by Daniel Sáenz</span><span>Projects: <a href="/Cuaderno/en/projects/formacion/">Training in Data Science and AI</a> · <a href="/Cuaderno/en/projects/recycling-classifier/">Recycling classifier</a></span></div>
 <h1>Machine learning: when the data writes the rules</h1><div class="tags"><span>machine-learning</span><span>fundamentals</span><span>data-science</span></div></div><svg class="motif" viewBox="0 0 680 400" aria-hidden="true" focusable="false"><rect x="0" y="0" width="680" height="400" rx="12" fill="#0F1E1F"/><rect x="0" y="172" width="680" height="228" fill="#0E4A50"/><rect x="0" y="262" width="680" height="138" fill="#0A3C42"/><rect x="0" y="332" width="680" height="68" fill="#072C31"/><polygon points="200,174 445,174 500,217 485,292 380,337 250,344 175,292 160,217" fill="#5FC4C0" fill-opacity=".55"/><polygon points="300,174 445,174 500,217 380,252" fill="#7EDAD4" fill-opacity=".35"/><polygon points="160,217 200,174 300,174 250,262" fill="#3FA9A8" fill-opacity=".35"/><polygon points="250,344 380,337 380,252 250,262 175,292" fill="#2E8E90" fill-opacity=".3"/><g fill="#D8FFF7" fill-opacity=".7"><circle cx="250" cy="215" r="4"/><circle cx="310" cy="238" r="3"/><circle cx="360" cy="205" r="4"/><circle cx="420" cy="232" r="3"/><circle cx="465" cy="250" r="4"/><circle cx="215" cy="262" r="3"/><circle cx="290" cy="290" r="4"/><circle cx="345" cy="272" r="3"/><circle cx="410" cy="300" r="4"/><circle cx="320" cy="320" r="3"/><circle cx="380" cy="228" r="3"/><circle cx="270" cy="248" r="3"/></g><polygon points="225,172 275,97 300,117 355,47 420,172" fill="#CDEAEA"/><polygon points="355,47 300,117 285,172 345,172" fill="#F4FBFA"/><polygon points="355,47 345,172 420,172" fill="#A5D8DB"/><polygon points="275,97 300,117 285,172 225,172" fill="#CDEAEA"/><polygon points="300,117 322,130 312,172 285,172" fill="#8CC3C9"/><rect x="0" y="172" width="680" height="3" fill="#BFF4EA" fill-opacity=".7"/><g fill="#BFF4EA" fill-opacity=".35"><rect x="120" y="182" width="80" height="2"/><rect x="470" y="184" width="100" height="2"/><rect x="200" y="192" width="50" height="2"/><rect x="500" y="196" width="60" height="2"/></g></svg></div></header>
-<div class="prose"><p>My first class of the master's answered a question that seems obvious until you try to explain it: what exactly is machine learning? These are my notes, rewritten with my own examples, plus a mini project I'm going to build to put it to the test.</p>
+<div class="prose"><p>My first Data Science and generative AI class answered a question that seems obvious until you try to explain it: what exactly is machine learning? These are my notes, rewritten with my own examples, and a separate project where I put it to the test.</p>
 <h2>What it is and where it fits</h2>
 <p>Artificial Intelligence is the broad field: getting machines to do things we associate with intelligence. Machine learning (ML) is one of its branches: instead of telling the computer what to do step by step, you give it examples and let it discover the patterns on its own.</p>
 <p>Data Science is the craft around it. It combines statistics, programming and knowledge of the problem to understand data, make predictions and take better decisions.</p>
@@ -94,31 +94,22 @@
 <div class="levels"><div><p class="lvl-title">Pre-trained APIs</p><p class="lvl-eg"><a href="https://cloud.google.com/vision">Cloud Vision API</a></p><p class="lvl-desc">You use a model others have already trained, with no data of your own and little coding. Ideal for quick results: detecting text, analysing images or translating.</p><p class="lvl-effort"><span class="meter" aria-hidden="true"><i class="on"></i><i></i><i></i></span>Low effort</p></div><div><p class="lvl-title">Custom AI</p><p class="lvl-eg"><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></p><p class="lvl-desc">You bring your own data and the tool trains and tunes the model for you, no coding. Fits teams that have data but not a large technical team.</p><p class="lvl-effort"><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>Medium effort</p></div><div><p class="lvl-title">End-to-End AI</p><p class="lvl-eg"><a href="https://www.tensorflow.org/">TensorFlow</a></p><p class="lvl-desc">You design, train, test, deploy and scale the model on your own, with full control. It's what technical teams use.</p><p class="lvl-effort"><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>High effort</p></div></div>
 
 <p>An API saves you almost everything under the water. An end-to-end project puts it all in your hands.</p>
-<h2>Mini project: which bin does this go in?</h2>
-<p>To practise the Custom AI level I'll use Teachable Machine, a free Google tool that trains classification models in your browser, no coding needed. I want to build a waste classifier that, from a photo, says which bin each object goes in. I picture it as an educational toy: almost every child has a phone or tablet at home, and pointing at an object and seeing the answer is a way to learn recycling through play.</p>
-<p>This is my plan:</p>
-<ol>
-<li><strong>Define the classes.</strong> In Spain, four: yellow bin (plastic packaging, cans and cartons), blue (paper and cardboard), green (glass) and general waste. Rules vary by municipality, so this is a starting point.</li>
-<li><strong>Gather data.</strong> About 50 photos per class using objects from my home, varying background, light and angle.</li>
-<li><strong>Train and test</strong> the model with new objects I haven't photographed before.</li>
-<li><strong>Note where it fails and why.</strong></li>
-</ol>
-<p>I want to check two things. First, how much the result depends on the variety of the data: if every photo has the same background, what is the model really learning? Second, which cases confuse it: a carton looks like cardboard but goes in the yellow bin.</p>
-<p>Here, with much less risk, the lesson of the next section shows up: mistakes don't cost the same in both directions. Putting something non-recyclable in the yellow bin can spoil the recycling of everything else, whereas leaving a recyclable package in general waste simply loses it. And as an educational tool, it's meant to be used with an adult nearby and doesn't replace each municipality's official guidance.</p>
-<p>Once it's built, I'll update this article with my results.</p>
+<h2>Putting it into practice</h2>
+<p>To put it to the test I'm building a recycling classifier with Teachable Machine, the Custom AI level tool: a photo of an object and the answer to which bin it goes in. It has its own page, with the plan, the tests and the results: <a href="/Cuaderno/en/projects/recycling-classifier/">Recycling classifier</a>.</p>
 <h2>A project I won't build (and what it teaches)</h2>
 <p>My first idea was a mushroom classifier: edible or poisonous. I've deliberately ruled it out as an application. A model trained on a handful of photos will make mistakes, and in this problem the mistakes don't cost the same. Calling a toxic mushroom "edible" can be fatal. Calling an edible one "toxic" only costs you a dinner.</p>
 <p>That's why it matters to look at more than the overall accuracy percentage. Here the key metric would be <em>recall</em>: of all the toxic mushrooms, how many does the model manage to flag as toxic? Also, many poisonous mushrooms look very much like edible ones, and identifying them safely is a job for an expert, not a photo.</p>
 <p>The lesson is about design: choosing the right metric and thinking about the context of use are part of building a model. When real risk is involved, the model assists a person; it doesn't decide for them. And just in case: never use a photo model to decide what to eat.</p>
 <h2>What I take away</h2>
-<p>Machine learning isn't magic and it isn't reserved for experts. It's a different way of solving problems in which data quality and maintenance weigh more than the algorithm itself, and training the model is only the tip of the iceberg. In the next article I'll share how the classifier went.</p><p class="credit">Thanks to <strong>Daniel Sáenz</strong> for the class this article is based on.</p></div>
-<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/blog/">Back to articles</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Leer en español</a></footer>
+<p>Machine learning isn't magic and it isn't reserved for experts. It's a different way of solving problems in which data quality and maintenance weigh more than the algorithm itself, and training the model is only the tip of the iceberg. You can follow how the classifier is going on <a href="/Cuaderno/en/projects/recycling-classifier/">its project page</a>.</p><p class="credit">Thanks to <strong>Daniel Sáenz</strong> for the class this article is based on.</p></div>
+<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/en/blog/machine-learning-data-writes-the-rules/" target="_blank" rel="noopener">Share on LinkedIn</a><a href="/Cuaderno/en/blog/">Back to entries</a><a href="/Cuaderno/en/projects/formacion/">See the project: Training in Data Science and AI</a><a href="/Cuaderno/en/projects/recycling-classifier/">See the project: Recycling classifier</a><a href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/" hreflang="es" lang="es">Leer en español</a></footer>
 </article>
 </main>
 <footer class="site-foot"><div class="wrap">
 <span>© 2026 Isabel Amrein De Luca</span>
 <span style="display:flex;gap:1.5rem"><a href="https://www.linkedin.com/in/isabel-amrein-de-luca" rel="me noopener" target="_blank">LinkedIn</a> <a href="/Cuaderno/en/rss.xml">RSS</a></span>
 </div></footer>
-<script src="/Cuaderno/assets/main.js?v=74c3f37e" defer></script>
+<script src="/Cuaderno/assets/vendor/thinking-orbs.js?v=5307696f" defer></script>
+<script src="/Cuaderno/assets/main.js?v=96c1e58c" defer></script>
 </body>
 </html>

@@ -29,8 +29,8 @@
 > Estimaciones orientativas, calculadas con lo que hemos tardado en este proyecto. Se revisan en cada versión.
 
 ## Checklist
-- [ ] Sin dependencias externas ni peticiones a terceros
-- [ ] Respeta `prefers-reduced-motion`
+- [ ] Sin peticiones a terceros; librerías solo de licencia libre, alojadas en `assets/vendor` con su licencia
+- [ ] Cumple las reglas de movimiento de `BRAND.md` y da una versión suave con `prefers-reduced-motion`, no cero
 - [ ] Funciona en modo claro y oscuro
 - [ ] Responsive de 390 a 1280 píxeles
 - [ ] Español e inglés siguen funcionando

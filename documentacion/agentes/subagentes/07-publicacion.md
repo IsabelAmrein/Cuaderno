@@ -10,6 +10,7 @@
 
 ## Entradas
 - Visto bueno de Calidad y del Guardián
+- Documentación al día (Arquitecto)
 - Visto bueno de Isabel tras la previsualización
 
 ## Salidas
@@ -27,6 +28,7 @@
 
 ## Checklist
 - [ ] Previsualización mostrada y aprobada antes de generar el zip
+- [ ] Documentación actualizada (`CHANGELOG`, roadmap, decisiones, dependencias)
 - [ ] `python3 build.py` sin errores
 - [ ] Archivos obsoletos eliminados
 - [ ] `.gitignore` al día

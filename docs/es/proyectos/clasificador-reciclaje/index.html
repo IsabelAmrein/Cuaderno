@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151716">
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t='dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<script>if('IntersectionObserver' in window){var d=document.documentElement;d.classList.add('anim');if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('rm')}</script>
+<title>Clasificador de reciclaje | Rumbo</title>
+<meta name="description" content="Un modelo que, a partir de una foto, dice a qué contenedor va cada objeto. Pensado como un juego educativo para aprender a reciclar.">
+<link rel="canonical" href="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/">
+<link rel="alternate" hreflang="es" href="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/"><link rel="alternate" hreflang="en" href="https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/"><link rel="alternate" hreflang="x-default" href="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rumbo">
+<meta property="og:title" content="Clasificador de reciclaje">
+<meta property="og:description" content="Un modelo que, a partir de una foto, dice a qué contenedor va cada objeto. Pensado como un juego educativo para aprender a reciclar.">
+<meta property="og:url" content="https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/">
+<meta property="og:image" content="https://isabelamrein.github.io/Cuaderno/assets/og/es-p-clasificador-reciclaje.png">
+<meta property="og:locale" content="es">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Isabel Amrein De Luca">
+<link rel="alternate" type="application/rss+xml" title="Rumbo" href="/Cuaderno/es/rss.xml">
+<link rel="icon" type="image/svg+xml" href="/Cuaderno/assets/favicon.svg">
+<link rel="preload" href="/Cuaderno/assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/Cuaderno/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/Cuaderno/assets/style.css?v=28e6310a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Clasificador de reciclaje", "description": "Un modelo que, a partir de una foto, dice a qué contenedor va cada objeto. Pensado como un juego educativo para aprender a reciclar.", "inLanguage": "es", "dateCreated": "2026-10-12", "dateModified": "2026-10-12", "keywords": "Teachable Machine, Custom AI, Imágenes", "image": "https://isabelamrein.github.io/Cuaderno/assets/og/es-p-clasificador-reciclaje.png", "mainEntityOfPage": "https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/", "author": {"@type": "Person", "name": "Isabel Amrein De Luca", "jobTitle": "Lending Product Manager", "sameAs": ["https://www.linkedin.com/in/isabel-amrein-de-luca"]}}</script>
+</head>
+<body class="accent-moss">
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site-head"><div class="wrap">
+<span class="brandbox"><a class="brand" href="/Cuaderno/es/">Rumbo</a><span class="think" id="think" role="status" hidden><canvas aria-hidden="true"></canvas><span>Pensando…</span></span></span>
+<nav class="nav" aria-label="Principal"><a href="/Cuaderno/es/proyectos/" aria-current=page>Proyectos</a><a href="/Cuaderno/es/blog/">Entradas</a><a href="/Cuaderno/es/about/">Sobre mí</a><a href="/Cuaderno/en/projects/recycling-classifier/" hreflang="en" lang="en">English</a><button class="icon-btn" type="button" data-theme-toggle aria-label="Tema">Tema</button></nav>
+</div></header>
+<main id="main">
+<article>
+<header class="post-head"><div class="wrap"><div>
+<div class="post-meta"><span class="chip status s-en-marcha"><canvas class="orb-live" aria-hidden="true"></canvas>En marcha</span><time datetime="2026-10-12">Actualizado 12 oct 2026</time></div>
+<h1>Clasificador de reciclaje</h1><p class="subtitle">¿En qué contenedor va esto? Una foto y una respuesta</p><div class="tags"><span>Teachable Machine</span><span>Custom AI</span><span>Imágenes</span></div></div><svg class="motif" viewBox="84 28 508 304" aria-hidden="true" focusable="false"><rect x="0" y="0" width="680" height="370" rx="12" fill="#0F1E1F"/><g fill="#E9EDEA" fill-opacity=".5"><circle cx="40" cy="30" r="1.8"/><circle cx="120" cy="60" r="1.8"/><circle cx="300" cy="26" r="1.8"/><circle cx="420" cy="40" r="1.8"/><circle cx="600" cy="34" r="1.8"/><circle cx="640" cy="90" r="1.8"/><circle cx="70" cy="120" r="1.8"/></g><rect x="0" y="318" width="680" height="52" rx="12" fill="#0B1413"/><rect x="0" y="318" width="680" height="14" fill="#0B1413"/><ellipse cx="155" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="105,160 205,160 197,316 113,316" fill="#E3B72E"/><polygon points="171,160 205,160 197,316 167,316" fill="#B8912A"/><polygon points="111,166 121,166 127,310 117,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="139" y="130" width="32" height="12" rx="5" fill="#F2CD54"/><rect x="99" y="140" width="112" height="22" rx="6" fill="#F2CD54"/><rect x="99" y="154" width="112" height="8" rx="4" fill="#B8912A" fill-opacity=".55"/><circle cx="123" cy="316" r="7" fill="#1B201E"/><circle cx="187" cy="316" r="7" fill="#1B201E"/><ellipse cx="275" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="225,160 325,160 317,316 233,316" fill="#3F73C4"/><polygon points="291,160 325,160 317,316 287,316" fill="#2F5896"/><polygon points="231,166 241,166 247,310 237,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="259" y="130" width="32" height="12" rx="5" fill="#5E92E0"/><rect x="219" y="140" width="112" height="22" rx="6" fill="#5E92E0"/><rect x="219" y="154" width="112" height="8" rx="4" fill="#2F5896" fill-opacity=".55"/><circle cx="243" cy="316" r="7" fill="#1B201E"/><circle cx="307" cy="316" r="7" fill="#1B201E"/><ellipse cx="395" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="345,160 445,160 437,316 353,316" fill="#3E9A5A"/><polygon points="411,160 445,160 437,316 407,316" fill="#2F7544"/><polygon points="351,166 361,166 367,310 357,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="379" y="130" width="32" height="12" rx="5" fill="#5CB878"/><rect x="339" y="140" width="112" height="22" rx="6" fill="#5CB878"/><rect x="339" y="154" width="112" height="8" rx="4" fill="#2F7544" fill-opacity=".55"/><circle cx="363" cy="316" r="7" fill="#1B201E"/><circle cx="427" cy="316" r="7" fill="#1B201E"/><ellipse cx="515" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/><polygon points="465,160 565,160 557,316 473,316" fill="#7D8789"/><polygon points="531,160 565,160 557,316 527,316" fill="#5E686A"/><polygon points="471,166 481,166 487,310 477,310" fill="#FFFFFF" fill-opacity=".14"/><rect x="499" y="130" width="32" height="12" rx="5" fill="#A0AAAC"/><rect x="459" y="140" width="112" height="22" rx="6" fill="#A0AAAC"/><rect x="459" y="154" width="112" height="8" rx="4" fill="#5E686A" fill-opacity=".55"/><circle cx="483" cy="316" r="7" fill="#1B201E"/><circle cx="547" cy="316" r="7" fill="#1B201E"/><g fill="#F4FBFA" fill-opacity=".92"><rect x="143" y="214" width="24" height="34" rx="3"/><ellipse cx="155" cy="214" rx="12" ry="3.5"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="261" y="208" width="28" height="38" rx="3"/></g><g stroke="#3F73C4" stroke-width="2.5" stroke-linecap="round"><line x1="267" y1="219" x2="283" y2="219"/><line x1="267" y1="227" x2="283" y2="227"/><line x1="267" y1="235" x2="278" y2="235"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="385" y="224" width="20" height="28" rx="4"/><rect x="391" y="210" width="8" height="16" rx="2"/></g><g fill="#F4FBFA" fill-opacity=".92"><rect x="501" y="216" width="28" height="32" rx="3"/></g><path d="M507 216 C507 204 523 204 523 216" fill="none" stroke="#F4FBFA" stroke-opacity=".92" stroke-width="3"/><g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="4" fill="#CFE9F5" fill-opacity=".92"/><rect x="157" y="50" width="6" height="14" rx="2" fill="#CFE9F5" fill-opacity=".92"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/></g><path d="M214 34 C200 62 186 94 170 126" fill="none" stroke="#6FE3C5" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><polygon points="170,128 163,114 177,116" fill="#6FE3C5"/></svg></div></header>
+<div class="prose"><h2>Qué quiero resolver</h2>
+<p>Casi todos los niños tienen un móvil o una tablet en casa, y apuntar a un objeto y ver la respuesta es una forma de aprender a reciclar jugando. Este proyecto construye ese modelo con una herramienta sin programación, para entender cómo se entrena y dónde falla.</p>
+<h2>Cómo lo construyo</h2>
+<ol>
+<li><strong>Definir las clases.</strong> En España, cuatro: contenedor amarillo (envases de plástico, latas y briks), azul (papel y cartón), verde (vidrio) y resto. Las normas varían según el municipio, así que es un punto de partida.</li>
+<li><strong>Reunir datos.</strong> Unas 50 fotos por clase con objetos de mi casa, variando fondo, luz y ángulo.</li>
+<li><strong>Entrenar y probar</strong> el modelo con objetos nuevos que no haya fotografiado antes.</li>
+<li><strong>Anotar dónde falla y por qué.</strong></li>
+</ol>
+<h2>Qué quiero comprobar</h2>
+<ul>
+<li><strong>Cuánto depende de los datos.</strong> Si todas las fotos tienen el mismo fondo, ¿qué está aprendiendo realmente el modelo?</li>
+<li><strong>Qué casos le confunden.</strong> Un brik parece cartón, pero va al contenedor amarillo.</li>
+<li><strong>Qué errores cuestan más.</strong> Meter en el amarillo algo que no es reciclable puede estropear el reciclaje del resto, mientras que dejar un envase reciclable en "resto" simplemente lo pierde. Es la lección de diseño de la entrada sobre Machine Learning, con mucho menos riesgo.</li>
+</ul>
+<h2>Con qué lo hago</h2>
+<p>Teachable Machine, una herramienta gratuita de Google que entrena modelos de clasificación de imágenes desde el navegador, sin programar. Corresponde al nivel <em>Custom AI</em> de la entrada sobre Machine Learning.</p>
+<h2>Resultados</h2>
+<p>Los publicaré aquí cuando termine las pruebas: cuántas fotos usé por clase, la precisión por clase, los casos que fallan y lo que aprendí.</p>
+<blockquote>
+<p>Es una herramienta educativa pensada para usar con un adulto cerca. No sustituye las indicaciones oficiales de cada municipio.</p>
+</blockquote></div>
+<section class="section related"><div class="wrap"><h2>Entradas relacionadas</h2><ul class="log"><li data-tags="machine-learning,fundamentos,data-science"><a class="log-row accent-aqua" href="/Cuaderno/es/blog/machine-learning-datos-escriben-reglas/"><time datetime="2026-10-11">11 oct 2026</time><div><h3>Machine Learning: cuando los datos escriben las reglas</h3><p>Qué es el Machine Learning, cómo se construye un proyecto de principio a fin y por qué entrenar el modelo es solo la punta del iceberg.</p><span class="tags"><span>machine-learning</span><span>fundamentos</span><span>data-science</span></span></div></a></li></ul></div></section>
+<footer class="post-foot"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/" target="_blank" rel="noopener">Compartir en LinkedIn</a><a href="/Cuaderno/es/proyectos/">Volver a los proyectos</a><a href="/Cuaderno/en/projects/recycling-classifier/" hreflang="en" lang="en">Read in English</a></footer>
+</article>
+</main>
+<footer class="site-foot"><div class="wrap">
+<span>© 2026 Isabel Amrein De Luca</span>
+<span style="display:flex;gap:1.5rem"><a href="https://www.linkedin.com/in/isabel-amrein-de-luca" rel="me noopener" target="_blank">LinkedIn</a> <a href="/Cuaderno/es/rss.xml">RSS</a></span>
+</div></footer>
+<script src="/Cuaderno/assets/vendor/thinking-orbs.js?v=5307696f" defer></script>
+<script src="/Cuaderno/assets/main.js?v=96c1e58c" defer></script>
+</body>
+</html>

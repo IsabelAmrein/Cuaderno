@@ -1,6 +1,8 @@
-# Cuaderno de Isabel
+# Rumbo
 
-Blog personal estático y bilingüe (español e inglés) sobre Data Science e IA generativa. Se genera con Python y se publica gratis en GitHub Pages.
+*Del dato al producto.* Sitio personal estático y bilingüe (español e inglés) de Isabel Amrein De Luca con proyectos y apuntes sobre datos, IA generativa y producto. Se genera con Python y se publica gratis en GitHub Pages.
+
+> Antes se llamaba «Cuaderno de Isabel». El repositorio y la dirección web siguen llamándose `Cuaderno` hasta que se decida si se cambian (ver el roadmap).
 
 - **Web:** https://isabelamrein.github.io/Cuaderno/
 - **Documentación completa:** [`documentacion/`](documentacion/README.md)
@@ -11,7 +13,7 @@ Blog personal estático y bilingüe (español e inglés) sobre Data Science e IA
 |---|---|
 | `content/` | Artículos, Sobre mí, componentes y arte |
 | `assets/` | Estilos, scripts, favicon y tipografías |
-| `herramientas/` | Generadores de diagramas e ilustraciones |
+| `herramientas/` | Generadores de diagramas e ilustraciones y la herramienta del Auditor |
 | `build.py` | Genera el sitio |
 | `site.json` | Configuración del sitio |
 | `docs/` | **Salida**: lo que publica GitHub Pages. No se edita a mano |
@@ -45,5 +47,8 @@ draft: false
 ```
 Los componentes se insertan con `{{include:nombre}}` (archivos en `content/es|en/snippets/`).
 
+## Indicador "pensando"
+Aparece junto al nombre del cuaderno si cargar o cambiar de página tarda más de 140 ms. Para verlo como demostración, añade `?orbs` a la dirección. Usa el motor de [thinking-orbs](https://github.com/Jakubantalik/thinking-orbs) (MIT), alojado en `assets/vendor`.
+
 ## Publicar
-Sigue [`documentacion/PUBLICAR.md`](documentacion/PUBLICAR.md) para no dejar archivos obsoletos en el repositorio.
+Antes de generar un zip se actualiza la documentación (`documentacion/CHANGELOG.md`). Para subirlo, sigue [`documentacion/PUBLICAR.md`](documentacion/PUBLICAR.md) y no dejarás archivos obsoletos en el repositorio.

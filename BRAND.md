@@ -1,6 +1,10 @@
-# Identidad visual: cuaderno de laboratorio, versión nocturna
+# Identidad visual de Rumbo
 
-**Idea:** un cuaderno de datos que se lee de noche. Fondo grafito con un punto cálido (sin azul), papel milimetrado muy tenue y un gráfico de puntos con su recta de regresión como símbolo. El aguamarina marca títulos, enlaces y detalles. Cada artículo hereda la estructura y puede cambiar su color de acento y su dibujo (generado a partir del identificador del artículo).
+**Nombre:** Rumbo. **Lema:** *Del dato al producto* (en inglés, *From data to product*). El símbolo es una montaña con un camino punteado y banderas: cada bandera es una entrada. Sustituye al antiguo nombre «Cuaderno de Isabel» y al gráfico de puntos con cuadrícula de la portada. **Sin cuadrículas** de fondo en ningún sitio.
+
+## Idea de la versión nocturna
+
+**Idea:** un sitio para construir y mostrar proyectos. Fondo grafito con un punto cálido (sin azul), aguamarina para lo que se lee o se pulsa, ilustraciones semirrealistas y la montaña con banderas como símbolo. Cada artículo hereda la estructura y puede cambiar su color de acento y su cabecera.
 
 El modo oscuro es el principal. El botón "Tema" ofrece una versión clara en tonos lino.
 
@@ -12,7 +16,6 @@ El modo oscuro es el principal. El botón "Tema" ofrece una versión clara en to
 | tinta `--ink` | #E9EDEA | #24302B | Texto y puntos |
 | tiza `--mute` | #98A39E | #5C6862 | Texto secundario, fechas |
 | línea `--line` | #2C3230 | #D9D5C7 | Reglas y bordes |
-| cuadrícula `--grid` | #1F2422 | #E4E0D3 | Papel milimetrado de la portada |
 
 **Acentos por artículo** (campo `accent`, oscuro / claro): `aqua` #6FE3C5 / #0B7A66 (por defecto), `sand` #D9B25F / #8F6A12, `coral` #F29277 / #B4492F, `violet` #B79BFF / #6A3DC4, `rose` #F08AB0 / #A8325F, `moss` #9BD774 / #3F7D20.
 
@@ -40,7 +43,7 @@ Escala (×1.25): 14 / 18 / 22 / 28 / 36 px y un título de portada fluido de 34 
 6. Accesible: foco visible, contraste AA, navegable con teclado, modo oscuro y claro.
 
 ## Voz
-Primera persona, frases directas, ejemplos propios. Ningún material del máster se copia: se usa como referencia y se reconstruye con mini proyectos propios.
+Primera persona, frases directas, ejemplos propios. Ningún material de la formación se copia: se usa como referencia y se reconstruye con proyectos pequeños propios.
 
 ## Ilustraciones, fotos y gráficos (norma para todo lo que añadamos)
 1. **Estilo semirrealista.** Todo gráfico, dibujo o imagen nuevo se hace con volumen: luz desde arriba a la izquierda, caras claras y oscuras, sombras bajo los objetos y detalles (brillos, pepitas, burbujas). Se construye con capas de formas opacas, sin degradados ni filtros, para que sea ligero y nítido en cualquier pantalla.
@@ -50,8 +53,26 @@ Primera persona, frases directas, ejemplos propios. Ningún material del máster
 5. **Fotos reales** (propias): sin caras de terceros ni niños, sin material confidencial ni datos internos de ninguna empresa, sin ubicación en los metadatos, optimizadas (menos de 200 KB) y con texto alternativo.
 6. **Accesibilidad:** cada gráfico lleva descripción (`aria-label` o texto alternativo) y las ilustraciones decorativas se marcan como tales.
 
+## Navegación y proyectos
+- **Menú:** Proyectos, Entradas y Sobre mí. La portada muestra los proyectos como banderas de la montaña.
+- **Estado de un proyecto**, como una etiqueta redonda: *en marcha* (contorno en el color de acento y un pequeño orbe en movimiento dentro), *terminado* (relleno) e *idea* (contorno punteado). El orbe es el mismo estado *composing* del indicador «Pensando…», a 20 px y en el color de acento de cada proyecto.
+- **Cada proyecto** lleva su propia ilustración de cabecera y su color de acento (por ejemplo, verde para el reciclaje).
+- **El programa actual de aprendizaje** se llama «Formación en Data Science e IA». No se usa la palabra «máster» para él.
+
 ## Animaciones
 - **Solo si ayudan a entender:** los títulos y párrafos aparecen suavemente al hacer scroll, las siete cajitas se construyen por partes y la aguja de la brújula se orienta hacia la meta.
 - **Las ilustraciones del iceberg, la montaña y la receta de galletas se quedan quietas**, porque ya llevan mucha información.
-- **Respetan `reducir movimiento`:** si el sistema lo pide, no se activa ninguna animación y todo se ve completo y estático.
-- **Ligeras:** CSS más un script mínimo, sin librerías.
+- **Respetan `reducir movimiento` con una versión más suave, no con cero:** si el sistema lo pide, los textos y las cajitas aparecen con un desvanecimiento breve (200 ms), sin desplazarse, girar ni escalarse; la brújula se queda quieta ya orientada y el orbe muestra un fotograma fijo.
+- **Ligeras:** CSS más un script mínimo.
+- **Indicador "pensando":** un pequeño orbe en movimiento (el estado *composing*: una banda ondulante de puntos, de 32 px) en aguamarina junto al nombre del cuaderno, con el texto "Pensando…" o "Thinking…". Usa el motor de [thinking-orbs](https://github.com/Jakubantalik/thinking-orbs) (Jakub Antalik, licencia MIT), alojado en `assets/vendor`. Solo aparece si cargar o cambiar de página tarda más de 140 ms; no retrasa nada. Para verlo 4 segundos, añade `?orbs` a cualquier dirección.
+
+### Reglas de movimiento
+Basadas en la revisión de las skills de Emil Kowalski (ver `documentacion/auditorias`).
+- Duraciones cortas: entre 150 y 250 ms para la interfaz. Solo se alarga con un motivo, como el giro decorativo de la brújula.
+- Una curva decidida: `--ease-out: cubic-bezier(.23, 1, .32, 1)`. No la curva `ease` por defecto en lo deliberado.
+- Solo se animan `transform` y `opacity`; nunca `width`, `height`, `margin` o `top`.
+- Nada nace de escala 0: se empieza en 0,95 con transparencia.
+- Escalonado entre elementos de 30 a 80 ms (usamos 60 ms).
+- Nunca `transition: all`; se nombran las propiedades.
+- `reducir movimiento` forma parte de la misma animación y da una versión suave, no cero.
+- No se instala una librería de movimiento para lo que se resuelve con CSS.

@@ -4,12 +4,13 @@ title: "Estrategia de datos: primero el propósito, después el plan"
 date: 2026-10-11
 order: 1
 accent: aqua
+projects: [formacion]
 hero: compass
 quote: No hay viento favorable para el que no sabe dónde va.
 teacher: Rafael Fernández Campos
 tags: [estrategia-de-datos, data-driven, fundamentos]
 summary: Una estrategia de datos es un propósito más un plan. Cómo situar una organización según su madurez y por qué el dato solo genera valor si lo entiende quien lo usa.
-linkedin: «No hay viento favorable para el que no sabe dónde va.» Mi segunda clase del máster fue sobre estrategia de datos, y la idea es sencilla - primero el propósito, después el plan. Cuento cómo situar una organización (control, optimización, transformación), las herramientas de diagnóstico del Club de CDOs y mi proyecto para acercar el dato a marketing y ventas.
+linkedin: «No hay viento favorable para el que no sabe dónde va.» Mi segunda clase de Data Science e IA generativa fue sobre estrategia de datos, y la idea es sencilla - primero el propósito, después el plan. Cuento cómo situar una organización (control, optimización, transformación), las herramientas de diagnóstico del Club de CDOs y mi proyecto para acercar el dato a marketing y ventas.
 ---
 
 Esta clase me costó al principio: durante la primera parte no tenía claro a dónde queríamos llegar. Al final todo encajó y me dejó una idea que sirve igual para un proyecto que para un equipo entero: antes de hablar de datos, hay que saber para qué.

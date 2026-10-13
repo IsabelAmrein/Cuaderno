@@ -9,23 +9,27 @@
     "en"
   ],
   "title": {
-    "es": "Cuaderno de Isabel",
-    "en": "Isabel's notebook"
+    "es": "Rumbo",
+    "en": "Rumbo"
   },
   "hero": {
-    "es": "Aprendo datos e IA generativa y lo dejo por escrito.",
-    "en": "I'm learning data and generative AI, and writing it down."
+    "es": "Del dato al producto",
+    "en": "From data to product"
   },
   "intro": {
-    "es": "Apuntes, mini proyectos y errores de mi máster en Data Science e IA generativa, y lo que venga después.",
-    "en": "Notes, mini projects and mistakes from my master's in Data Science and generative AI, and whatever comes next."
+    "es": "Proyectos y apuntes sobre datos, IA generativa y producto, con ejemplos propios y lo que voy aprendiendo por el camino.",
+    "en": "Projects and notes on data, generative AI and product, with my own examples and what I learn along the way."
   },
   "description": {
-    "es": "Cuaderno público de Isabel Amrein De Luca, Lending Product Manager con formación en estadística: apuntes y mini proyectos de Data Science e IA generativa.",
-    "en": "Public notebook by Isabel Amrein De Luca, a Lending Product Manager with a statistics background: notes and mini projects on Data Science and generative AI."
+    "es": "Rumbo: proyectos y apuntes de Isabel Amrein De Luca, Lending Product Manager con formación en estadística, sobre datos, IA generativa y producto.",
+    "en": "Rumbo: projects and notes by Isabel Amrein De Luca, a Lending Product Manager with a statistics background, on data, generative AI and product."
   },
   "job_title": {
     "es": "Lending Product Manager",
     "en": "Lending Product Manager"
+  },
+  "tagline": {
+    "es": "Del dato al producto",
+    "en": "From data to product"
   }
 }

@@ -1,6 +1,0 @@
-For the next 9 months I'll be writing in public about what I learn in my master's in Data Science and generative AI. Here's the idea and the rules I'm setting myself.
-
-Full write-up in the notebook:
-https://isabelamrein.github.io/Cuaderno/en/blog/welcome/
-
-#Meta #Learning
