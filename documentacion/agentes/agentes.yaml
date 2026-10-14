@@ -1,4 +1,4 @@
-# Equipo de agentes de Rumbo. Se genera con herramientas/generar_agentes.py a partir de las fichas de subagentes/. No se edita a mano.
+# Equipo de agentes del sitio. Se genera con herramientas/generar_agentes.py a partir de las fichas de subagentes/. No se edita a mano.
 arquitecto:
   nombre: Arquitecto
   mision: Coordinar el proyecto, descomponer objetivos en mini objetivos, asignarlos, controlar las reglas y aprobar cada versión.

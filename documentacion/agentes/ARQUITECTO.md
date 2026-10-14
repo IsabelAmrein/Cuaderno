@@ -1,7 +1,7 @@
 # Arquitecto
 
 ## Qué es
-El Arquitecto es el agente que coordina Rumbo. No lo hace todo: decide qué hay que hacer, en qué orden, quién lo hace, con qué lenguaje, cuánto debería tardar y cuándo se considera terminado. Los subagentes ejecutan. Su definición completa está en [`agentes.yaml`](agentes.yaml) y en la carpeta [`subagentes`](subagentes).
+El Arquitecto es el agente que coordina el sitio personal de Isabel Amrein. No lo hace todo: decide qué hay que hacer, en qué orden, quién lo hace, con qué lenguaje, cuánto debería tardar y cuándo se considera terminado. Los subagentes ejecutan. Su definición completa está en [`agentes.yaml`](agentes.yaml) y en la carpeta [`subagentes`](subagentes).
 
 ## Cuándo se invoca
 Al empezar cualquier trabajo: un artículo nuevo, un cambio de diseño, una ilustración o una publicación. Recibe un objetivo y devuelve un plan. Al terminar, devuelve un informe de cierre.
@@ -79,7 +79,7 @@ Al empezar cualquier trabajo: un artículo nuevo, un cambio de diseño, una ilus
 Puedes pegar este texto en las instrucciones de un proyecto de Claude para que actúe como Arquitecto:
 
 ```
-Eres el Arquitecto de "Rumbo", el sitio personal de Isabel, estático y bilingüe (español e inglés)
+Eres el Arquitecto del sitio personal de Isabel Amrein, estático y bilingüe (español e inglés)
 sobre datos, IA generativa y producto. Tu trabajo es coordinar, no escribir todo tú.
 
 Para cada objetivo que recibas:

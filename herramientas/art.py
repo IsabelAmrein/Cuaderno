@@ -58,44 +58,88 @@ def recipe_icon(cx, cy):
 
 
 # ---------- brújula ----------
+CP_DEFS = ('<defs>'
+           '<linearGradient id="cp-bezel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FAFCFC"/><stop offset=".28" stop-color="#9CA6AA"/><stop offset=".52" stop-color="#E6EBED"/><stop offset=".78" stop-color="#6F797D"/><stop offset="1" stop-color="#C9D0D3"/></linearGradient>'
+           '<linearGradient id="cp-bezel2" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#788286"/><stop offset="1" stop-color="#2F3638"/></linearGradient>'
+           '<radialGradient id="cp-face" cx=".4" cy=".34" r=".8"><stop offset="0" stop-color="#37443F"/><stop offset=".6" stop-color="#1B221F"/><stop offset="1" stop-color="#0C100F"/></radialGradient>'
+           '<linearGradient id="cp-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".26"/><stop offset=".42" stop-color="#FFFFFF" stop-opacity=".04"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>'
+           '<linearGradient id="cp-nl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6FFF1"/><stop offset="1" stop-color="#6FE3C5"/></linearGradient>'
+           '<linearGradient id="cp-nr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#37BFA0"/><stop offset="1" stop-color="#1B6B5C"/></linearGradient>'
+           '<linearGradient id="cp-sl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C5CDCA"/></linearGradient>'
+           '<linearGradient id="cp-sr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#AEB8B5"/><stop offset="1" stop-color="#737D7A"/></linearGradient>'
+           '<radialGradient id="cp-cap" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#F4F7F8"/><stop offset="1" stop-color="#7F898D"/></radialGradient>'
+           '<radialGradient id="cp-shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>'
+           '<radialGradient id="cp-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#A9F6E2" stop-opacity=".55"/><stop offset="1" stop-color="#6FE3C5" stop-opacity="0"/></radialGradient>'
+           '<linearGradient id="cp-flag" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A9F6E2"/><stop offset="1" stop-color="#38C3A2"/></linearGradient>'
+           '<radialGradient id="cp-vg" cx=".5" cy=".5" r=".78"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>'
+           '</defs>')
+
+
 def compass_scene(deco=True, crop=False):
-    b = ('<rect x="0" y="0" width="680" height="370" rx="12" fill="#151716"/>'
-         '<ellipse cx="340" cy="328" rx="128" ry="16" fill="#000" fill-opacity=".4"/>'
-         '<circle cx="340" cy="180" r="134" fill="#8B9599"/><circle cx="340" cy="180" r="124" fill="#C3CBCE"/>'
-         '<path d="M224.4 137.9 A123 123 0 0 1 382.1 64.4" fill="none" stroke="#F1F5F6" stroke-width="9" stroke-linecap="round"/>'
-         '<path d="M455.6 222.1 A123 123 0 0 1 297.9 295.6" fill="none" stroke="#5E686C" stroke-width="9" stroke-linecap="round"/>'
-         '<circle cx="340" cy="180" r="112" fill="#7C868A"/><circle cx="340" cy="180" r="106" fill="#1B201E"/>'
+    b = (CP_DEFS + '<rect x="0" y="0" width="680" height="370" rx="12" fill="#151716"/>'
+         '<ellipse cx="340" cy="334" rx="150" ry="20" fill="url(#cp-shadow)"/>'
+         '<circle cx="512" cy="52" r="62" fill="url(#cp-glow)"/>'
+         '<circle cx="340" cy="180" r="134" fill="url(#cp-bezel)"/><circle cx="340" cy="180" r="124" fill="url(#cp-bezel2)"/>'
+         '<path d="M224.4 137.9 A123 123 0 0 1 382.1 64.4" fill="none" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="7" stroke-linecap="round"/>'
+         '<path d="M455.6 222.1 A123 123 0 0 1 297.9 295.6" fill="none" stroke="#000000" stroke-opacity=".35" stroke-width="7" stroke-linecap="round"/>'
+         + "".join(f'<circle cx="340" cy="180" r="{r}" fill="none" stroke="#FFFFFF" stroke-opacity=".09" stroke-width=".8"/>' for r in (118, 121, 128, 131)) +
+         "".join(f'<g transform="rotate({a} 340 180)"><circle cx="340" cy="63" r="4.6" fill="#8D979B"/><circle cx="340" cy="63" r="4.6" fill="none" stroke="#000" stroke-opacity=".35"/><line x1="337.4" y1="60.6" x2="342.6" y2="65.4" stroke="#2B3234" stroke-width="1.4" stroke-linecap="round"/></g>' for a in (45, 135, 225, 315)) +
+         '<circle cx="340" cy="180" r="114" fill="#0A0D0C"/><circle cx="340" cy="180" r="108" fill="url(#cp-face)"/>'
          '<g transform="rotate(-90 340 180)"><circle cx="340" cy="180" r="96" fill="none" stroke="#8FA09A" stroke-width="10" stroke-dasharray="2.4 15.05" stroke-dashoffset="1.2"/>'
          '<circle cx="340" cy="180" r="96" fill="none" stroke="#6FE3C5" stroke-width="16" stroke-dasharray="3.5 48.86" stroke-dashoffset="1.75"/></g>'
-         '<circle cx="340" cy="180" r="72" fill="none" stroke="#2C3230" stroke-width="2"/>'
+         '<circle cx="340" cy="180" r="72" fill="none" stroke="#FFFFFF" stroke-opacity=".08" stroke-width="2"/>'
          '<polygon points="340,84 331,102 349,102" fill="#6FE3C5"/>'
-         '<g class="cp-needle" transform="rotate(55 340 180)"><polygon points="340,100 326,180 340,180" fill="#7EF0D6"/><polygon points="340,100 354,180 340,180" fill="#2FA88F"/>'
-         '<polygon points="340,260 326,180 340,180" fill="#E4E9E7"/><polygon points="340,260 354,180 340,180" fill="#9AA3A0"/></g>'
-         '<circle cx="340" cy="180" r="11" fill="#AEB7BA" stroke="#6E787C" stroke-width="2"/><circle cx="340" cy="180" r="4.5" fill="#1B201E"/><circle cx="337" cy="176" r="2" fill="#FFFFFF"/>'
-         '<ellipse cx="294" cy="126" rx="72" ry="30" transform="rotate(-32 294 126)" fill="#FFFFFF" fill-opacity=".09"/>'
-         '<path d="M258 120 A92 92 0 0 1 330 92" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/>'
-         '<circle class="cp-dot" style="--d:1.20s" cx="414.0" cy="128.0" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.32s" cx="429.3" cy="117.3" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.44s" cx="444.7" cy="106.7" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.56s" cx="460.0" cy="96.0" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.68s" cx="475.3" cy="85.3" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.80s" cx="490.7" cy="74.7" r="3.2" fill="#6FE3C5"/><circle class="cp-dot" style="--d:1.92s" cx="506.0" cy="64.0" r="3.2" fill="#6FE3C5"/>'
-         '<ellipse cx="512" cy="62" rx="14" ry="5" fill="#000" fill-opacity=".35"/>'
-         '<g class="cp-flag"><line x1="512" y1="60" x2="512" y2="20" stroke="#E9EDEA" stroke-width="3.5" stroke-linecap="round"/><polygon points="512,20 546,31 512,42" fill="#6FE3C5"/></g>')
+         '<ellipse cx="344" cy="188" rx="15" ry="9" fill="#000" fill-opacity=".35" transform="rotate(55 340 180)"/>'
+         '<g class="cp-needle" transform="rotate(55 340 180)"><polygon points="340,100 326,180 340,180" fill="url(#cp-nl)"/><polygon points="340,100 354,180 340,180" fill="url(#cp-nr)"/>'
+         '<polygon points="340,260 326,180 340,180" fill="url(#cp-sl)"/><polygon points="340,260 354,180 340,180" fill="url(#cp-sr)"/></g>'
+         '<circle cx="340" cy="180" r="11" fill="url(#cp-cap)" stroke="#5E686C" stroke-width="1.5"/><circle cx="340" cy="180" r="4.5" fill="#141918"/><circle cx="337" cy="176.5" r="2" fill="#FFFFFF"/>'
+         '<circle cx="340" cy="180" r="108" fill="url(#cp-glass)"/>'
+         '<path d="M258 120 A92 92 0 0 1 330 92" fill="none" stroke="#FFFFFF" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>')
+    b += "".join(f'<circle class="cp-dot" style="--d:{1.2+0.12*i:.2f}s" cx="{414+92*i/6:.1f}" cy="{128-64*i/6:.1f}" r="3.2" fill="#6FE3C5"/>' for i in range(7))
+    b += ('<ellipse cx="512" cy="62" rx="14" ry="5" fill="#000" fill-opacity=".4"/>'
+          '<g class="cp-flag"><line x1="512" y1="60" x2="512" y2="20" stroke="#E9EDEA" stroke-width="3.5" stroke-linecap="round"/><polygon points="512,20 546,31 512,42" fill="url(#cp-flag)"/></g>')
+    b += '<rect x="0" y="0" width="680" height="370" rx="12" fill="url(#cp-vg)" pointer-events="none"/>'
     return _svg(680, 370, b, "Brújula con aro metálico y aguja en aguamarina", "Ilustración semirrealista de una brújula.", deco, vb="196 10 372 350" if crop else None)
 
 
 # ---------- iceberg ----------
-TIP = ('<polygon points="225,172 275,97 300,117 355,47 420,172" fill="#CDEAEA"/><polygon points="355,47 300,117 285,172 345,172" fill="#F4FBFA"/>'
-       '<polygon points="355,47 345,172 420,172" fill="#A5D8DB"/><polygon points="275,97 300,117 285,172 225,172" fill="#CDEAEA"/>'
-       '<polygon points="300,117 322,130 312,172 285,172" fill="#8CC3C9"/>'
-       '<rect x="0" y="172" width="680" height="3" fill="#BFF4EA" fill-opacity=".7"/>'
+ICE_DEFS = ('<defs>'
+            '<linearGradient id="ic-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#081A1D"/><stop offset="1" stop-color="#153C3D"/></linearGradient>'
+            '<linearGradient id="ic-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#136269"/><stop offset=".45" stop-color="#0B3F46"/><stop offset="1" stop-color="#051D22"/></linearGradient>'
+            '<linearGradient id="ic-mass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8BE6DB" stop-opacity=".62"/><stop offset="1" stop-color="#2D9AA0" stop-opacity=".1"/></linearGradient>'
+            '<linearGradient id="ic-f1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6EFF0"/></linearGradient>'
+            '<linearGradient id="ic-f2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C3E8EA"/><stop offset="1" stop-color="#7DB8BE"/></linearGradient>'
+            '<linearGradient id="ic-f3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E4F5F6"/><stop offset="1" stop-color="#A3D2D7"/></linearGradient>'
+            '<linearGradient id="ic-f4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9BCFD4"/><stop offset="1" stop-color="#6FA7AD"/></linearGradient>'
+            '<linearGradient id="ic-ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFF4EA" stop-opacity=".28"/><stop offset="1" stop-color="#BFF4EA" stop-opacity="0"/></linearGradient>'
+            '<radialGradient id="ic-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E4FFF8" stop-opacity=".95"/><stop offset="1" stop-color="#6FE3C5" stop-opacity="0"/></radialGradient>'
+            '<radialGradient id="ic-soft" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#BFF4EA" stop-opacity=".38"/><stop offset="1" stop-color="#BFF4EA" stop-opacity="0"/></radialGradient>'
+            '<radialGradient id="ic-vg" cx=".5" cy=".5" r=".78"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>'
+            '</defs>')
+TIP = ('<polygon points="225,172 275,97 300,117 355,47 420,172" fill="url(#ic-f3)"/><polygon points="355,47 300,117 285,172 345,172" fill="url(#ic-f1)"/>'
+       '<polygon points="355,47 345,172 420,172" fill="url(#ic-f2)"/><polygon points="275,97 300,117 285,172 225,172" fill="url(#ic-f3)"/>'
+       '<polygon points="300,117 322,130 312,172 285,172" fill="url(#ic-f4)"/>'
+       '<polyline points="225,172 275,97 300,117 355,47 420,172" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="1.4" stroke-linejoin="round"/>'
+       '<ellipse cx="322" cy="176" rx="150" ry="11" fill="url(#ic-soft)"/>'
+       '<rect x="0" y="172" width="680" height="2.5" fill="#BFF4EA" fill-opacity=".7"/>'
        '<g fill="#BFF4EA" fill-opacity=".35"><rect x="120" y="182" width="80" height="2"/><rect x="470" y="184" width="100" height="2"/><rect x="200" y="192" width="50" height="2"/><rect x="500" y="196" width="60" height="2"/></g>')
 
 
 def iceberg_scene(deco=True):
-    b = ('<rect x="0" y="0" width="680" height="400" rx="12" fill="#0F1E1F"/><rect x="0" y="172" width="680" height="228" fill="#0E4A50"/>'
-         '<rect x="0" y="262" width="680" height="138" fill="#0A3C42"/><rect x="0" y="332" width="680" height="68" fill="#072C31"/>'
-         '<polygon points="200,174 445,174 500,217 485,292 380,337 250,344 175,292 160,217" fill="#5FC4C0" fill-opacity=".55"/>'
-         '<polygon points="300,174 445,174 500,217 380,252" fill="#7EDAD4" fill-opacity=".35"/><polygon points="160,217 200,174 300,174 250,262" fill="#3FA9A8" fill-opacity=".35"/>'
-         '<polygon points="250,344 380,337 380,252 250,262 175,292" fill="#2E8E90" fill-opacity=".3"/>'
-         '<g fill="#D8FFF7" fill-opacity=".7">' + "".join(f'<circle cx="{x}" cy="{y}" r="{r}"/>' for x, y, r in
-          [(250, 215, 4), (310, 238, 3), (360, 205, 4), (420, 232, 3), (465, 250, 4), (215, 262, 3), (290, 290, 4), (345, 272, 3), (410, 300, 4), (320, 320, 3), (380, 228, 3), (270, 248, 3)]) + "</g>" + TIP)
+    bub = [(250, 215, 4), (310, 238, 3), (360, 205, 4), (420, 232, 3), (465, 250, 4), (215, 262, 3), (290, 290, 4), (345, 272, 3), (410, 300, 4), (320, 320, 3), (380, 228, 3), (270, 248, 3)]
+    b = (ICE_DEFS + '<rect x="0" y="0" width="680" height="400" rx="12" fill="url(#ic-sky)"/>'
+         '<g fill="#E9EDEA" fill-opacity=".55">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.6"/>' for x, y in [(40, 30), (110, 70), (180, 24), (520, 36), (600, 80), (640, 30), (70, 120)]) + '</g>'
+         '<circle cx="560" cy="64" r="60" fill="url(#ic-soft)"/><circle cx="560" cy="64" r="15" fill="#EAF7F3"/>'
+         '<rect x="0" y="172" width="680" height="228" fill="url(#ic-water)"/>'
+         '<polygon points="300,174 340,174 250,360 170,360" fill="url(#ic-ray)"/><polygon points="360,174 400,174 470,360 400,360" fill="url(#ic-ray)" fill-opacity=".8"/>'
+         '<polygon points="200,174 445,174 500,217 485,292 380,337 250,344 175,292 160,217" fill="url(#ic-mass)"/>'
+         '<polygon points="300,174 445,174 500,217 380,252" fill="#9FEEE3" fill-opacity=".2"/><polygon points="160,217 200,174 300,174 250,262" fill="#5FD0C9" fill-opacity=".16"/>'
+         '<polygon points="250,344 380,337 380,252 250,262 175,292" fill="#1E7F84" fill-opacity=".22"/>'
+         '<polyline points="200,174 160,217 175,292 250,344 380,337 485,292 500,217 445,174" fill="none" stroke="#BFF4EA" stroke-opacity=".28" stroke-width="1.2" stroke-linejoin="round"/>'
+         + "".join(f'<g><circle cx="{x}" cy="{y}" r="{r*3.2:.1f}" fill="url(#ic-glow)" opacity=".5"/><circle cx="{x}" cy="{y}" r="{r}" fill="#E4FFF8" fill-opacity=".85"/></g>' for x, y, r in bub) + TIP
+         + '<g fill="none" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"><polyline points="318,176 332,230 318,262"/><polyline points="372,178 360,236 382,284"/><polyline points="250,190 262,226"/></g>'
+         '<polyline points="355,47 346,86 352,112" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="1.6" stroke-linecap="round"/>'
+         '<rect x="0" y="0" width="680" height="400" rx="12" fill="url(#ic-vg)" pointer-events="none"/>')
     return _svg(680, 400, b, "Iceberg con burbujas de datos bajo el agua", "Ilustración semirrealista de un iceberg.", deco)
 
 
@@ -108,11 +152,11 @@ def iceberg_diagram(lang):
                     tip=("Model", "code"), seen="What you see", below="What has to be maintained",
                     label="Iceberg: above the water, the model code; below it, data collection and verification, feature extraction, configuration, resource management, analysis tools, serving infrastructure and monitoring.",
                     cap="Building the model is only the tip: most of the work is under the water.")}[lang]
-    b = ('<rect x="0" y="0" width="680" height="572" rx="12" fill="#0F1E1F"/><rect x="0" y="172" width="680" height="400" fill="#0E4A50"/>'
-         '<rect x="0" y="300" width="680" height="272" fill="#0A3C42"/><rect x="0" y="440" width="680" height="132" fill="#072C31"/>'
-         '<polygon points="150,174 530,174 640,230 650,430 560,512 130,522 30,440 40,230" fill="#5FC4C0" fill-opacity=".45"/>'
-         '<polygon points="300,174 530,174 640,230 450,290" fill="#7EDAD4" fill-opacity=".3"/><polygon points="40,230 150,174 300,174 240,300" fill="#3FA9A8" fill-opacity=".3"/>'
-         '<polygon points="130,522 560,512 450,290 240,300 30,440" fill="#2E8E90" fill-opacity=".25"/>' + TIP)
+    b = (ICE_DEFS + '<rect x="0" y="0" width="680" height="572" rx="12" fill="url(#ic-sky)"/><rect x="0" y="172" width="680" height="400" fill="url(#ic-water)"/>'
+         '<polygon points="150,174 530,174 640,230 650,430 560,512 130,522 30,440 40,230" fill="url(#ic-mass)"/>'
+         '<polygon points="300,174 530,174 640,230 450,290" fill="#9FEEE3" fill-opacity=".18"/><polygon points="40,230 150,174 300,174 240,300" fill="#5FD0C9" fill-opacity=".14"/>'
+         '<polygon points="130,522 560,512 450,290 240,300 30,440" fill="#1E7F84" fill-opacity=".2"/>'
+         '<polyline points="150,174 40,230 30,440 130,522 560,512 650,430 640,230 530,174" fill="none" stroke="#BFF4EA" stroke-opacity=".28" stroke-width="1.2" stroke-linejoin="round"/>' + TIP)
     b += f'<text x="470" y="98" fill="#6FE3C5" style="{UI};font-size:26px;font-weight:600">{L["tip"][0]}</text><text x="470" y="128" fill="#6FE3C5" style="{UI};font-size:26px;font-weight:600">{L["tip"][1]}</text>'
     b += f'<text x="20" y="156" fill="#98A39E" style="{UI};font-size:19px">{L["seen"]}</text>'
     for i, c in enumerate(L["chips"]):
@@ -125,20 +169,38 @@ def iceberg_diagram(lang):
 
 # ---------- montaña ----------
 def mountain_scene(deco=True):
-    b = ('<rect x="0" y="0" width="680" height="330" rx="12" fill="#0F1E1F"/>' + _mountain_body())
+    b = (MT_DEFS + '<rect x="0" y="0" width="680" height="330" rx="12" fill="url(#mt-sky)"/>' + _mountain_body())
+    b += '<rect x="0" y="0" width="680" height="330" rx="12" fill="url(#mt-vg)" pointer-events="none"/>'
     return _svg(680, 330, b, "Montaña con camino y bandera", "Ilustración semirrealista de una montaña nevada con camino y campamentos.", deco)
+
+
+MT_DEFS = ('<defs>'
+           '<linearGradient id="mt-far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27504F"/><stop offset="1" stop-color="#112B2C"/></linearGradient>'
+           '<linearGradient id="mt-lit" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#CBD6D1"/><stop offset=".55" stop-color="#8E9B96"/><stop offset="1" stop-color="#5B6864"/></linearGradient>'
+           '<linearGradient id="mt-mid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9AA7A2"/><stop offset="1" stop-color="#52605C"/></linearGradient>'
+           '<linearGradient id="mt-shade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#586461"/><stop offset="1" stop-color="#232C2B"/></linearGradient>'
+           '<linearGradient id="mt-snow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D1E6E8"/></linearGradient>'
+           '<linearGradient id="mt-snow2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9DFE2"/><stop offset="1" stop-color="#86ADB4"/></linearGradient>'
+           '<linearGradient id="mt-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08171A"/><stop offset="1" stop-color="#123231"/></linearGradient>'
+           '<radialGradient id="mt-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#A9F6E2" stop-opacity=".55"/><stop offset="1" stop-color="#6FE3C5" stop-opacity="0"/></radialGradient>'
+           '<radialGradient id="mt-mist" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E9FFF8" stop-opacity=".22"/><stop offset="1" stop-color="#E9FFF8" stop-opacity="0"/></radialGradient>'
+           '<radialGradient id="mt-vg" cx=".5" cy=".5" r=".78"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>'
+           '</defs>')
 
 
 def _mountain_body():
     b = '<g fill="#E9EDEA" fill-opacity=".5">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.8"/>' for x, y in [(40, 30), (120, 60), (210, 25), (300, 50), (420, 28), (640, 40), (600, 90), (70, 110)]) + "</g>"
-    b += '<polygon points="0,300 80,205 150,255 225,170 310,300" fill="#1B3335"/>'
-    b += '<polygon points="0,300 60,272 110,245 170,215 230,190 300,165 340,150 400,120 450,100 500,78 540,58 570,50 520,160 470,235 380,300" fill="#7F8C88"/>'
-    b += '<polygon points="110,245 170,215 230,190 300,165 340,150 300,205 200,262 120,290 60,272" fill="#6A7773"/>'
-    b += '<polygon points="570,50 612,112 650,190 680,262 680,300 380,300 470,235 520,160" fill="#3A4542"/>'
-    b += '<polygon points="570,50 534,82 552,90 522,120 556,112 580,96 592,80" fill="#F4FBFA"/><polygon points="570,50 592,80 580,96 556,112 590,125 612,112" fill="#B8D3D5"/>'
+    b += '<circle cx="570" cy="50" r="80" fill="url(#mt-glow)"/>'
+    b += '<polygon points="0,300 80,205 150,255 225,170 310,300" fill="url(#mt-far)"/>'
+    b += '<polygon points="0,300 60,272 110,245 170,215 230,190 300,165 340,150 400,120 450,100 500,78 540,58 570,50 520,160 470,235 380,300" fill="url(#mt-lit)"/>'
+    b += '<polygon points="110,245 170,215 230,190 300,165 340,150 300,205 200,262 120,290 60,272" fill="url(#mt-mid)" fill-opacity=".85"/>'
+    b += '<polygon points="570,50 612,112 650,190 680,262 680,300 380,300 470,235 520,160" fill="url(#mt-shade)"/>'
+    b += '<polygon points="570,50 534,82 552,90 522,120 556,112 580,96 592,80" fill="url(#mt-snow)"/><polygon points="570,50 592,80 580,96 556,112 590,125 612,112" fill="url(#mt-snow2)"/>'
+    b += '<polyline points="0,300 60,272 110,245 170,215 230,190 300,165 340,150 400,120 450,100 500,78 540,58 570,50" fill="none" stroke="#F1FFFA" stroke-opacity=".38" stroke-width="1.6" stroke-linejoin="round"/>'
+    b += '<ellipse cx="210" cy="296" rx="230" ry="26" fill="url(#mt-mist)"/><ellipse cx="520" cy="298" rx="210" ry="20" fill="url(#mt-mist)"/>'
     b += '<polyline points="30,284 110,245 190,205 260,185 340,150 420,118 500,90 570,50" fill="none" stroke="#6FE3C5" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>'
     for cx, cy in ((110, 245), (340, 150)):
-        b += f'<polygon points="{cx-13},{cy+10} {cx},{cy-14} {cx+13},{cy+10}" fill="#6FE3C5" stroke="#0F1E1F" stroke-width="2"/>'
+        b += f'<ellipse cx="{cx}" cy="{cy+12}" rx="14" ry="3" fill="#000" fill-opacity=".35"/><polygon points="{cx-13},{cy+10} {cx},{cy-14} {cx+13},{cy+10}" fill="#6FE3C5" stroke="#0F1E1F" stroke-width="2"/>'
     b += '<circle cx="570" cy="50" r="7" fill="#6FE3C5" stroke="#0F1E1F" stroke-width="2"/><line x1="570" y1="46" x2="570" y2="14" stroke="#E9EDEA" stroke-width="3" stroke-linecap="round"/><polygon points="570,14 600,24 570,34" fill="#6FE3C5"/>'
     return b
 
@@ -152,7 +214,7 @@ def mountain_diagram(lang):
                     loop="When the data changes, start again",
                     label="Mountain with three stages: data, model and production, and an arrow back to the start when the data changes.",
                     cap="An ML project is climbed in stages, and it doesn't end at the summit: you start again when the data changes.")}[lang]
-    b = '<rect x="0" y="0" width="680" height="530" rx="12" fill="#0F1E1F"/>' + _mountain_body() + '<rect x="0" y="300" width="680" height="230" rx="12" fill="#0B1413"/><rect x="0" y="300" width="680" height="30" fill="#0B1413"/>'
+    b = MT_DEFS + '<rect x="0" y="0" width="680" height="530" rx="12" fill="url(#mt-sky)"/>' + _mountain_body() + '<rect x="0" y="300" width="680" height="230" rx="12" fill="#0B1413"/><rect x="0" y="300" width="680" height="30" fill="#0B1413"/>'
     for (cx, cy), (head, lines) in zip(((110, 255), (340, 160), (570, 60)), L["cols"]):
         b += f'<line x1="{cx}" y1="{cy+12}" x2="{cx}" y2="318" stroke="#6FE3C5" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 6"/>'
         b += f'<text x="{cx}" y="352" text-anchor="middle" fill="#6FE3C5" style="{DI};font-size:30px;font-weight:500">{head}</text>'
@@ -211,25 +273,42 @@ def galletas(lang):
 
 
 # ---------- contenedores de reciclaje (cabecera del clasificador) ----------
+BN_COLORS = {"y": ("#F5D65A", "#E3B72E", "#A9821F", "#FFE98A"), "b": ("#6B9BE6", "#3F73C4", "#2A4F8F", "#8DB6F2"),
+             "g": ("#69C783", "#3E9A5A", "#2A6C3E", "#8EDCA3"), "k": ("#A9B3B5", "#7D8789", "#545E60", "#C6CFD1")}
+
+
 def bins_scene(deco=True, crop=False):
-    b = '<rect x="0" y="0" width="680" height="370" rx="12" fill="#0F1E1F"/>'
-    b += '<g fill="#E9EDEA" fill-opacity=".5">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.8"/>' for x, y in [(40, 30), (120, 60), (300, 26), (420, 40), (600, 34), (640, 90), (70, 120)]) + "</g>"
-    b += '<rect x="0" y="318" width="680" height="52" rx="12" fill="#0B1413"/><rect x="0" y="318" width="680" height="14" fill="#0B1413"/>'
-    pal = [("#E3B72E", "#B8912A", "#F2CD54"), ("#3F73C4", "#2F5896", "#5E92E0"), ("#3E9A5A", "#2F7544", "#5CB878"), ("#7D8789", "#5E686A", "#A0AAAC")]
-    xs = [105, 225, 345, 465]
-    for x, (main, shade, lid) in zip(xs, pal):
-        b += f'<ellipse cx="{x+50}" cy="322" rx="58" ry="8" fill="#000" fill-opacity=".4"/>'
-        b += f'<polygon points="{x},160 {x+100},160 {x+92},316 {x+8},316" fill="{main}"/>'
-        b += f'<polygon points="{x+66},160 {x+100},160 {x+92},316 {x+62},316" fill="{shade}"/>'
-        b += f'<polygon points="{x+6},166 {x+16},166 {x+22},310 {x+12},310" fill="#FFFFFF" fill-opacity=".14"/>'
-        b += f'<rect x="{x+34}" y="130" width="32" height="12" rx="5" fill="{lid}"/>'
-        b += f'<rect x="{x-6}" y="140" width="112" height="22" rx="6" fill="{lid}"/><rect x="{x-6}" y="154" width="112" height="8" rx="4" fill="{shade}" fill-opacity=".55"/>'
-        b += f'<circle cx="{x+18}" cy="316" r="7" fill="#1B201E"/><circle cx="{x+82}" cy="316" r="7" fill="#1B201E"/>'
+    d = '<defs><linearGradient id="bn-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08171A"/><stop offset="1" stop-color="#123231"/></linearGradient>'
+    d += '<linearGradient id="bn-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#112321"/><stop offset="1" stop-color="#091213"/></linearGradient>'
+    d += '<radialGradient id="bn-ao" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".62"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>'
+    d += '<radialGradient id="bn-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#A9F6E2" stop-opacity=".5"/><stop offset="1" stop-color="#6FE3C5" stop-opacity="0"/></radialGradient>'
+    d += '<linearGradient id="bn-bottle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#CFE9F5"/><stop offset="1" stop-color="#8DB6C9"/></linearGradient>'
+    d += '<linearGradient id="bn-refl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".1"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>'
+    for k, (light, main, shade, lid) in BN_COLORS.items():
+        d += f'<linearGradient id="bn-{k}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{light}"/><stop offset=".45" stop-color="{main}"/><stop offset="1" stop-color="{shade}"/></linearGradient>'
+        d += f'<linearGradient id="bn-{k}l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{lid}"/><stop offset="1" stop-color="{main}"/></linearGradient>'
+    d += '<linearGradient id="bn-spotg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9FFF8" stop-opacity=".0"/><stop offset="1" stop-color="#E9FFF8" stop-opacity=".1"/></linearGradient>'
+    d += '<radialGradient id="bn-vg" cx=".5" cy=".5" r=".78"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>'
+    d += '</defs>'
+    b = d + '<rect x="0" y="0" width="680" height="370" rx="12" fill="url(#bn-sky)"/><polygon points="250,0 430,0 600,318 80,318" fill="url(#bn-spotg)"/>'
+    b += '<g fill="#E9EDEA" fill-opacity=".5">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.7"/>' for x, y in [(40, 30), (120, 60), (300, 26), (420, 40), (600, 34), (640, 90), (70, 120)]) + "</g>"
+    b += '<rect x="0" y="318" width="680" height="52" rx="12" fill="url(#bn-floor)"/><rect x="0" y="318" width="680" height="14" fill="url(#bn-floor)"/><line x1="0" y1="318.5" x2="680" y2="318.5" stroke="#6FE3C5" stroke-opacity=".12"/>'
+    b += '<circle cx="215" cy="70" r="62" fill="url(#bn-glow)"/><g stroke="#6FE3C5" stroke-opacity=".07" stroke-width="1"><line x1="0" y1="340" x2="680" y2="340"/><line x1="0" y1="356" x2="680" y2="356"/><line x1="170" y1="318" x2="60" y2="370"/><line x1="340" y1="318" x2="340" y2="370"/><line x1="510" y1="318" x2="620" y2="370"/></g>'
+    for x, k in zip((105, 225, 345, 465), "ybgk"):
+        b += f'<ellipse cx="{x+50}" cy="323" rx="66" ry="10" fill="url(#bn-ao)"/>'
+        b += f'<polygon points="{x},160 {x+100},160 {x+92},316 {x+8},316" fill="url(#bn-{k})"/>'
+        b += f'<polygon points="{x+6},166 {x+15},166 {x+21},310 {x+12},310" fill="#FFFFFF" fill-opacity=".2"/>'
+        b += f'<line x1="{x+3}" y1="198" x2="{x+97}" y2="198" stroke="#000" stroke-opacity=".18" stroke-width="2"/><line x1="{x+6}" y1="262" x2="{x+94}" y2="262" stroke="#000" stroke-opacity=".14" stroke-width="2"/>'
+        b += f'<rect x="{x+34}" y="129" width="32" height="13" rx="5" fill="url(#bn-{k}l)"/>'
+        b += f'<rect x="{x-6}" y="140" width="112" height="22" rx="7" fill="url(#bn-{k}l)"/><rect x="{x-6}" y="140" width="112" height="3" rx="1.5" fill="#FFFFFF" fill-opacity=".35"/><rect x="{x-6}" y="156" width="112" height="6" rx="3" fill="#000" fill-opacity=".2"/>'
+        b += f'<circle cx="{x+18}" cy="316" r="7" fill="#161B1A"/><circle cx="{x+82}" cy="316" r="7" fill="#161B1A"/><circle cx="{x+16}" cy="314" r="2" fill="#FFFFFF" fill-opacity=".25"/>'
+        b += f'<rect x="{x-6}" y="326" width="112" height="22" fill="url(#bn-refl)" transform="scale(1 1)" opacity=".5"/>'
     ic = '#F4FBFA'
-    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="143" y="214" width="24" height="34" rx="3"/><ellipse cx="155" cy="214" rx="12" ry="3.5"/></g>'
-    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="261" y="208" width="28" height="38" rx="3"/></g><g stroke="#3F73C4" stroke-width="2.5" stroke-linecap="round"><line x1="267" y1="219" x2="283" y2="219"/><line x1="267" y1="227" x2="283" y2="227"/><line x1="267" y1="235" x2="278" y2="235"/></g>'
-    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="385" y="224" width="20" height="28" rx="4"/><rect x="391" y="210" width="8" height="16" rx="2"/></g>'
-    b += f'<g fill="{ic}" fill-opacity=".92"><rect x="501" y="216" width="28" height="32" rx="3"/></g><path d="M507 216 C507 204 523 204 523 216" fill="none" stroke="{ic}" stroke-opacity=".92" stroke-width="3"/>'
-    b += '<g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="4" fill="#CFE9F5" fill-opacity=".92"/><rect x="157" y="50" width="6" height="14" rx="2" fill="#CFE9F5" fill-opacity=".92"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".94"><rect x="143" y="214" width="24" height="34" rx="3"/><ellipse cx="155" cy="214" rx="12" ry="3.5"/></g><rect x="146" y="222" width="5" height="22" rx="2.5" fill="#E3B72E" fill-opacity=".35"/>'
+    b += f'<g fill="{ic}" fill-opacity=".94"><rect x="261" y="208" width="28" height="38" rx="3"/></g><g stroke="#3F73C4" stroke-width="2.5" stroke-linecap="round"><line x1="267" y1="219" x2="283" y2="219"/><line x1="267" y1="227" x2="283" y2="227"/><line x1="267" y1="235" x2="278" y2="235"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".94"><rect x="385" y="224" width="20" height="28" rx="4"/><rect x="391" y="210" width="8" height="16" rx="2"/></g>'
+    b += f'<g fill="{ic}" fill-opacity=".94"><rect x="501" y="216" width="28" height="32" rx="3"/></g><path d="M507 216 C507 204 523 204 523 216" fill="none" stroke="{ic}" stroke-opacity=".94" stroke-width="3"/>'
     b += '<path d="M214 34 C200 62 186 94 170 126" fill="none" stroke="#6FE3C5" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><polygon points="170,128 163,114 177,116" fill="#6FE3C5"/>'
+    b += '<g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="5" fill="url(#bn-bottle)" fill-opacity=".96"/><rect x="157" y="50" width="6" height="14" rx="2" fill="url(#bn-bottle)"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/><rect x="155" y="68" width="3" height="24" rx="1.5" fill="#FFFFFF" fill-opacity=".7"/></g>'
+    b += '<rect x="0" y="0" width="680" height="370" rx="12" fill="url(#bn-vg)" pointer-events="none"/>'
     return _svg(680, 370, b, "Cuatro contenedores de reciclaje: amarillo, azul, verde y gris", "Ilustración semirrealista de cuatro contenedores con una botella cayendo en el amarillo.", deco, vb="84 28 508 304" if crop else None)

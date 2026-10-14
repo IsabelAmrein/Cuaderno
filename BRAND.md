@@ -1,6 +1,6 @@
-# Identidad visual de Rumbo
+# Identidad visual de Isabel Amrein
 
-**Nombre:** Rumbo. **Lema:** *Del dato al producto* (en inglés, *From data to product*). El símbolo es una montaña con un camino punteado y banderas: cada bandera es una entrada. Sustituye al antiguo nombre «Cuaderno de Isabel» y al gráfico de puntos con cuadrícula de la portada. **Sin cuadrículas** de fondo en ningún sitio.
+**Nombre:** Isabel Amrein, en la cabecera; el nombre completo, Isabel Amrein De Luca, en la portada, Sobre mí, el pie y los datos estructurados. **Lema:** *Del dato al producto* (en inglés, *From data to product*). **Símbolo:** el monograma «IA» como favicon; la montaña con banderas ilustra la portada y los proyectos. Sustituye a los antiguos nombres «Cuaderno de Isabel» y «Rumbo». **Sin cuadrículas** de fondo en ningún sitio.
 
 ## Idea de la versión nocturna
 
@@ -46,7 +46,7 @@ Escala (×1.25): 14 / 18 / 22 / 28 / 36 px y un título de portada fluido de 34 
 Primera persona, frases directas, ejemplos propios. Ningún material de la formación se copia: se usa como referencia y se reconstruye con proyectos pequeños propios.
 
 ## Ilustraciones, fotos y gráficos (norma para todo lo que añadamos)
-1. **Estilo semirrealista.** Todo gráfico, dibujo o imagen nuevo se hace con volumen: luz desde arriba a la izquierda, caras claras y oscuras, sombras bajo los objetos y detalles (brillos, pepitas, burbujas). Se construye con capas de formas opacas, sin degradados ni filtros, para que sea ligero y nítido en cualquier pantalla.
+1. **Estilo semirrealista.** Todo gráfico, dibujo o imagen nuevo se hace con volumen: luz desde arriba a la izquierda, caras claras y oscuras, sombras bajo los objetos y detalles (brillos, pepitas, burbujas). Se construye con capas de formas y **degradados suaves** para la luz, con luz de borde y sombras de contacto. No se usan filtros de desenfoque ni imágenes de mapa de bits, para que siga siendo ligero y nítido en cualquier pantalla.
 2. **Objetos con color propio, texto con el color del tema.** Los objetos y escenas (galleta, brújula, iceberg, montaña) llevan colores fijos y su propio fondo oscuro con esquinas redondeadas. Los textos y flechas de los diagramas usan los colores del tema, salvo dentro de una escena.
 3. **Una cabecera por artículo**, sobre su idea central, recortada para llenar el marco (altura máxima 230 px). La misma ilustración se reutiliza, ya renderizada, en la imagen de LinkedIn.
 4. **Dentro del texto**, los diagramas que expliquen una idea usan el mismo estilo (receta de galletas, montaña, iceberg, escalera con volumen).
@@ -58,6 +58,11 @@ Primera persona, frases directas, ejemplos propios. Ningún material de la forma
 - **Estado de un proyecto**, como una etiqueta redonda: *en marcha* (contorno en el color de acento y un pequeño orbe en movimiento dentro), *terminado* (relleno) e *idea* (contorno punteado). El orbe es el mismo estado *composing* del indicador «Pensando…», a 20 px y en el color de acento de cada proyecto.
 - **Cada proyecto** lleva su propia ilustración de cabecera y su color de acento (por ejemplo, verde para el reciclaje).
 - **El programa actual de aprendizaje** se llama «Formación en Data Science e IA». No se usa la palabra «máster» para él.
+
+## Portada y cabecera
+- **Un vistazo basta:** la portada dice quién eres (nombre y cargo en mayúsculas pequeñas), qué haces (el lema y una frase en primera persona) y lo enseña con una animación de 26 s que cuenta **el ciclo completo**: *Trabajo con los datos*, *Los analizo*, *Creo modelos*, *Y modelos de Machine Learning*, *Gestiono el producto* y *Mido los resultados*, y vuelta a empezar. Cierra con la montaña de proyectos. Pocas palabras y nada que leer.
+- **Cabecera:** el idioma se muestra con un globo y `ES ⇄ EN` (el idioma actual en el color de acento); el tema, con un icono de contraste. Todas las zonas táctiles miden al menos 44 px.
+- **Miniaturas:** cada entrada y proyecto lleva su ilustración en formato 3:2 en las listas, además de la cabecera de su página, y una etiqueta de tipo (*Entrada* o *Proyecto*).
 
 ## Animaciones
 - **Solo si ayudan a entender:** los títulos y párrafos aparecen suavemente al hacer scroll, las siete cajitas se construyen por partes y la aguja de la brújula se orienta hacia la meta.
@@ -76,3 +81,8 @@ Basadas en la revisión de las skills de Emil Kowalski (ver `documentacion/audit
 - Nunca `transition: all`; se nombran las propiedades.
 - `reducir movimiento` forma parte de la misma animación y da una versión suave, no cero.
 - No se instala una librería de movimiento para lo que se resuelve con CSS.
+
+### Nivel de calidad
+- **Qué incluye una ilustración terminada:** luz principal arriba a la izquierda, un degradado en cada superficie, luz de borde, sombra de contacto bajo cada objeto y un detalle de ambiente (niebla, brillo, reflejo o estrellas).
+- **Qué incluye una animación terminada:** un guion por escenas con continuidad (cada escena entra con un ligero zoom y sale hacia atrás), capas con profundidad, curvas de aceleración suaves y un detalle de cierre. Se juzga fotograma a fotograma y se renderiza a vídeo para verla como la verá el visitante.
+- **Lo que no se hace:** fotografías ni vídeo real. Si se quiere un vídeo real, se aporta y se aloja en el propio sitio.

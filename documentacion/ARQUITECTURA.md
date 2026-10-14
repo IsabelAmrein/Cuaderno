@@ -1,4 +1,4 @@
-# Arquitectura de Rumbo
+# Arquitectura del sitio
 
 ## Objetivo
 Un blog personal estático y bilingüe donde Isabel documenta lo que aprende, con un diseño propio y publicación gratuita en GitHub Pages. Sin base de datos, sin panel de administración y sin servicios de terceros.
@@ -101,8 +101,15 @@ Direcciones: `/es/proyectos/…` y `/en/projects/…`. La página de un proyecto
 - **Marcas en la etiqueta `html`:** un pequeño script de la cabecera añade `anim` si el navegador admite `IntersectionObserver` y `rm` si el sistema pide reducir movimiento. Sin JavaScript no se añade nada y todo se ve completo.
 - **Animaciones** (CSS): aparición de textos al hacer scroll, siete cajitas por partes y brújula orientándose. Con `rm` se convierten en desvanecimientos breves.
 - **Orbes vivos en los proyectos «en marcha»:** `assets/main.js` monta el mismo motor de orbes en cada `canvas.orb-live` (dentro de la etiqueta de estado), con el color de acento de cada proyecto. Cada orbe se pausa cuando no se ve y se queda quieto con `reducir movimiento`.
+- **Cabecera:** nombre a la izquierda; menú Proyectos, Entradas y Sobre mí; y las herramientas de idioma (globo con `ES ⇄ EN`) y tema (icono de contraste). En pantallas pequeñas el menú pasa a una segunda fila.
+- **Animación de la portada:** `explainer_svg` dibuja el ciclo completo (seis etapas: datos, análisis, modelos, Machine Learning, producto y medición, con una luz que recorre un anillo) y, al cerrarlo, la montaña con banderas. Todo se encadena con CSS en un bucle de 26 s. El botón de pausa añade la clase `paused`. Sin `.anim` o con `.rm` solo se muestra la montaña.
+- **Idioma:** la página raíz usa la elección guardada (`localStorage.lang`) o el idioma del navegador. En el resto de páginas, `main.js` muestra una sugerencia si el idioma del navegador difiere del de la página, sin redirigir.
+- **Diagramas en móvil:** por debajo de 700 px se les da un ancho mínimo y se deslizan dentro de su figura, con un aviso.
 - **Indicador "Pensando…":** `assets/main.js` monta el motor de orbes (`assets/vendor/thinking-orbs.js`) junto al nombre del cuaderno. Solo aparece si cargar o cambiar de página tarda más de 140 ms y se oculta al llegar. Con `?orbs` en la dirección se ve 4 segundos como demostración.
-- **Portada:** una montaña con camino y banderas, dibujada por `build.py` (`rumbo_svg`). Cada proyecto publicado es una bandera con enlace y, al pasar el ratón o enfocarla con el teclado, muestra su título; los proyectos que aún no existen aparecen como banderas punteadas. El más antiguo queda abajo y el más reciente arriba (hasta seis). Si cambian los proyectos, la portada cambia sola.
+- **Portada:** una montaña con camino y banderas, dibujada por `build.py` (`rumbo_svg`; esa función, la ilustración `rumbo` y la clave `hero: rumbo` conservan su nombre interno anterior, que no se ve en la web). Cada proyecto publicado es una bandera con enlace y, al pasar el ratón o enfocarla con el teclado, muestra su título; los proyectos que aún no existen aparecen como banderas punteadas. El más antiguo queda abajo y el más reciente arriba (hasta seis). Si cambian los proyectos, la portada cambia sola.
+
+## SEO y descubribilidad
+Ver [`SEO.md`](SEO.md): metadatos, datos estructurados, enlaces internos, `sitemap.xml`, `robots.txt` y `llms.txt`.
 
 ## Dependencias y seguridad
 - Todo lo de terceros pasa por el [Auditor](agentes/subagentes/09-auditor.md) y queda en [`DEPENDENCIAS.md`](DEPENDENCIAS.md) con su informe en [`auditorias`](auditorias/README.md).

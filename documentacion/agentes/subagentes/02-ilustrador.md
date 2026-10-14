@@ -29,7 +29,7 @@
 > Estimaciones orientativas, calculadas con lo que hemos tardado en este proyecto. Se revisan en cada versión.
 
 ## Checklist
-- [ ] Estilo semirrealista: luz arriba a la izquierda, capas opacas, sin degradados ni filtros
+- [ ] Estilo semirrealista: luz arriba a la izquierda, degradados suaves, luz de borde y sombra de contacto; sin filtros de desenfoque ni mapas de bits
 - [ ] Colores fijos en objetos y escenas; textos con los colores del tema
 - [ ] Descripción accesible (`aria-label` o texto alternativo)
 - [ ] Legible en móvil

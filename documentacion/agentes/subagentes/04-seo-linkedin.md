@@ -27,7 +27,10 @@
 > Estimaciones orientativas, calculadas con lo que hemos tardado en este proyecto. Se revisan en cada versión.
 
 ## Checklist
-- [ ] Título único por página y descripción de unos 160 caracteres
+- [ ] Título único de hasta 60 caracteres y descripción de 120 a 160
+- [ ] `llms.txt`, `llms-full.txt`, `robots.txt` y `sitemap.xml` regenerados
+- [ ] Datos estructurados válidos (`ProfilePage`, `BlogPosting`, `CreativeWork`, `BreadcrumbList`)
+- [ ] Enlaces internos: «Sigue leyendo», «Otros proyectos» y caja de autoría
 - [ ] URL canónica
 - [ ] Par `hreflang` español e inglés
 - [ ] Imagen social de 1200 por 630

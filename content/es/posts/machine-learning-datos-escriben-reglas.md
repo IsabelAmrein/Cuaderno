@@ -1,6 +1,7 @@
 ---
 id: ml-reglas
 title: "Machine Learning: cuando los datos escriben las reglas"
+seo_title: "Machine Learning: datos que escriben reglas"
 date: 2026-10-11
 accent: aqua
 hero: iceberg

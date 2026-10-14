@@ -2,9 +2,23 @@
 
 Cada versión corresponde a un zip. Se actualiza **antes** de generar el zip.
 
-## En preparación: 1.3
+## En preparación: 1.4
 - Resultados del clasificador de reciclaje, en la página de su proyecto.
-- Decisiones pendientes de Isabel: dirección web del sitio, foto en Sobre mí y qué skills instalar.
+- Foto de Isabel en Sobre mí (hay un monograma «IA» mientras tanto).
+- Confirmar los textos de las seis etapas de la animación.
+- Decisiones pendientes de Isabel: comprar un dominio (hasta entonces se mantiene `/Cuaderno/`) y qué skills instalar.
+
+## 1.3 (14 de octubre de 2026)
+Cambios a partir del feedback en audio de una persona que abrió el sitio sin conocerlo:
+- **Nuevo nombre: Isabel Amrein.** «Rumbo» sonaba genérico y no decía quién eres. Ahora la cabecera, los títulos, las imágenes para LinkedIn, `llms.txt` y los datos estructurados llevan tu nombre; el lema *Del dato al producto* y la animación explican el resto. Nuevo favicon con el monograma «IA».
+- **Más calidad visual:** la animación se rediseña con un guion que cuenta **el ciclo completo de trabajo**: trabajo con los datos, los analizo, creo modelos, creo modelos de Machine Learning, gestiono el producto y mido los resultados, y vuelta a empezar. Una luz recorre el anillo de seis etapas, con un dibujo propio en el centro de cada una, y al cerrar el ciclo aparece la montaña de proyectos. Todo sobre un fondo con auroras y estrellas. Todas las ilustraciones (iceberg, brújula, contenedores y montaña) llevan degradados, luz de borde, sombras de contacto y viñeteado.
+- **La portada explica quién eres y qué haces de un vistazo:** nombre y cargo arriba, una presentación en primera persona y una **animación de 26 segundos en bucle** (el ciclo completo y la montaña de proyectos) con botón de pausa. Con «reducir movimiento» solo se ve la montaña.
+- **Cabecera:** icono de globo con `ES ⇄ EN` para el idioma e icono de contraste para el tema claro u oscuro. Botones de 44 px y menú en una segunda fila en el móvil.
+- **Miniaturas y etiquetas de tipo** (*Entrada* y *Proyecto*) en todas las listas, y una frase que define cada sección: «lo que construyo» y «lo que aprendo».
+- **Sobre mí:** ficha con foto (un monograma hasta que haya foto), trayectoria, experiencia, formación y un botón directo al perfil de LinkedIn.
+- **Idioma:** la raíz detecta el idioma del navegador y recuerda la elección; en cualquier página aparece una sugerencia discreta en lugar de redirigir a la fuerza.
+- **Pantallas pequeñas:** los diagramas son legibles y se deslizan con un aviso, y todas las zonas táctiles miden al menos 44 px. Comprobado entre 320 y 1024 px.
+- **SEO:** títulos de hasta 60 caracteres y descripciones de 120 a 160 en todas las páginas, `llms.txt` y `llms-full.txt`, `robots.txt` con referencia a ambos, datos estructurados (`ProfilePage`, `Person`, `BlogPosting`, `CreativeWork` y `BreadcrumbList`) y enlaces internos nuevos («Sigue leyendo», «Otros proyectos» y una caja de autoría con enlace a Sobre mí y a LinkedIn).
 
 ## 1.2 (12 de octubre de 2026)
 - **Rediseño de la portada:** nuevo nombre **Rumbo** con el lema *Del dato al producto*, y una montaña con banderas (una por entrada) en lugar del gráfico con cuadrícula.

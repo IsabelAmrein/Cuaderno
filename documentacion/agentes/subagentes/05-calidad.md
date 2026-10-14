@@ -25,6 +25,7 @@
 > Estimaciones orientativas, calculadas con lo que hemos tardado en este proyecto. Se revisan en cada versión.
 
 ## Checklist
+- [ ] Auditoría de 320 a 1024 px: sin desbordes, texto de diagramas de 11 px o más y zonas táctiles de 44 px
 - [ ] Escritorio (1280) y móvil (390)
 - [ ] Modo claro y oscuro
 - [ ] Español e inglés

@@ -1,6 +1,6 @@
 Empiezo a contar, clase a clase, lo que aprendo en mi formación en Data Science e IA generativa: con mis palabras, con ejemplos propios y con proyectos pequeños para ponerlo a prueba.
 
-Lo cuento con más detalle en Rumbo:
+Lo cuento con más detalle en mi sitio:
 https://isabelamrein.github.io/Cuaderno/es/proyectos/formacion/
 
 #DataScience #IaGenerativa #EstrategiaDeDatos

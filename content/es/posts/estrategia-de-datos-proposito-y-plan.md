@@ -1,6 +1,7 @@
 ---
 id: estrategia-datos
 title: "Estrategia de datos: primero el propósito, después el plan"
+seo_title: "Estrategia de datos: propósito y plan"
 date: 2026-10-11
 order: 1
 accent: aqua

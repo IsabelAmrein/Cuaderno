@@ -32,7 +32,7 @@
 - [ ] Sin peticiones a terceros; librerías solo de licencia libre, alojadas en `assets/vendor` con su licencia
 - [ ] Cumple las reglas de movimiento de `BRAND.md` y da una versión suave con `prefers-reduced-motion`, no cero
 - [ ] Funciona en modo claro y oscuro
-- [ ] Responsive de 390 a 1280 píxeles
+- [ ] Responsive de 320 a 1280 píxeles, con zonas táctiles de al menos 44 px y diagramas legibles en móvil
 - [ ] Español e inglés siguen funcionando
 - [ ] `python3 build.py` termina sin errores
 - [ ] Sin código muerto

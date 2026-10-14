@@ -1,6 +1,7 @@
 ---
 id: ml-reglas
 title: "Machine learning: when the data writes the rules"
+seo_title: "Machine learning: data writes the rules"
 date: 2026-10-11
 accent: aqua
 hero: iceberg

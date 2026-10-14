@@ -7,7 +7,7 @@ status: en-marcha
 accent: moss
 hero: bins
 stack: [Teachable Machine, Custom AI, Images]
-summary: A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle.
+summary: A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle, built with a no-code tool.
 linkedin: I'm building a recycling classifier - a photo of an object and the answer to which bin it goes in. I share the plan, how I train it and, above all, where it fails.
 ---
 

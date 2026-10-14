@@ -1,17 +1,18 @@
 # Documentación del proyecto
 
-**Última versión entregada:** 1.2 (12 de octubre de 2026) · **En preparación:** 1.3
+**Última versión entregada:** 1.3 (14 de octubre de 2026) · **En preparación:** 1.4
 
 ## Estado actual
-- **Publicado en la web:** dos proyectos (Formación en Data Science e IA y Clasificador de reciclaje), dos entradas (Machine Learning y Estrategia de datos) y Sobre mí, en español e inglés, bajo el nombre Rumbo.
+- **Publicado en la web:** dos proyectos (Formación en Data Science e IA y Clasificador de reciclaje), dos entradas (Machine Learning y Estrategia de datos) y Sobre mí, en español e inglés, bajo el nombre Isabel Amrein.
 - **Pendiente de contenido:** los resultados del clasificador de reciclaje, que se publicarán en la página de su proyecto.
-- **Pendiente de decisión de Isabel:** la dirección web (hoy `/Cuaderno/`), una foto en Sobre mí y qué skills instalar.
+- **Pendiente de Isabel:** una foto para Sobre mí, confirmar los textos de las seis etapas de la animación, comprar un dominio (hasta entonces la dirección sigue siendo `/Cuaderno/`) y qué skills instalar.
 
 ## Índice
 | Documento | Para qué sirve |
 |---|---|
 | [CHANGELOG.md](CHANGELOG.md) | Qué cambia en cada versión |
-| [ARQUITECTURA.md](ARQUITECTURA.md) | Cómo está construido Rumbo |
+| [ARQUITECTURA.md](ARQUITECTURA.md) | Cómo está construido el sitio |
+| [SEO.md](SEO.md) | Qué se hace para que te encuentren buscadores y modelos de lenguaje |
 | [DECISIONES.md](DECISIONES.md) | Qué se decidió y por qué |
 | [ROADMAP.md](ROADMAP.md) | Lo hecho y los siguientes mini objetivos con su tiempo |
 | [LECCIONES.md](LECCIONES.md) | Errores que tuvimos y la regla que salió de cada uno |

@@ -1,8 +1,8 @@
-# Rumbo
+# Isabel Amrein
 
 *Del dato al producto.* Sitio personal estático y bilingüe (español e inglés) de Isabel Amrein De Luca con proyectos y apuntes sobre datos, IA generativa y producto. Se genera con Python y se publica gratis en GitHub Pages.
 
-> Antes se llamaba «Cuaderno de Isabel». El repositorio y la dirección web siguen llamándose `Cuaderno` hasta que se decida si se cambian (ver el roadmap).
+> Antes se llamaba «Cuaderno de Isabel» y, después, «Rumbo». El repositorio y la dirección web siguen llamándose `Cuaderno` hasta que se decida si se cambian (ver el roadmap).
 
 - **Web:** https://isabelamrein.github.io/Cuaderno/
 - **Documentación completa:** [`documentacion/`](documentacion/README.md)

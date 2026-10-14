@@ -61,6 +61,46 @@
     if (motif) requestAnimationFrame(function () { motif.classList.add('play'); });
   }
 
+  /* ---- Sugerencia de idioma: se respeta lo que el visitante elige y no se redirige a la fuerza ---- */
+  (function () {
+    var sw = document.querySelector('.lang-switch');
+    if (sw) sw.addEventListener('click', function () { try { localStorage.setItem('lang', sw.getAttribute('data-lang')); } catch (e) {} });
+    var pref = null; try { pref = localStorage.getItem('lang'); } catch (e) {}
+    if (pref) return;
+    var want = null, langs = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < langs.length && !want; i++) { var c = (langs[i] || '').slice(0, 2).toLowerCase(); if (c === 'es' || c === 'en') want = c; }
+    if (!want || want === root.lang) return;
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + want + '"]');
+    if (!alt) return;
+    var txt = { es: ['Esta página también está disponible en español.', 'Verla en español'], en: ['This page is also available in English.', 'Read in English'] }[want];
+    var bar = document.createElement('div'); bar.className = 'lang-hint'; bar.setAttribute('role', 'note'); bar.lang = want;
+    var s = document.createElement('span'); s.textContent = txt[0];
+    var a = document.createElement('a'); a.href = new URL(alt.href, location.href).pathname; a.textContent = txt[1]; a.hreflang = want;
+    a.addEventListener('click', function () { try { localStorage.setItem('lang', want); } catch (e) {} });
+    var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', want === 'es' ? 'Cerrar' : 'Close');
+    x.addEventListener('click', function () { try { localStorage.setItem('lang', root.lang); } catch (e) {} bar.remove(); });
+    bar.appendChild(s); bar.appendChild(a); bar.appendChild(x);
+    var head = document.querySelector('.site-head'); if (head && head.parentNode) head.parentNode.insertBefore(bar, head.nextSibling);
+  })();
+
+  /* ---- Pausa de la animación de la portada ---- */
+  var ex = document.querySelector('.ex'), pb = document.querySelector('.ex-pause');
+  if (ex && pb) pb.addEventListener('click', function () {
+    var on = ex.classList.toggle('paused'); pb.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var l = on ? pb.getAttribute('data-play') : pb.getAttribute('data-pause'); pb.setAttribute('aria-label', l); pb.title = l;
+  });
+
+  /* ---- Aviso en los diagramas que se deslizan en pantallas pequeñas ---- */
+  var figs = document.querySelectorAll('figure.diagram');
+  function pistas() {
+    figs.forEach(function (f) {
+      var h = f.querySelector('.scroll-hint'), mide = f.scrollWidth > f.clientWidth + 4;
+      f.classList.toggle('is-scroll', mide);
+      if (mide && !h) { h = document.createElement('p'); h.className = 'scroll-hint'; h.textContent = root.lang === 'en' ? 'Swipe to see the whole diagram →' : 'Desliza para ver el diagrama completo →'; f.insertBefore(h, f.firstChild); }
+    });
+  }
+  if (figs.length) { pistas(); window.addEventListener('resize', pistas); window.addEventListener('load', pistas); }
+
   /* ---- Orbes vivos junto a los proyectos «en marcha» ---- */
   var vivos = document.querySelectorAll('.orb-live');
   if (vivos.length && window.ThinkingOrbs) {

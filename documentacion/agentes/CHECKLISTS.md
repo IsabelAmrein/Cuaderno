@@ -54,6 +54,14 @@ Las checklists por subagente están en [`subagentes`](subagentes). Estas son las
 - [ ] Inventario `DEPENDENCIAS.md` y `DECISIONES.md` actualizados
 - [ ] Aprobación de Isabel
 
+## H. Primera impresión (prueba de cinco segundos)
+- [ ] Alguien que no te conoce sabe quién eres y qué haces tras mirar la portada cinco segundos
+- [ ] Hay una imagen o animación que representa el proyecto
+- [ ] El guion cuenta el trabajo real completo, no una versión reducida (revisado con Isabel)
+- [ ] Entradas y proyectos se distinguen a simple vista (miniatura y etiqueta)
+- [ ] El idioma y el tema se reconocen por su icono
+- [ ] Sobre mí tiene foto y un enlace directo a LinkedIn
+
 ## E. Accesibilidad
 - [ ] Texto alternativo en imágenes y gráficos
 - [ ] Contraste suficiente
