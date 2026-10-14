@@ -1,6 +1,0 @@
-I'm starting to share, class by class, what I learn in my training in Data Science and generative AI - in my own words, with my own examples and small projects to put it to the test.
-
-Full write-up on my site:
-https://isabelamrein.github.io/Cuaderno/en/projects/formacion/
-
-#DataScience #GenerativeAi #DataStrategy

@@ -38,7 +38,7 @@
 - [ ] Sin afirmaciones absolutas que no se puedan sostener
 - [ ] Una sola idea central y un cierre claro
 - [ ] Si la entrada pertenece a un proyecto, lo indica en `projects:` y enlaza con `{{project:id}}`
-- [ ] El programa actual se llama «Formación en Data Science e IA», sin la palabra «máster»
+- [ ] El programa actual se llama «Máster en Data Science e IA generativa» (no «formación»)
 
 ## Lo que no hace
 - Publicar

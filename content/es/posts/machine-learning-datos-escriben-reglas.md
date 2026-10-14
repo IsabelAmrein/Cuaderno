@@ -5,7 +5,7 @@ seo_title: "Machine Learning: datos que escriben reglas"
 date: 2026-10-11
 accent: aqua
 hero: iceberg
-projects: [formacion, reciclaje]
+projects: [master, reciclaje]
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentos, data-science]
 summary: Qué es el Machine Learning, cómo se construye un proyecto de principio a fin y por qué entrenar el modelo es solo la punta del iceberg.

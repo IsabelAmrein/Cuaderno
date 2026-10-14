@@ -12,12 +12,14 @@
 - Indicador "Pensando…" con el orbe *composing*.
 - Arquitecto y nueve subagentes, con documentación, checklists y lecciones aprendidas.
 - Auditor de proyectos públicos con su herramienta, cuatro informes e inventario de dependencias.
+- Versión 1.5: entrada de Estrategia de datos reescrita en tono general.
+- Versión 1.4: máster como nombre del proyecto, banner y «Lo más destacado» en Sobre mí, carpeta privada para ideas y entrada de Estrategia de datos revisada.
 - Revisión del feedback externo (versión 1.3): portada con animación del ciclo completo, nombre Isabel Amrein, cabecera con iconos, miniaturas, ficha en Sobre mí, idioma, pantallas pequeñas, SEO y un nivel de calidad visual superior.
 - Rediseño: nombre Isabel Amrein (antes Cuaderno de Isabel y Rumbo), portada con la montaña de banderas y orbes vivos en los proyectos en marcha.
-- Proyectos y entradas separados, con los proyectos «Formación en Data Science e IA» y «Clasificador de reciclaje».
+- Proyectos y entradas separados, con los proyectos «Máster en Data Science e IA generativa» y «Clasificador de reciclaje».
 - Sobre mí aligerado: sin herramientas ni proyectos del trabajo (están en LinkedIn) y con el párrafo «Cómo trabajo». Artículo de bienvenida eliminado.
 
-## En preparación (versión 1.4)
+## En preparación (versión 1.6)
 - Resultados del clasificador de reciclaje (M-01 y M-02).
 - Foto para Sobre mí (M-15) y confirmación de los textos de la animación.
 
@@ -34,6 +36,7 @@
 | M-08 | Leer los informes del Auditor y decidir qué skills de Emil Kowalski se instalan (ver [SKILLS.md](agentes/SKILLS.md)) | Isabel y Auditor | 20 a 30 min |
 | M-15 | **Enviar una foto para Sobre mí:** buena luz, de frente, sin terceros ni datos al fondo. Se recorta, se reduce y se le quitan los metadatos de ubicación. Hay que dejarla en `content/img/isabel.jpg` | Isabel y Maquetador | 5 + 10 min |
 | M-16 | Con el dominio: comprobar en Search Console qué páginas se indexan y que `robots.txt` y `llms.txt` quedan en la raíz | Isabel y SEO y LinkedIn | 20 min |
+| M-17 | Valorar **hacer privado el repositorio** al comprar el dominio: GitHub Pages gratuito exige un repositorio público, así que habría que contratar GitHub Pro o alojar la web en otro servicio (Cloudflare Pages, Netlify o Vercel) conectado a un repositorio privado. Valorar también empezar con un repositorio limpio | Isabel y Publicación | 30 a 45 min |
 | M-09 | Revisión trimestral de todas las dependencias | Auditor | 30 min |
 | M-10 | Probar el indicador "Pensando…" en una conexión lenta real | Isabel | 5 min |
 | M-11 | **Al comprar el dominio:** poner `base_url` y `custom_domain` en `site.json`, regenerar (se crea el archivo `CNAME`), configurar los DNS en el registrador y activar HTTPS en GitHub Pages. El repositorio no se renombra | Isabel y Publicación | 20 a 30 min + espera de DNS |

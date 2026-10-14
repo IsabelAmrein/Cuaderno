@@ -27,6 +27,7 @@ Las checklists por subagente están en [`subagentes`](subagentes). Estas son las
 - [ ] Documentación al día: `CHANGELOG`, `ROADMAP`, `DECISIONES` y `DEPENDENCIAS`
 - [ ] `agentes.yaml` válido y generado a partir de las fichas
 - [ ] Sin menciones prohibidas (empresa, cargos del profesor)
+- [ ] El zip no incluye la carpeta `privado` y el `.gitignore` la excluye
 
 ## D. Cierre de versión y limpieza
 - [ ] Archivos obsoletos eliminados del proyecto

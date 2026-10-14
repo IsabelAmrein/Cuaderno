@@ -1,6 +1,6 @@
 ---
-id: formacion
-title: Formación en Data Science e IA
+id: master
+title: Máster en Data Science e IA generativa
 subtitle: Clase a clase, de los datos a la IA generativa
 date: 2026-10-11
 status: en-marcha
@@ -8,13 +8,13 @@ accent: aqua
 hero: rumbo
 stack: [Data Science, IA generativa, Estrategia de datos]
 related_title: Clase a clase
-summary: Lo que voy aprendiendo en Data Science e IA generativa, clase a clase, con mis propias palabras, mis ejemplos y mini proyectos para ponerlo a prueba.
-linkedin: Empiezo a contar, clase a clase, lo que aprendo en mi formación en Data Science e IA generativa: con mis palabras, con ejemplos propios y con proyectos pequeños para ponerlo a prueba.
+summary: Lo que voy aprendiendo en mi máster de Data Science e IA generativa, clase a clase, con mis palabras, mis ejemplos y proyectos pequeños para ponerlo a prueba.
+linkedin: Empiezo a contar, clase a clase, lo que aprendo en mi máster de Data Science e IA generativa: con mis palabras, con ejemplos propios y con proyectos pequeños para ponerlo a prueba.
 ---
 
 ## De qué trata
 
-Este proyecto reúne lo que aprendo en mi formación en Data Science e IA generativa. Cada clase se convierte en una entrada: la idea central, un ejemplo mío y, cuando se puede, un proyecto pequeño para ponerla a prueba.
+Este proyecto reúne lo que aprendo en mi máster en Data Science e IA generativa. Cada clase se convierte en una entrada: la idea central, un ejemplo mío y, cuando se puede, un proyecto pequeño para ponerla a prueba.
 
 ## Cómo lo trabajo
 

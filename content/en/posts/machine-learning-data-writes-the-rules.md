@@ -5,7 +5,7 @@ seo_title: "Machine learning: data writes the rules"
 date: 2026-10-11
 accent: aqua
 hero: iceberg
-projects: [formacion, reciclaje]
+projects: [master, reciclaje]
 teacher: Daniel Sáenz
 tags: [machine-learning, fundamentals, data-science]
 summary: What machine learning is, how a project is built from start to finish, and why training the model is only the tip of the iceberg.

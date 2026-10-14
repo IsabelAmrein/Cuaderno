@@ -5,7 +5,7 @@ seo_title: "Estrategia de datos: propósito y plan"
 date: 2026-10-11
 order: 1
 accent: aqua
-projects: [formacion]
+projects: [master]
 hero: compass
 quote: No hay viento favorable para el que no sabe dónde va.
 teacher: Rafael Fernández Campos
@@ -66,16 +66,15 @@ Me gustó pensar en esto como un roadmap: el diagnóstico te dice dónde fallas 
 
 ## Lo que me llevo a mi trabajo
 
-**Revisar nuestro propio modelo de datos.** En mi área hemos creado varios modelos que alimentan análisis, dashboards, modelos predictivos y de riesgo. Los datos nos llegan desde tecnología y nosotros los transformamos en inteligencia de negocio. Me pregunto si nuestro modelo cumpliría esos 21 ámbitos. Es difícil extrapolarlo a una empresa entera, pero empezar por lo pequeño, un modelo bien hecho para un área, importa mucho: ayuda a que las tablas se entiendan entre sí y a que la IA pueda relacionarlas y construir modelos coherentes.
+**Revisar el modelo de datos de un área.** Los modelos de datos alimentan análisis, dashboards, modelos predictivos y de riesgo, y los datos suelen llegar desde tecnología para transformarse en inteligencia de negocio. Una buena pregunta es si el modelo de un área cumpliría esos 21 ámbitos. Es difícil extrapolarlo a una empresa entera, pero empezar por lo pequeño, un modelo bien hecho para un área, importa mucho: ayuda a que las tablas se entiendan entre sí y a que la IA pueda relacionarlas y construir modelos coherentes.
 
-**Acercar el dato a todo el mundo.** Rafael insistió en que, en una empresa data-driven, incluso quien no usa datos a diario necesita entender qué pasa en la organización. Por ejemplo, un vendedor cuyo objetivo es vender. Y hay que explicárselo en su idioma: no se habla de datos igual con tecnología que con ventas, marketing o recursos humanos. Generar esa cultura del dato, a un nivel que cada persona pueda manejar, es una parte esencial del trabajo.
+**Acercar el dato a todo el mundo.** Rafael insistió en que, en una empresa data-driven, incluso quien no usa datos a diario necesita entender qué pasa en la organización. Y hay que explicárselo en su idioma: no se habla de datos igual en todos los equipos. Generar esa cultura del dato, a un nivel que cada persona pueda manejar, es una parte esencial del trabajo.
 
-**Mi proyecto para el próximo año.** Como líder de proyecto, quiero acercar los datos a las personas que tengo a mi alcance:
+**Un proyecto que me gustaría hacer.** Acercar los datos a las personas con las que trabajo, con tres ideas:
 
-- Para **marketing**, un modelo de datos propio, con sus necesidades y un vocabulario que entendamos todos.
-- Para **ventas**, un pequeño dashboard individual para cada agente (no solo para coordinadores, que ya trabajan con datos), que le ayude a entender su día a día y también le motive.
-
-Para diseñarlo bien necesito escuchar a agentes de distintos perfiles, desde quienes mejor rinden hasta quienes necesitan más apoyo, y entender qué necesitan y qué les motiva.
+- **Un modelo de datos propio para cada grupo**, con sus necesidades y un vocabulario que entendamos todos.
+- **Una vista sencilla e individual**, que cada persona pueda consultar para entender su día a día y que también le motive.
+- **Escuchar antes de construir**: hablar con personas de perfiles distintos, desde quienes mejor rinden hasta quienes necesitan más apoyo, para entender qué necesitan y qué les motiva.
 
 ## Ecosistema, la palabra clave
 

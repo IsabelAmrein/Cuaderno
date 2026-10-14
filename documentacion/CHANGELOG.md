@@ -2,11 +2,24 @@
 
 Cada versión corresponde a un zip. Se actualiza **antes** de generar el zip.
 
-## En preparación: 1.4
+## En preparación: 1.6
 - Resultados del clasificador de reciclaje, en la página de su proyecto.
 - Foto de Isabel en Sobre mí (hay un monograma «IA» mientras tanto).
 - Confirmar los textos de las seis etapas de la animación.
 - Decisiones pendientes de Isabel: comprar un dominio (hasta entonces se mantiene `/Cuaderno/`) y qué skills instalar.
+- Valorar hacer privado el repositorio al comprar el dominio (M-17).
+
+## 1.5 (14 de octubre de 2026)
+- **Entrada de Estrategia de datos:** los apartados de «Lo que me llevo a mi trabajo» se reescriben en tono general y se recupera la idea del proyecto de forma genérica, sin referencias a equipos ni departamentos concretos.
+- Se confirma el texto actual de Sobre mí, sin cambios.
+
+## 1.4 (14 de octubre de 2026)
+- **Carpeta privada** `privado/` con `Ideas.md` para los objetivos e ideas de Isabel. Está en el `.gitignore` y no va en el zip, porque el repositorio es público.
+- **Entrada de Estrategia de datos:** se elimina un apartado del final de la entrada, porque contenía información de planificación interna que no conviene publicar.
+- **Sobre mí: «Lo más destacado»**, con tres logros (el plan de venta cruzada, la automatización de la segmentación y la aplicación interna con IA generativa) y una frase sobre en qué trabaja ahora. Sin nombre de empresa, sin cifras exactas y sin el listado de habilidades técnicas, que viven en LinkedIn.
+- **Banner en Sobre mí:** la imagen de la red de nodos con los iconos del perfil (la misma línea visual que su LinkedIn), a todo lo ancho sobre la ficha. 49 KB en escritorio y 20 KB en el móvil.
+- La trayectoria de la ficha de Sobre mí empieza en Data Scientist, sin mencionar la beca de BI.
+- **El proyecto de aprendizaje se llama «Máster en Data Science e IA generativa»**, no «formación». Cambian su título, su dirección (`/proyectos/master-data-science-ia/` y `/projects/masters-data-science-ai/`), los textos de Sobre mí y la ficha de perfil.
 
 ## 1.3 (14 de octubre de 2026)
 Cambios a partir del feedback en audio de una persona que abrió el sitio sin conocerlo:

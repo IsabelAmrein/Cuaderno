@@ -4,7 +4,7 @@ title: "Data strategy: purpose first, then the plan"
 date: 2026-10-11
 order: 1
 accent: aqua
-projects: [formacion]
+projects: [master]
 hero: compass
 quote: There is no favourable wind for those who don't know where they're going.
 teacher: Rafael Fernández Campos
@@ -65,16 +65,15 @@ I liked thinking of this as a roadmap: the diagnosis tells you where you're fail
 
 ## What I take to my work
 
-**Review our own data model.** In my area we've built several models that feed analyses, dashboards, predictive models and risk models. The data reaches us from technology and we turn it into business intelligence. I wonder whether our model would meet those 21 areas. It's hard to extrapolate to a whole company, but starting small, one well-built model for one area, matters a lot: it helps tables make sense together and lets AI relate them and build coherent models.
+**Review the data model of an area.** Data models feed analyses, dashboards, predictive models and risk models, and the data usually arrives from technology to be turned into business intelligence. A good question is whether an area's model would meet those 21 areas. It's hard to extrapolate to a whole company, but starting small, one well-built model for one area, matters a lot: it helps tables make sense together and lets AI relate them and build coherent models.
 
-**Bring data closer to everyone.** Rafael insisted that, in a data-driven company, even people who don't use data every day need to understand what is happening in the organization. For example, a salesperson whose goal is to sell. And it has to be explained in their language: you don't talk about data the same way with technology as with sales, marketing or human resources. Building that data culture, at a level each person can handle, is an essential part of the job.
+**Bring data closer to everyone.** Rafael insisted that, in a data-driven company, even people who don't use data every day need to understand what is happening in the organization. And it has to be explained in their language: you don't talk about data the same way in every team. Building that data culture, at a level each person can handle, is an essential part of the job.
 
-**My project for next year.** As a project lead, I want to bring data closer to the people within my reach:
+**A project I'd like to do.** Bring data closer to the people I work with, with three ideas:
 
-- For **marketing**, a data model of their own, with their needs and a vocabulary we all understand.
-- For **sales**, a small individual dashboard for each agent (not just coordinators, who already work with data), to help them understand their day-to-day and also keep them motivated.
-
-To design it well I need to listen to agents with different profiles, from those who perform best to those who need more support, and understand what they need and what motivates them.
+- **A data model of their own for each group**, with their needs and a vocabulary we all understand.
+- **A simple, individual view** that each person can check to understand their day-to-day and that also keeps them motivated.
+- **Listen before building**: talk to people with different profiles, from those who perform best to those who need more support, to understand what they need and what motivates them.
 
 ## Ecosystem, the keyword
 

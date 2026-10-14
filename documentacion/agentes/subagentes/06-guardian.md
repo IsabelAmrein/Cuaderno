@@ -28,9 +28,11 @@
 - [ ] Sin cifras internas que no estén ya publicadas por Isabel
 - [ ] Sin copia literal ni imágenes del material de clase
 - [ ] Profesor solo con su nombre
+- [ ] Las imágenes aportadas son propias o tienen una licencia que permite usarlas en una web
 - [ ] Sin caras de terceros ni de niños
 - [ ] Fotos sin datos de ubicación
 - [ ] Sin datos personales en los ejemplos
+- [ ] Nada de lo que se cuenta sobre el propio trabajo (planes, equipos, proyectos) es información interna ni permite identificar a la empresa o a personas
 - [ ] Sin servicios de terceros que rastreen
 - [ ] Todo lo incluido de terceros tiene licencia libre y su aviso de licencia en el proyecto
 - [ ] Si hay planes de trabajo, recordar a Isabel que confirme que puede publicarlos

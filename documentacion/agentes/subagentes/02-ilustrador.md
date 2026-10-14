@@ -38,5 +38,5 @@
 
 ## Lo que no hace
 - Usar imágenes de terceros sin licencia
-- Usar material de la formación
+- Usar material del máster
 - Incluir caras de terceros o de niños

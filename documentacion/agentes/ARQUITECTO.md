@@ -32,7 +32,7 @@ Al empezar cualquier trabajo: un artículo nuevo, un cambio de diseño, una ilus
 12. **Una pregunta cada vez** a Isabel.
 13. **Nada público entra sin revisión.** Toda librería, fuente, imagen o *skill* de terceros pasa antes por el Auditor y por la aprobación de Isabel.
 14. **Documentación al día antes de cada zip.** Se actualizan `CHANGELOG`, roadmap, decisiones, dependencias y lo demás que haya cambiado (petición de Isabel del 12 de octubre de 2026).
-15. **Nombres.** El programa actual de aprendizaje es el proyecto «Formación en Data Science e IA»: no se usa la palabra «máster» para él. Los proyectos que se construyen (como el clasificador de reciclaje) tienen su propia página, separada de las entradas.
+15. **Nombres.** El programa actual de aprendizaje es el proyecto «Máster en Data Science e IA generativa». Se llama máster, no formación. Los proyectos que se construyen (como el clasificador de reciclaje) tienen su propia página, separada de las entradas.
 
 ## Ciclo de trabajo
 | Paso | Qué ocurre | Responsable |

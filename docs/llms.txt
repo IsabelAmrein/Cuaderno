@@ -8,7 +8,7 @@ Sitio personal y bilingüe (español e inglés) de Isabel Amrein De Luca, Lendin
 
 ### Proyectos
 - [Clasificador de reciclaje](https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/): Un modelo que, a partir de una foto, dice a qué contenedor va cada objeto. Pensado como un juego educativo para aprender a reciclar.
-- [Formación en Data Science e IA](https://isabelamrein.github.io/Cuaderno/es/proyectos/formacion/): Lo que voy aprendiendo en Data Science e IA generativa, clase a clase, con mis propias palabras, mis ejemplos y mini proyectos para ponerlo a prueba.
+- [Máster en Data Science e IA generativa](https://isabelamrein.github.io/Cuaderno/es/proyectos/master-data-science-ia/): Lo que voy aprendiendo en mi máster de Data Science e IA generativa, clase a clase, con mis palabras, mis ejemplos y proyectos pequeños para ponerlo a prueba.
 
 ### Entradas
 - [Estrategia de datos: primero el propósito, después el plan](https://isabelamrein.github.io/Cuaderno/es/blog/estrategia-de-datos-proposito-y-plan/): Una estrategia de datos es un propósito más un plan. Cómo situar una organización según su madurez y por qué el dato solo genera valor si lo entiende quien lo usa.
@@ -21,7 +21,7 @@ Sitio personal y bilingüe (español e inglés) de Isabel Amrein De Luca, Lendin
 
 ### Projects
 - [Recycling classifier](https://isabelamrein.github.io/Cuaderno/en/projects/recycling-classifier/): A model that, from a photo, says which bin each object goes in. Designed as an educational game to learn how to recycle, built with a no-code tool.
-- [Training in Data Science and AI](https://isabelamrein.github.io/Cuaderno/en/projects/formacion/): What I'm learning in Data Science and generative AI, class by class, in my own words, with my own examples and small projects to put it to the test.
+- [Master's in Data Science and Generative AI](https://isabelamrein.github.io/Cuaderno/en/projects/masters-data-science-ai/): What I'm learning in my master's in Data Science and generative AI, class by class, in my own words, with my own examples and small projects to put it to the test.
 
 ### Entries
 - [Data strategy: purpose first, then the plan](https://isabelamrein.github.io/Cuaderno/en/blog/data-strategy-purpose-and-plan/): A data strategy is a purpose plus a plan. How to place an organization by its maturity, and why data only creates value if the people who use it understand it.

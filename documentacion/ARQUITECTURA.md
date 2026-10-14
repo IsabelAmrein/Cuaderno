@@ -52,6 +52,7 @@ cuaderno/
   herramientas/          art.py, gen_diagrams.py, render_art.py, auditar.py
   docs/                  SALIDA: lo que publica GitHub Pages
   linkedin/              borradores de publicaciones
+  privado/               notas privadas de Isabel (Ideas.md). No se versiona ni va en el zip
   documentacion/         esta carpeta: arquitectura, decisiones, agentes,
                          auditorias/, DEPENDENCIAS.md, CHANGELOG.md, LECCIONES.md
 ```
@@ -87,7 +88,7 @@ Los componentes se insertan con `{{include:nombre}}` y viven en `content/es|en/s
 Direcciones: `/es/proyectos/…` y `/en/projects/…`. La página de un proyecto lista automáticamente las entradas que lo declaran, y cada entrada enlaza de vuelta a sus proyectos.
 
 ### Proyectos actuales
-- **Formación en Data Science e IA:** agrupa los apuntes de cada clase.
+- **Máster en Data Science e IA generativa:** agrupa los apuntes de cada clase.
 - **Clasificador de reciclaje:** proyecto propio, enlazado con la entrada sobre Machine Learning.
 
 ## Flujo de generación
@@ -101,6 +102,7 @@ Direcciones: `/es/proyectos/…` y `/en/projects/…`. La página de un proyecto
 - **Marcas en la etiqueta `html`:** un pequeño script de la cabecera añade `anim` si el navegador admite `IntersectionObserver` y `rm` si el sistema pide reducir movimiento. Sin JavaScript no se añade nada y todo se ve completo.
 - **Animaciones** (CSS): aparición de textos al hacer scroll, siete cajitas por partes y brújula orientándose. Con `rm` se convierten en desvanecimientos breves.
 - **Orbes vivos en los proyectos «en marcha»:** `assets/main.js` monta el mismo motor de orbes en cada `canvas.orb-live` (dentro de la etiqueta de estado), con el color de acento de cada proyecto. Cada orbe se pausa cuando no se ve y se queda quieto con `reducir movimiento`.
+- **Imágenes aportadas:** `process_banner` y `process_photo` (en `build.py`) procesan `content/img/banner.jpg` e `isabel.jpg` en cada generación: recorte, tamaños, peso y sin metadatos.
 - **Cabecera:** nombre a la izquierda; menú Proyectos, Entradas y Sobre mí; y las herramientas de idioma (globo con `ES ⇄ EN`) y tema (icono de contraste). En pantallas pequeñas el menú pasa a una segunda fila.
 - **Animación de la portada:** `explainer_svg` dibuja el ciclo completo (seis etapas: datos, análisis, modelos, Machine Learning, producto y medición, con una luz que recorre un anillo) y, al cerrarlo, la montaña con banderas. Todo se encadena con CSS en un bucle de 26 s. El botón de pausa añade la clase `paused`. Sin `.anim` o con `.rm` solo se muestra la montaña.
 - **Idioma:** la página raíz usa la elección guardada (`localStorage.lang`) o el idioma del navegador. En el resto de páginas, `main.js` muestra una sugerencia si el idioma del navegador difiere del de la página, sin redirigir.

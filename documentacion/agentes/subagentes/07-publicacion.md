@@ -31,7 +31,7 @@
 - [ ] Documentación actualizada (`CHANGELOG`, roadmap, decisiones, dependencias)
 - [ ] `python3 build.py` sin errores
 - [ ] Archivos obsoletos eliminados
-- [ ] `.gitignore` al día
+- [ ] `.gitignore` al día, con `privado/` excluida, y el zip sin esa carpeta
 - [ ] Sin `__pycache__` ni archivos del sistema en el zip
 - [ ] Nota de cambios y mensaje de commit
 

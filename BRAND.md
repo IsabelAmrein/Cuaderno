@@ -43,7 +43,7 @@ Escala (×1.25): 14 / 18 / 22 / 28 / 36 px y un título de portada fluido de 34 
 6. Accesible: foco visible, contraste AA, navegable con teclado, modo oscuro y claro.
 
 ## Voz
-Primera persona, frases directas, ejemplos propios. Ningún material de la formación se copia: se usa como referencia y se reconstruye con proyectos pequeños propios.
+Primera persona, frases directas, ejemplos propios. Ningún material del máster se copia: se usa como referencia y se reconstruye con proyectos pequeños propios.
 
 ## Ilustraciones, fotos y gráficos (norma para todo lo que añadamos)
 1. **Estilo semirrealista.** Todo gráfico, dibujo o imagen nuevo se hace con volumen: luz desde arriba a la izquierda, caras claras y oscuras, sombras bajo los objetos y detalles (brillos, pepitas, burbujas). Se construye con capas de formas y **degradados suaves** para la luz, con luz de borde y sombras de contacto. No se usan filtros de desenfoque ni imágenes de mapa de bits, para que siga siendo ligero y nítido en cualquier pantalla.
@@ -53,11 +53,16 @@ Primera persona, frases directas, ejemplos propios. Ningún material de la forma
 5. **Fotos reales** (propias): sin caras de terceros ni niños, sin material confidencial ni datos internos de ninguna empresa, sin ubicación en los metadatos, optimizadas (menos de 200 KB) y con texto alternativo.
 6. **Accesibilidad:** cada gráfico lleva descripción (`aria-label` o texto alternativo) y las ilustraciones decorativas se marcan como tales.
 
+## Imágenes aportadas por Isabel
+- **Banner de Sobre mí** (`content/img/banner.jpg`): una imagen ancha (4:1) con una red de nodos y los iconos de su perfil. Se muestra a todo lo ancho encima de la ficha, con un degradado que la funde con el fondo en el tema oscuro. Se recorta la franja inferior, se guarda en dos tamaños (700 y 1400 px) y sin metadatos.
+- **Foto de perfil** (`content/img/isabel.jpg`): opcional. Se recorta en cuadrado, se reduce y se le quitan los metadatos. Mientras no exista, la ficha muestra el monograma «IA».
+- **Regla:** solo imágenes propias o con licencia que permita reutilizarlas en una web, y sin terceros, niños ni datos de ubicación.
+
 ## Navegación y proyectos
 - **Menú:** Proyectos, Entradas y Sobre mí. La portada muestra los proyectos como banderas de la montaña.
 - **Estado de un proyecto**, como una etiqueta redonda: *en marcha* (contorno en el color de acento y un pequeño orbe en movimiento dentro), *terminado* (relleno) e *idea* (contorno punteado). El orbe es el mismo estado *composing* del indicador «Pensando…», a 20 px y en el color de acento de cada proyecto.
 - **Cada proyecto** lleva su propia ilustración de cabecera y su color de acento (por ejemplo, verde para el reciclaje).
-- **El programa actual de aprendizaje** se llama «Formación en Data Science e IA». No se usa la palabra «máster» para él.
+- **El programa actual de aprendizaje** se llama «Máster en Data Science e IA generativa» y es un proyecto del sitio.
 
 ## Portada y cabecera
 - **Un vistazo basta:** la portada dice quién eres (nombre y cargo en mayúsculas pequeñas), qué haces (el lema y una frase en primera persona) y lo enseña con una animación de 26 s que cuenta **el ciclo completo**: *Trabajo con los datos*, *Los analizo*, *Creo modelos*, *Y modelos de Machine Learning*, *Gestiono el producto* y *Mido los resultados*, y vuelta a empezar. Cierra con la montaña de proyectos. Pocas palabras y nada que leer.

@@ -37,13 +37,13 @@ Los publicaré aquí cuando termine las pruebas: cuántas fotos usé por clase, 
 
 > Es una herramienta educativa pensada para usar con un adulto cerca. No sustituye las indicaciones oficiales de cada municipio.
 
-### Formación en Data Science e IA
-URL: https://isabelamrein.github.io/Cuaderno/es/proyectos/formacion/
-Resumen: Lo que voy aprendiendo en Data Science e IA generativa, clase a clase, con mis propias palabras, mis ejemplos y mini proyectos para ponerlo a prueba.
+### Máster en Data Science e IA generativa
+URL: https://isabelamrein.github.io/Cuaderno/es/proyectos/master-data-science-ia/
+Resumen: Lo que voy aprendiendo en mi máster de Data Science e IA generativa, clase a clase, con mis palabras, mis ejemplos y proyectos pequeños para ponerlo a prueba.
 
 ## De qué trata
 
-Este proyecto reúne lo que aprendo en mi formación en Data Science e IA generativa. Cada clase se convierte en una entrada: la idea central, un ejemplo mío y, cuando se puede, un proyecto pequeño para ponerla a prueba.
+Este proyecto reúne lo que aprendo en mi máster en Data Science e IA generativa. Cada clase se convierte en una entrada: la idea central, un ejemplo mío y, cuando se puede, un proyecto pequeño para ponerla a prueba.
 
 ## Cómo lo trabajo
 
@@ -107,16 +107,15 @@ Me gustó pensar en esto como un roadmap: el diagnóstico te dice dónde fallas 
 
 ## Lo que me llevo a mi trabajo
 
-**Revisar nuestro propio modelo de datos.** En mi área hemos creado varios modelos que alimentan análisis, dashboards, modelos predictivos y de riesgo. Los datos nos llegan desde tecnología y nosotros los transformamos en inteligencia de negocio. Me pregunto si nuestro modelo cumpliría esos 21 ámbitos. Es difícil extrapolarlo a una empresa entera, pero empezar por lo pequeño, un modelo bien hecho para un área, importa mucho: ayuda a que las tablas se entiendan entre sí y a que la IA pueda relacionarlas y construir modelos coherentes.
+**Revisar el modelo de datos de un área.** Los modelos de datos alimentan análisis, dashboards, modelos predictivos y de riesgo, y los datos suelen llegar desde tecnología para transformarse en inteligencia de negocio. Una buena pregunta es si el modelo de un área cumpliría esos 21 ámbitos. Es difícil extrapolarlo a una empresa entera, pero empezar por lo pequeño, un modelo bien hecho para un área, importa mucho: ayuda a que las tablas se entiendan entre sí y a que la IA pueda relacionarlas y construir modelos coherentes.
 
-**Acercar el dato a todo el mundo.** Rafael insistió en que, en una empresa data-driven, incluso quien no usa datos a diario necesita entender qué pasa en la organización. Por ejemplo, un vendedor cuyo objetivo es vender. Y hay que explicárselo en su idioma: no se habla de datos igual con tecnología que con ventas, marketing o recursos humanos. Generar esa cultura del dato, a un nivel que cada persona pueda manejar, es una parte esencial del trabajo.
+**Acercar el dato a todo el mundo.** Rafael insistió en que, en una empresa data-driven, incluso quien no usa datos a diario necesita entender qué pasa en la organización. Y hay que explicárselo en su idioma: no se habla de datos igual en todos los equipos. Generar esa cultura del dato, a un nivel que cada persona pueda manejar, es una parte esencial del trabajo.
 
-**Mi proyecto para el próximo año.** Como líder de proyecto, quiero acercar los datos a las personas que tengo a mi alcance:
+**Un proyecto que me gustaría hacer.** Acercar los datos a las personas con las que trabajo, con tres ideas:
 
-- Para **marketing**, un modelo de datos propio, con sus necesidades y un vocabulario que entendamos todos.
-- Para **ventas**, un pequeño dashboard individual para cada agente (no solo para coordinadores, que ya trabajan con datos), que le ayude a entender su día a día y también le motive.
-
-Para diseñarlo bien necesito escuchar a agentes de distintos perfiles, desde quienes mejor rinden hasta quienes necesitan más apoyo, y entender qué necesitan y qué les motiva.
+- **Un modelo de datos propio para cada grupo**, con sus necesidades y un vocabulario que entendamos todos.
+- **Una vista sencilla e individual**, que cada persona pueda consultar para entender su día a día y que también le motive.
+- **Escuchar antes de construir**: hablar con personas de perfiles distintos, desde quienes mejor rinden hasta quienes necesitan más apoyo, para entender qué necesitan y qué les motiva.
 
 ## Ecosistema, la palabra clave
 
@@ -275,13 +274,13 @@ I'll publish them here once the tests are done: how many photos I used per class
 
 > It's an educational tool meant to be used with an adult nearby. It doesn't replace each municipality's official guidance.
 
-### Training in Data Science and AI
-URL: https://isabelamrein.github.io/Cuaderno/en/projects/formacion/
-Resumen: What I'm learning in Data Science and generative AI, class by class, in my own words, with my own examples and small projects to put it to the test.
+### Master's in Data Science and Generative AI
+URL: https://isabelamrein.github.io/Cuaderno/en/projects/masters-data-science-ai/
+Resumen: What I'm learning in my master's in Data Science and generative AI, class by class, in my own words, with my own examples and small projects to put it to the test.
 
 ## What it's about
 
-This project collects what I learn in my training in Data Science and generative AI. Each class becomes an entry: the core idea, an example of my own and, when possible, a small project to put it to the test.
+This project collects what I learn in my master's in Data Science and generative AI. Each class becomes an entry: the core idea, an example of my own and, when possible, a small project to put it to the test.
 
 ## How I work
 
@@ -345,16 +344,15 @@ I liked thinking of this as a roadmap: the diagnosis tells you where you're fail
 
 ## What I take to my work
 
-**Review our own data model.** In my area we've built several models that feed analyses, dashboards, predictive models and risk models. The data reaches us from technology and we turn it into business intelligence. I wonder whether our model would meet those 21 areas. It's hard to extrapolate to a whole company, but starting small, one well-built model for one area, matters a lot: it helps tables make sense together and lets AI relate them and build coherent models.
+**Review the data model of an area.** Data models feed analyses, dashboards, predictive models and risk models, and the data usually arrives from technology to be turned into business intelligence. A good question is whether an area's model would meet those 21 areas. It's hard to extrapolate to a whole company, but starting small, one well-built model for one area, matters a lot: it helps tables make sense together and lets AI relate them and build coherent models.
 
-**Bring data closer to everyone.** Rafael insisted that, in a data-driven company, even people who don't use data every day need to understand what is happening in the organization. For example, a salesperson whose goal is to sell. And it has to be explained in their language: you don't talk about data the same way with technology as with sales, marketing or human resources. Building that data culture, at a level each person can handle, is an essential part of the job.
+**Bring data closer to everyone.** Rafael insisted that, in a data-driven company, even people who don't use data every day need to understand what is happening in the organization. And it has to be explained in their language: you don't talk about data the same way in every team. Building that data culture, at a level each person can handle, is an essential part of the job.
 
-**My project for next year.** As a project lead, I want to bring data closer to the people within my reach:
+**A project I'd like to do.** Bring data closer to the people I work with, with three ideas:
 
-- For **marketing**, a data model of their own, with their needs and a vocabulary we all understand.
-- For **sales**, a small individual dashboard for each agent (not just coordinators, who already work with data), to help them understand their day-to-day and also keep them motivated.
-
-To design it well I need to listen to agents with different profiles, from those who perform best to those who need more support, and understand what they need and what motivates them.
+- **A data model of their own for each group**, with their needs and a vocabulary we all understand.
+- **A simple, individual view** that each person can check to understand their day-to-day and that also keeps them motivated.
+- **Listen before building**: talk to people with different profiles, from those who perform best to those who need more support, to understand what they need and what motivates them.
 
 ## Ecosystem, the keyword
 

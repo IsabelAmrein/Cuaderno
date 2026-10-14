@@ -1,9 +1,9 @@
 # Documentación del proyecto
 
-**Última versión entregada:** 1.3 (14 de octubre de 2026) · **En preparación:** 1.4
+**Última versión entregada:** 1.5 (14 de octubre de 2026) · **En preparación:** 1.6
 
 ## Estado actual
-- **Publicado en la web:** dos proyectos (Formación en Data Science e IA y Clasificador de reciclaje), dos entradas (Machine Learning y Estrategia de datos) y Sobre mí, en español e inglés, bajo el nombre Isabel Amrein.
+- **Publicado en la web:** dos proyectos (Máster en Data Science e IA generativa y Clasificador de reciclaje), dos entradas (Machine Learning y Estrategia de datos) y Sobre mí, en español e inglés, bajo el nombre Isabel Amrein.
 - **Pendiente de contenido:** los resultados del clasificador de reciclaje, que se publicarán en la página de su proyecto.
 - **Pendiente de Isabel:** una foto para Sobre mí, confirmar los textos de las seis etapas de la animación, comprar un dominio (hasta entonces la dirección sigue siendo `/Cuaderno/`) y qué skills instalar.
 

@@ -334,6 +334,31 @@ def process_photo():
     return None
 
 
+def process_banner():
+    """Banner de Sobre mí: content/img/banner.jpg. Se recorta la franja gris inferior, se reduce a dos tamaños y se guarda sin metadatos."""
+    from PIL import Image
+    f = ROOT / "content" / "img" / "banner.jpg"
+    if not f.exists():
+        return None
+    im = Image.open(f).convert("RGB")
+    im = im.crop((0, 0, im.width, im.height - 20))          # quita la franja translúcida del borde inferior
+    dest = OUT / "assets" / "img"
+    dest.mkdir(parents=True, exist_ok=True)
+    out = {}
+    for w in (700, 1400):
+        r = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+        r.save(dest / f"banner-{w}.jpg", "JPEG", quality=80, optimize=True, progressive=True)
+        out[w] = (f"{BASE}/assets/img/banner-{w}.jpg", r.width, r.height)
+    return out
+
+
+def banner_html(b):
+    if not b:
+        return ""
+    (u7, _, _), (u14, w, h) = b[700], b[1400]
+    return (f'<div class="about-banner"><img src="{u14}" srcset="{u7} 700w, {u14} 1400w" sizes="100vw" width="{w}" height="{h}" alt="" decoding="async" fetchpriority="high"></div>')
+
+
 def profile_card(lang, photo):
     t, pr = T[lang], CFG["profile"][lang]
     ini = "".join(w[0] for w in CFG["name"].split()[:2]).upper()
@@ -567,6 +592,7 @@ def main():
         old.unlink()
 
     photo = process_photo()
+    banner = process_banner()
 
     # 1) cargar proyectos (primero los datos, para poder enlazarlos con {{project:id}})
     projects = {l: [] for l in LANGS}
@@ -660,7 +686,7 @@ def main():
         af = ROOT / "content" / l / "about.md"
         if af.exists():
             meta, abody = parse(af)
-            body = (f'<section class="section"><div class="prose-head"><h1 class="page-title">{esc(meta.get("title", t["about"]))}</h1>{profile_card(l, photo)}</div>'
+            body = (banner_html(banner) + f'<section class="section"><div class="prose-head"><h1 class="page-title">{esc(meta.get("title", t["about"]))}</h1>{profile_card(l, photo)}</div>'
                     f'<article class="prose" style="margin-top:0">{render_md(expand(abody, l))}</article></section>')
             person = {**author_ld(l), "jobTitle": CFG["job_title"][l], "url": absu(p(l, "about")), "sameAs": [CFG["linkedin"]], "description": CFG["description"][l],
                       "knowsAbout": ["Data Science", "Generative AI", "Consumer lending", "Data strategy", "Product management"]}
