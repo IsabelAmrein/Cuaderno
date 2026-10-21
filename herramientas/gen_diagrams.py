@@ -160,3 +160,53 @@ for l in ("es", "en"):
 for name, fn in (("compass", lambda d: art.compass_scene(d, crop=True)), ("iceberg", art.iceberg_scene), ("bins", lambda d: art.bins_scene(d, crop=True))):
     (ROOT / f"content/art/{name}.svg").write_text(fn(True), encoding="utf-8")
 print("art ok")
+
+
+# ---------- caso de uso «buscar casa con IA»: pasos del lienzo, recorrido del comprador y esquema del agente ----------
+def pasos(lang):
+    L = {"es": [("Paso 1 de 3", "Entender el problema", "Problema y alternativas: quién sufre qué, cuánto le cuesta y qué hace hoy para resolverlo."),
+                ("Paso 2 de 3", "Diseñar la solución", "Solución y objetivos clave: qué solución elegimos entre las candidatas y qué tiene que conseguir."),
+                ("Paso 3 de 3", "Convertirla en negocio", "Valor, ingresos y métricas: la propuesta de valor, a quién va dirigida, cómo gana dinero, el concepto general y cómo se mide.")],
+         "en": [("Step 1 of 3", "Understand the problem", "Problem and alternatives: who suffers what, how much it costs them and what they do today to solve it."),
+                ("Step 2 of 3", "Design the solution", "Solution and key objectives: which solution we choose among the candidates and what it must achieve."),
+                ("Step 3 of 3", "Turn it into a business", "Value, income and metrics: the value proposition, who it is for, how it makes money, the high-level concept and how it is measured.")]}[lang]
+    out = []
+    for n, (lab, title, desc) in enumerate(L, 1):
+        meter = "".join('<i class="on"></i>' if i < n else "<i></i>" for i in range(3))
+        out.append(f'<div><p class="lvl-meter"><span class="meter" aria-hidden="true">{meter}</span>{lab}</p><p class="lvl-title">{title}</p><p class="lvl-desc">{desc}</p></div>')
+    return '<div class="levels">' + "".join(out) + '</div>'
+
+
+def recorrido(lang):
+    L = {"es": (["Pienso comprar", "Investigo la zona"], ["Busco en portales", "Contacto y visitas"], ["Negocio el precio", "Firmo las arras", "Busco financiación", "Formalizo la compra"], "el foco del caso",
+                "El recorrido de ocho pasos de quien compra una casa, con la búsqueda en portales y el contacto para concertar visitas como foco del caso"),
+         "en": (["I think about buying", "I research the area"], ["I search portals", "I get in touch and book viewings"], ["I negotiate the price", "I sign the deposit", "I find financing", "I close the purchase"], "the focus of the case",
+                "The eight-step journey of a home buyer, with searching portals and getting in touch to book viewings as the focus of the case")}[lang]
+    pre, mid, post, cap, label = L
+    sep = '<span class="sep">›</span>'
+    box = lambda t: f'<span class="st">{t}</span>'
+    k = [0]
+    def nw(inner):
+        k[0] += 1
+        return f'<span class="nw" style="--d:{k[0]*0.06:.2f}s">{sep}{inner}</span>'
+    s = f'<span class="st" style="--d:0s">{pre[0]}</span>' + "".join(nw(box(x)) for x in pre[1:])
+    s += nw(f'<span class="focus"><span class="row">{box(mid[0])}{sep}{box(mid[1])}</span><small>{cap}</small></span>')
+    s += "".join(nw(box(x)) for x in post)
+    return f'<div class="steps" role="group" aria-label="{label}">{s}</div>'
+
+
+def vista(lang):
+    L = {"es": ("Elige cómo ver el lienzo", "Pizarra", "Tres pasos"), "en": ("Choose how to view the canvas", "Whiteboard", "Three steps")}[lang]
+    return (f'<div class="vista" data-vista><div class="vista-bar" role="tablist" aria-label="{L[0]}">'
+            f'<button type="button" role="tab" id="vista-t1" aria-controls="vista-p1" aria-selected="true">{L[1]}</button>'
+            f'<button type="button" role="tab" id="vista-t2" aria-controls="vista-p2" aria-selected="false" tabindex="-1">{L[2]}</button></div>'
+            f'<div role="tabpanel" id="vista-p1" aria-labelledby="vista-t1">{art.lienzo_diagram(lang)}</div>'
+            f'<div role="tabpanel" id="vista-p2" aria-labelledby="vista-t2">{pasos(lang)}</div></div>')
+
+
+for l in ("es", "en"):
+    (ROOT / f"content/{l}/snippets/recorrido.html").write_text(recorrido(l) + "\n", encoding="utf-8")
+    (ROOT / f"content/{l}/snippets/agente.html").write_text(art.agente_diagram(l) + "\n", encoding="utf-8")
+    (ROOT / f"content/{l}/snippets/vista.html").write_text(vista(l) + "\n", encoding="utf-8")
+(ROOT / "content/art/casa.svg").write_text(art.casa_scene(True), encoding="utf-8")
+print("caso de uso buscar casa: componentes ok")

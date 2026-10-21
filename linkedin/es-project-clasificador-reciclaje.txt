@@ -1,6 +1,0 @@
-Estoy construyendo un clasificador de reciclaje: una foto de un objeto y la respuesta de a qué contenedor va. Cuento el plan, cómo lo entreno y, sobre todo, dónde falla.
-
-Lo cuento con más detalle en mi sitio:
-https://isabelamrein.github.io/Cuaderno/es/proyectos/clasificador-reciclaje/
-
-#TeachableMachine #CustomAi #Imágenes

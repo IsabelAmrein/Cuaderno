@@ -312,3 +312,131 @@ def bins_scene(deco=True, crop=False):
     b += '<g transform="rotate(24 160 80)"><rect x="152" y="62" width="16" height="36" rx="5" fill="url(#bn-bottle)" fill-opacity=".96"/><rect x="157" y="50" width="6" height="14" rx="2" fill="url(#bn-bottle)"/><rect x="156" y="46" width="8" height="5" rx="2" fill="#6FE3C5"/><rect x="155" y="68" width="3" height="24" rx="1.5" fill="#FFFFFF" fill-opacity=".7"/></g>'
     b += '<rect x="0" y="0" width="680" height="370" rx="12" fill="url(#bn-vg)" pointer-events="none"/>'
     return _svg(680, 370, b, "Cuatro contenedores de reciclaje: amarillo, azul, verde y gris", "Ilustración semirrealista de cuatro contenedores con una botella cayendo en el amarillo.", deco, vb="84 28 508 304" if crop else None)
+
+
+# ---------- casa con porcentaje de match (cabecera del caso práctico) ----------
+def casa_scene(deco=True):
+    d = ('<defs>'
+         '<linearGradient id="cs-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08171A"/><stop offset="1" stop-color="#173D3C"/></linearGradient>'
+         '<linearGradient id="cs-wall" x1=".1" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#E3E8E4"/><stop offset="1" stop-color="#9AA6A1"/></linearGradient>'
+         '<linearGradient id="cs-side" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E7B77"/><stop offset="1" stop-color="#3A4543"/></linearGradient>'
+         '<linearGradient id="cs-roof" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0704F"/><stop offset="1" stop-color="#8A3524"/></linearGradient>'
+         '<linearGradient id="cs-roof2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B14E36"/><stop offset="1" stop-color="#5E241A"/></linearGradient>'
+         '<linearGradient id="cs-win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFEDB8"/><stop offset="1" stop-color="#F2B94F"/></linearGradient>'
+         '<linearGradient id="cs-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12302C"/><stop offset="1" stop-color="#091514"/></linearGradient>'
+         '<linearGradient id="cs-card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26393A"/><stop offset="1" stop-color="#121D1E"/></linearGradient>'
+         '<radialGradient id="cs-warm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient>'
+         '<radialGradient id="cs-moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#BFF4EA" stop-opacity=".35"/><stop offset="1" stop-color="#BFF4EA" stop-opacity="0"/></radialGradient>'
+         '<radialGradient id="cs-vg" cx=".5" cy=".5" r=".78"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>'
+         '</defs>')
+    b = d + '<rect width="680" height="400" rx="12" fill="url(#cs-sky)"/>'
+    b += '<g fill="#E9EDEA" fill-opacity=".5">' + "".join(f'<circle cx="{x}" cy="{y}" r="1.6"/>' for x, y in [(40, 36), (96, 80), (170, 30), (240, 14), (470, 22), (520, 60), (640, 30), (655, 110), (60, 130)]) + '</g>'
+    b += '<circle cx="590" cy="76" r="64" fill="url(#cs-moon)"/><circle cx="590" cy="76" r="14" fill="#EAF7F3"/>'
+    # casas lejanas
+    b += ('<rect x="52" y="266" width="100" height="66" fill="#14302F"/><polygon points="42,268 102,226 162,268" fill="#102725"/>'
+          '<rect x="70" y="284" width="16" height="18" rx="2" fill="#F2B94F" fill-opacity=".85"/><rect x="112" y="284" width="16" height="18" rx="2" fill="#F2B94F" fill-opacity=".55"/>'
+          '<rect x="532" y="272" width="108" height="60" fill="#14302F"/><polygon points="522,274 586,234 650,274" fill="#102725"/>'
+          '<rect x="552" y="290" width="16" height="18" rx="2" fill="#F2B94F" fill-opacity=".7"/><rect x="600" y="290" width="16" height="18" rx="2" fill="#F2B94F" fill-opacity=".9"/>')
+    b += '<rect x="0" y="330" width="680" height="70" fill="url(#cs-ground)"/><polygon points="308,330 352,330 392,400 270,400" fill="#1E4541" fill-opacity=".75"/>'
+    # casa principal
+    b += '<circle cx="320" cy="262" r="150" fill="url(#cs-warm)" fill-opacity=".45"/>'
+    b += '<polygon points="410,212 468,200 468,318 410,330" fill="url(#cs-side)"/>'
+    b += '<polygon points="230,212 410,212 410,330 230,330" fill="url(#cs-wall)"/>'
+    b += '<polygon points="320,128 378,116 484,204 426,216" fill="url(#cs-roof2)"/><polygon points="214,216 320,128 426,216" fill="url(#cs-roof)"/>'
+    b += '<polyline points="214,216 320,128 426,216" fill="none" stroke="#FFD9C6" stroke-opacity=".55" stroke-width="1.6" stroke-linejoin="round"/>'
+    b += '<rect x="396" y="136" width="22" height="46" fill="#7D8A86"/><rect x="392" y="132" width="30" height="8" fill="#5E6B67"/>'
+    for x in (252, 344):
+        b += (f'<circle cx="{x+22}" cy="264" r="50" fill="url(#cs-warm)"/><rect x="{x}" y="240" width="44" height="48" rx="3" fill="url(#cs-win)" stroke="#6E7B77" stroke-width="3"/>'
+              f'<line x1="{x+22}" y1="240" x2="{x+22}" y2="288" stroke="#6E7B77" stroke-width="2.4"/><line x1="{x}" y1="264" x2="{x+44}" y2="264" stroke="#6E7B77" stroke-width="2.4"/>')
+    b += '<rect x="306" y="268" width="28" height="62" rx="3" fill="#1B3A38"/><circle cx="328" cy="300" r="2.4" fill="#F2B94F"/><rect x="298" y="330" width="44" height="6" fill="#6E7B77"/>'
+    b += '<rect x="176" y="288" width="10" height="44" fill="#4A3A2E"/><circle cx="181" cy="270" r="26" fill="#1C4A3A"/><circle cx="166" cy="284" r="17" fill="#17402F"/><circle cx="197" cy="284" r="19" fill="#225541"/><circle cx="178" cy="262" r="9" fill="#2C6A52" fill-opacity=".7"/>'
+    b += '<circle cx="500" cy="318" r="16" fill="#1E4B3B"/><circle cx="496" cy="313" r="7" fill="#2C6A52" fill-opacity=".7"/>'
+    # tarjeta de match
+    b += ('<polygon points="330,102 350,102 340,114" fill="#26393A" stroke="#6FE3C5" stroke-opacity=".7"/>'
+          '<rect x="232" y="26" width="216" height="76" rx="16" fill="url(#cs-card)" stroke="#6FE3C5" stroke-opacity=".75" stroke-width="1.6"/>'
+          '<circle cx="272" cy="64" r="24" fill="none" stroke="#2C3A3A" stroke-width="6"/>'
+          '<circle cx="272" cy="64" r="24" fill="none" stroke="#6FE3C5" stroke-width="6" stroke-linecap="round" stroke-dasharray="138.7 150.8" transform="rotate(-90 272 64)"/>'
+          f'<text x="312" y="76" fill="#E9EDEA" style="{DI};font-size:34px;font-weight:500">92 %</text>'
+          '<circle cx="424" cy="64" r="11" fill="#6FE3C5"/><path d="M418.5 64 l4 4 7 -8" fill="none" stroke="#0F1E1F" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>')
+    b += '<rect x="0" y="0" width="680" height="400" rx="12" fill="url(#cs-vg)" pointer-events="none"/>'
+    return _svg(680, 400, b, "Casa con las ventanas encendidas y una tarjeta de coincidencia del 92 %", "Ilustración semirrealista de una casa nocturna con un porcentaje de match.", deco)
+
+
+# ---------- esquema del agente de IA (caso práctico) ----------
+def agente_diagram(lang):
+    L = {"es": dict(izq="Quien busca casa", izq2=("Cuenta lo que busca,", "por voz o por texto"), cen="Agente de IA", cen2=("Escucha, entiende", "y recomienda"), der="Portales pequeños", der2=("Su oferta, unida", "en un solo catálogo"),
+                    a1="lo que busca", a2="match explicado", a3="catálogo", a4="visitas", extra="Servicios extra: reformas · legal · financiación",
+                    label="Esquema: la persona habla con un agente de IA, que recibe el catálogo de varios portales pequeños, devuelve un match explicado y envía visitas a los portales; debajo, servicios extra.",
+                    cap="El agente hace de intermediario: escucha a quien busca, conoce el catálogo de los portales y devuelve viviendas a su medida."),
+         "en": dict(izq="Home seeker", izq2=("Tells what they want,", "by voice or text"), cen="AI agent", cen2=("Listens, understands", "and recommends"), der="Small portals", der2=("Their listings, joined", "in a single catalogue"),
+                    a1="what they want", a2="explained match", a3="catalogue", a4="viewings", extra="Extra services: renovation · legal · financing",
+                    label="Diagram: the person talks to an AI agent, which receives the catalogue of several small portals, returns an explained match and sends viewings to the portals; below, extra services.",
+                    cap="The agent acts as an intermediary: it listens to the person searching, knows the portals' catalogue and returns homes that suit them.")}[lang]
+    b = ('<defs><linearGradient id="ag-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1A1B"/><stop offset="1" stop-color="#112A2B"/></linearGradient>'
+         '<radialGradient id="ag-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#B8FFEE" stop-opacity=".8"/><stop offset=".4" stop-color="#6FE3C5" stop-opacity=".3"/><stop offset="1" stop-color="#6FE3C5" stop-opacity="0"/></radialGradient></defs>'
+         '<rect width="680" height="420" rx="12" fill="url(#ag-bg)"/>')
+    # persona y burbuja
+    b += ('<circle cx="100" cy="150" r="22" fill="#CFE3DD"/><path d="M62 226 Q62 186 100 186 Q138 186 138 226 Z" fill="#8FB5AC"/>'
+          '<rect x="110" y="60" width="86" height="42" rx="14" fill="#1E3A38" stroke="#6FE3C5" stroke-opacity=".7"/><polygon points="122,102 130,102 120,118" fill="#1E3A38" stroke="#6FE3C5" stroke-opacity=".7"/>'
+          '<circle cx="134" cy="81" r="4.5" fill="#6FE3C5"/><circle cx="153" cy="81" r="4.5" fill="#6FE3C5"/><circle cx="172" cy="81" r="4.5" fill="#6FE3C5"/>')
+    # agente (esfera de puntos)
+    ring = 'fill="none" stroke="#6FE3C5" stroke-linecap="round" stroke-width="3.4" stroke-dasharray="1 7.5"'
+    b += ('<circle cx="340" cy="150" r="86" fill="url(#ag-glow)"/>'
+          f'<circle cx="340" cy="150" r="54" {ring}/><ellipse cx="340" cy="150" rx="54" ry="19" {ring}/><ellipse cx="340" cy="150" rx="19" ry="54" {ring}/><ellipse cx="340" cy="150" rx="38" ry="54" {ring} stroke-opacity=".6"/>'
+          '<circle cx="340" cy="150" r="7" fill="#CFFFF2"/>')
+    # portales (tres casitas)
+    for cx, h, rf in ((538, 26, "#D9674A"), (580, 34, "#E0704F"), (622, 26, "#B14E36")):
+        b += (f'<rect x="{cx-16}" y="{196-h}" width="32" height="{h}" fill="#8FA29C"/><polygon points="{cx-21},{196-h} {cx},{196-h-24} {cx+21},{196-h}" fill="{rf}"/>'
+              f'<rect x="{cx-5}" y="{196-h+8}" width="10" height="9" rx="1.5" fill="#F2B94F"/>')
+    arr = lambda x1, x2, y: (f'<line x1="{x1}" y1="{y}" x2="{x2}" y2="{y}" stroke="#6FE3C5" stroke-width="2.6" stroke-linecap="round"/>'
+                             f'<polygon points="{x2},{y} {x2 - (10 if x2 > x1 else -10)},{y-6} {x2 - (10 if x2 > x1 else -10)},{y+6}" fill="#6FE3C5"/>')
+    b += arr(158, 272, 142) + arr(272, 158, 190) + arr(522, 408, 142) + arr(408, 522, 190)
+    lbl = lambda x, y, t: f'<text x="{x}" y="{y}" text-anchor="middle" fill="#98A39E" style="{UI};font-size:17px">{t}</text>'
+    b += lbl(215, 128, L["a1"]) + lbl(215, 216, L["a2"]) + lbl(465, 128, L["a3"]) + lbl(465, 216, L["a4"])
+    for cx, head, subs in ((100, L["izq"], L["izq2"]), (340, L["cen"], L["cen2"]), (580, L["der"], L["der2"])):
+        b += f'<text x="{cx}" y="268" text-anchor="middle" fill="#6FE3C5" style="{DI};font-size:23px;font-weight:500">{head}</text>'
+        b += "".join(f'<text x="{cx}" y="{296 + i * 22}" text-anchor="middle" fill="#E9EDEA" style="{UI};font-size:17px">{s}</text>' for i, s in enumerate(subs))
+    b += ('<line x1="340" y1="338" x2="340" y2="356" stroke="#6FE3C5" stroke-opacity=".5" stroke-width="2" stroke-dasharray="3 5"/>'
+          '<rect x="70" y="358" width="540" height="46" rx="12" fill="none" stroke="#6FE3C5" stroke-opacity=".5" stroke-dasharray="5 5"/>'
+          f'<text x="340" y="388" text-anchor="middle" fill="#E9EDEA" style="{UI};font-size:19px">{L["extra"]}</text>')
+    return f'<figure class="diagram"><svg viewBox="0 0 680 420" role="img" aria-label="{L["label"]}">{b}</svg><figcaption>{L["cap"]}</figcaption></figure>'
+
+
+# ---------- representación de la pizarra del taller (con notas de relleno, sin texto) ----------
+def lienzo_diagram(lang):
+    L = {"es": dict(prob=("Problema",), alt=("Alternativas",), cand=("Soluciones", "candidatas"), sol=("Solución",), obj=("Objetivos clave",), ret=("Retos",), ing=("Ingresos",),
+                    pu=("Propuesta", "única de valor"), para=("¿A quién va", "dirigida?"), conc=("Concepto", "general"), met=("Métricas", "clave"),
+                    z=("Entender el problema", "Diseñar la solución", "Convertirla en negocio"),
+                    label="Representación de la pizarra del taller: un lienzo en tres zonas numeradas, con bloques para problema, alternativas, solución, objetivos, valor, ingresos y métricas. Las notas son de relleno.",
+                    cap="El lienzo del taller, en tres zonas. Las notas amarillas son de relleno: no reproducen las del equipo."),
+         "en": dict(prob=("Problem",), alt=("Alternatives",), cand=("Candidate", "solutions"), sol=("Solution",), obj=("Key objectives",), ret=("Challenges",), ing=("Revenue",),
+                    pu=("Unique value", "proposition"), para=("Who is", "it for?"), conc=("High-level", "concept"), met=("Key", "metrics"),
+                    z=("Understand the problem", "Design the solution", "Turn it into a business"),
+                    label="Representation of the workshop whiteboard: a canvas in three numbered zones, with blocks for problem, alternatives, solution, objectives, value, revenue and metrics. The notes are placeholders.",
+                    cap="The workshop canvas, in three zones. The yellow notes are placeholders: they do not reproduce the team's.")}[lang]
+    b = ('<defs><linearGradient id="lz-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1A1B"/><stop offset="1" stop-color="#112A2B"/></linearGradient></defs>'
+         '<rect width="680" height="400" rx="12" fill="url(#lz-bg)"/>'
+         '<line x1="203" y1="24" x2="203" y2="300" stroke="#6FE3C5" stroke-opacity=".25" stroke-dasharray="3 6"/><line x1="403" y1="24" x2="403" y2="300" stroke="#6FE3C5" stroke-opacity=".25" stroke-dasharray="3 6"/>')
+    def nota(x, y):
+        return (f'<rect x="{x}" y="{y}" width="30" height="24" rx="3" fill="#F2D56B" fill-opacity=".92"/>'
+                f'<rect x="{x+5}" y="{y+7}" width="20" height="2.6" rx="1.3" fill="#8C7A3A"/><rect x="{x+5}" y="{y+13}" width="14" height="2.6" rx="1.3" fill="#8C7A3A"/>')
+    def caja(x, y, w, h, lines, n):
+        s = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#122D2E" stroke="#6FE3C5" stroke-opacity=".55"/>'
+        s += "".join(f'<text x="{x+10}" y="{y+21+i*17}" fill="#E9EDEA" style="{UI};font-size:15px;font-weight:600">{t}</text>' for i, t in enumerate(lines))
+        y0 = y + 21 + (len(lines) - 1) * 17 + 12
+        cols = max(1, (w - 14) // 38)
+        for i in range(n):
+            nx, ny = x + 10 + (i % cols) * 38 + ((i // cols) % 2) * 5, y0 + (i // cols) * 30
+            if ny + 24 > y + h - 6: break
+            s += nota(nx, ny)
+        return s
+    bl = ((20, 24, 176, 150, "prob", 3), (20, 184, 176, 116, "alt", 3),
+          (210, 24, 186, 100, "cand", 4), (210, 134, 186, 80, "sol", 3), (210, 224, 186, 76, "obj", 3),
+          (410, 24, 124, 76, "ret", 2), (410, 110, 124, 94, "pu", 3), (410, 214, 124, 86, "para", 2),
+          (544, 24, 116, 76, "ing", 2), (544, 110, 116, 94, "conc", 3), (544, 214, 116, 86, "met", 3))
+    for x, y, w, h, k, n in bl:
+        b += caja(x, y, w, h, L[k], n)
+    for cx, num, name in ((108, 1, L["z"][0]), (303, 2, L["z"][1]), (535, 3, L["z"][2])):
+        b += (f'<circle cx="{cx}" cy="334" r="16" fill="#6FE3C5"/><text x="{cx}" y="340" text-anchor="middle" fill="#0F1E1F" style="{UI};font-size:18px;font-weight:700">{num}</text>'
+              f'<text x="{cx}" y="378" text-anchor="middle" fill="#6FE3C5" style="{DI};font-size:18px;font-weight:500">{name}</text>')
+    return f'<figure class="diagram"><svg viewBox="0 0 680 400" role="img" aria-label="{L["label"]}">{b}</svg><figcaption>{L["cap"]}</figcaption></figure>'

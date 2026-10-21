@@ -30,32 +30,36 @@ ACCENTS = {"aqua": "#6FE3C5", "sand": "#D9B25F", "coral": "#F29277",
            "violet": "#B79BFF", "rose": "#F08AB0", "moss": "#9BD774"}
 
 T = {
-    "es": dict(name="Español", articles="Entradas", about="Sobre mí", latest="Últimas entradas", see_projects="Ver los proyectos", route="Ruta con banderas: cada bandera es un proyecto", goal="Meta",
-               projects="Proyectos", kind_project="Proyecto", kind_entry="Entrada", list_title="Entradas sobre datos, IA y producto", list_desc="Entradas de Isabel Amrein: apuntes sobre datos, IA generativa y producto, explicados con mis propios ejemplos, con los errores incluidos porque también enseñan.", proj_title="Proyectos de datos e IA", proj_desc="Proyectos de datos e IA de Isabel Amrein De Luca: qué construyo, con qué herramientas, cómo va cada uno y las entradas que lo explican.", proj_short="Lo que construyo: cada proyecto con su estado y sus herramientas.", entries_short="Lo que aprendo: apuntes explicados con mis propios ejemplos.",
+    "es": dict(name="Español", articles="Blog", nav_home="Inicio", contact="Contacto", contact_path="contacto", nav_label="Principal", foot_nav="Menú del pie", crumbs_label="Ruta de navegación", read_blog="Leer el blog",
+               contact_lead="La mejor forma de contactar conmigo es por LinkedIn. Escríbeme si quieres comentar un proyecto o una entrada, o hablar de una posible colaboración.", contact_btn="Escríbeme por LinkedIn", contact_more="Mientras tanto, puedes ver lo que estoy construyendo o leer lo que voy aprendiendo.",
+               contact_desc="Contacta con Isabel Amrein De Luca por LinkedIn para comentar un proyecto, una entrada del blog o una posible colaboración en datos, IA y producto.", about="Sobre mí", latest="Últimas entradas", see_projects="Ver los proyectos", route="Ruta con banderas: cada bandera es un proyecto", goal="Meta",
+               projects="Proyectos", kind_project="Proyecto", kind_entry="Entrada", list_title="Blog sobre datos, IA y producto", list_desc="Blog de Isabel Amrein: apuntes sobre datos, IA generativa y producto, explicados con mis propios ejemplos, con los errores incluidos porque también enseñan.", proj_title="Proyectos de datos e IA", proj_desc="Proyectos de datos e IA de Isabel Amrein De Luca: qué construyo, con qué herramientas, cómo va cada uno y las entradas que lo explican.", proj_short="Lo que construyo: cada proyecto con su estado y sus herramientas.", entries_short="Lo que aprendo: apuntes explicados con mis propios ejemplos.",
                theme_label="Cambiar entre tema claro y oscuro", pause="Pausar la animación", play="Reanudar la animación", keep_reading="Sigue leyendo", other_projects="Otros proyectos",
-               ex_alt="Animación del ciclo completo: trabajo con los datos, los analizo, creo modelos y modelos de Machine Learning, gestiono el producto, mido los resultados y vuelvo a empezar. Al final, cada bandera de la montaña es un proyecto.",
-               ex_s=("Trabajo con los datos", "Los analizo", "Creo modelos", "Y modelos de Machine Learning", "Gestiono el producto", "Mido los resultados"), ex_n=("Datos", "Análisis", "Modelos", "Machine Learning", "Producto", "Medición"), ex_c4="Todo el ciclo, un proyecto tras otro", ex_chip="En marcha",
+               ex_alt="Animación del ciclo completo: trabajo con los datos, los analizo, creo modelos de datos y modelos de Machine Learning, gestiono el producto, mido la conversión y vuelvo a empezar. Al final, cada bandera de la montaña es un proyecto.",
+               ex_s=("Trabajo con los datos", "Los analizo", "Creo modelos de datos", "Y modelos de Machine Learning", "Gestiono el producto", "Mido la conversión"), ex_n=("Datos", "Análisis", "Modelos de datos", "Machine Learning", "Producto", "Medición"), ex_c4="Todo el ciclo, un proyecto tras otro", ex_chip="En marcha",
                author_blurb="Escribo sobre datos, IA y producto. Trabajo en préstamos personales y aquí cuento lo que construyo y lo que aprendo.", all_projects="Ver todos los proyectos", proj_path="proyectos", proj_lede="Lo que estoy construyendo y aprendiendo. Cada proyecto tiene su estado, sus herramientas y sus entradas.",
                st_en_marcha="En marcha", st_terminado="Terminado", st_idea="Idea", related="Entradas relacionadas", part_of="Parte del proyecto", see_project="Ver el proyecto",
                code="Código", demo="Demostración", back_projects="Volver a los proyectos", no_projects="Aún no hay proyectos publicados.", updated="Actualizado",
                all="Ver todas las entradas", min="min de lectura", topics="Tema", all_topics="Todos",
                skip="Saltar al contenido", theme="Tema", share="Compartir en LinkedIn",
-               back="Volver a las entradas", other="Read in English", empty="Aún no hay entradas publicadas.",
+               back="Volver al blog", other="Read in English", empty="Aún no hay entradas publicadas.",
                list_lede="Apuntes y reflexiones sobre datos, IA y producto, explicados con mis propios ejemplos.",
                cta="Lo cuento con más detalle en mi sitio:", nf="Página no encontrada",
                nf_text="Esa página no existe o se ha movido.", home="Ir al inicio", rights="Todos los derechos reservados",
                thinking="Pensando…", class_by="Clase de", thanks="Gracias a {name} por la clase en la que se basa este artículo.", thanks_short="Gracias a {name} por la clase."),
-    "en": dict(name="English", articles="Entries", about="About", latest="Latest entries", see_projects="See the projects", route="Route with flags: each flag is a project", goal="Goal",
-               projects="Projects", kind_project="Project", kind_entry="Entry", list_title="Entries on data, AI and product", list_desc="Entries by Isabel Amrein: notes on data, generative AI and product, explained with my own examples, mistakes included because they teach as well.", proj_title="Data and AI projects", proj_desc="Data and AI projects by Isabel Amrein De Luca: what I build, with which tools, how each one is going and the entries that explain it.", proj_short="What I build: each project with its status and its tools.", entries_short="What I learn: notes explained with my own examples.",
+    "en": dict(name="English", articles="Blog", nav_home="Home", contact="Contact", contact_path="contact", nav_label="Main", foot_nav="Footer menu", crumbs_label="Breadcrumb", read_blog="Read the blog",
+               contact_lead="The best way to reach me is on LinkedIn. Message me if you would like to discuss a project or an entry, or talk about a possible collaboration.", contact_btn="Message me on LinkedIn", contact_more="In the meantime, you can see what I am building or read what I am learning.",
+               contact_desc="Contact Isabel Amrein De Luca on LinkedIn to discuss a project, a blog entry or a possible collaboration on data, AI and product.", about="About", latest="Latest entries", see_projects="See the projects", route="Route with flags: each flag is a project", goal="Goal",
+               projects="Projects", kind_project="Project", kind_entry="Entry", list_title="Blog on data, AI and product", list_desc="Blog by Isabel Amrein: notes on data, generative AI and product, explained with my own examples, mistakes included because they teach as well.", proj_title="Data and AI projects", proj_desc="Data and AI projects by Isabel Amrein De Luca: what I build, with which tools, how each one is going and the entries that explain it.", proj_short="What I build: each project with its status and its tools.", entries_short="What I learn: notes explained with my own examples.",
                theme_label="Switch between light and dark theme", pause="Pause the animation", play="Resume the animation", keep_reading="Keep reading", other_projects="More projects",
-               ex_alt="Animation of the whole cycle: I work with data, analyse it, build models and machine learning models, manage the product, measure the results and start again. At the end, every flag on the mountain is a project.",
-               ex_s=("I work with data", "I analyse it", "I build models", "And machine learning models", "I manage the product", "I measure the results"), ex_n=("Data", "Analysis", "Models", "Machine Learning", "Product", "Measurement"), ex_c4="The whole cycle, one project after another", ex_chip="In progress",
+               ex_alt="Animation of the whole cycle: I work with data, analyse it, build data models and machine learning models, manage the product, measure conversion and start again. At the end, every flag on the mountain is a project.",
+               ex_s=("I work with data", "I analyse it", "I build data models", "And machine learning models", "I manage the product", "I measure conversion"), ex_n=("Data", "Analysis", "Data models", "Machine Learning", "Product", "Measurement"), ex_c4="The whole cycle, one project after another", ex_chip="In progress",
                author_blurb="I write about data, AI and product. I work in personal loans and here I share what I build and what I learn.", all_projects="See all projects", proj_path="projects", proj_lede="What I'm building and learning. Each project has its status, tools and entries.",
                st_en_marcha="In progress", st_terminado="Done", st_idea="Idea", related="Related entries", part_of="Part of the project", see_project="See the project",
                code="Code", demo="Demo", back_projects="Back to projects", no_projects="No projects published yet.", updated="Updated",
                all="See all entries", min="min read", topics="Topic", all_topics="All",
                skip="Skip to content", theme="Theme", share="Share on LinkedIn",
-               back="Back to entries", other="Leer en español", empty="No entries published yet.",
+               back="Back to the blog", other="Leer en español", empty="No entries published yet.",
                list_lede="Notes and reflections on data, AI and product, explained with my own examples.",
                cta="Full write-up on my site:", nf="Page not found",
                nf_text="That page doesn't exist or has moved.", home="Go to home", rights="All rights reserved",
@@ -279,40 +283,48 @@ def explainer_svg(projects, lang):
     hs = (20, 32, 26, 44, 38)
     v1 = "".join(f'<rect class="br" x="{-52 + n * 22}" y="{30 - h}" width="15" height="{h}" rx="4" fill="url(#ex-bar)" style="--k:{1};--o:{n * .12:.2f}s"/>' for n, h in enumerate(hs))
     v1 += '<line x1="-56" y1="34" x2="56" y2="34" stroke="#2C3A3A" stroke-width="1.5"/><polyline class="dl" points="-46,10 -24,-2 -2,4 20,-18 42,-26" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" pathLength="1" style="--k:1;--o:.7s"/><circle class="pp" cx="42" cy="-26" r="4.6" fill="#FFFFFF" style="--k:1;--o:1.5s"/>'
-    # 2 modelos estadísticos (segmentación y regresión)
-    clus = (((-28, -16), "#6FE3C5"), ((28, -22), "#D9B25F"), ((2, 28), "#B79BFF"))
-    v2 = "".join(f'<ellipse cx="{cx}" cy="{cy}" rx="26" ry="18" fill="{col}" fill-opacity=".1" stroke="{col}" stroke-opacity=".6" stroke-dasharray="3 3" class="fd" style="--k:2;--o:{2.0 + n * .2:.1f}s"/>' for n, ((cx, cy), col) in enumerate(clus))
+    # 2 modelos de datos: tablas relacionadas entre sí
+    def tabla(x, y, w, h, o, filas=2):
+        s = (f'<g class="pp" style="--k:2;--o:{o:.2f}s"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="4" fill="url(#ex-card)" stroke="#6FE3C5" stroke-opacity=".75" stroke-width="1"/>'
+             f'<rect x="{x}" y="{y}" width="{w}" height="6.5" rx="3" fill="url(#ex-bar)"/>')
+        for r in range(filas):
+            s += f'<rect x="{x + 4}" y="{y + 11 + r * 5.2}" width="{w - 8 - (r % 2) * 7}" height="2.4" rx="1.2" fill="#E9EDEA" fill-opacity=".6"/>'
+        return s + "</g>"
+    enlaces = ((-24, -26, -16, -6), (24, -26, 16, -6), (-26, 22, -16, 10), (26, 22, 16, 10))
+    v2 = "".join(f'<line class="dl" x1="{a}" y1="{b_}" x2="{c_}" y2="{d_}" stroke="#6FE3C5" stroke-opacity=".85" stroke-width="1.7" pathLength="1" style="--k:2;--o:{.9 + n * .15:.2f}s"/>'
+                  f'<circle class="fd" cx="{a}" cy="{b_}" r="2.2" fill="#CFFFF2" style="--k:2;--o:{1.3 + n * .15:.2f}s"/><circle class="fd" cx="{c_}" cy="{d_}" r="2.2" fill="#CFFFF2" style="--k:2;--o:{1.3 + n * .15:.2f}s"/>' for n, (a, b_, c_, d_) in enumerate(enlaces))
+    v2 += tabla(-16, -10, 32, 26, .1, 3) + tabla(-50, -38, 26, 20, .3) + tabla(24, -38, 26, 20, .4) + tabla(-52, 10, 26, 20, .5) + tabla(26, 10, 26, 20, .6)
+    # 3 Machine Learning: agrupación (clustering) y red neuronal, a la vez
+    clus = (((-36, -20), "#6FE3C5"), ((-22, 22), "#D9B25F"), ((-47, 5), "#B79BFF"))
+    v3 = '<line x1="0" y1="-50" x2="0" y2="50" stroke="#6FE3C5" stroke-opacity=".28" stroke-dasharray="2 4"/>'
+    v3 += "".join(f'<ellipse class="fd" cx="{cx}" cy="{cy}" rx="14" ry="10" fill="{col}" fill-opacity=".12" stroke="{col}" stroke-opacity=".7" stroke-dasharray="3 3" style="--k:3;--o:{.5 + n * .2:.1f}s"/>' for n, ((cx, cy), col) in enumerate(clus))
     for n, ((cx, cy), col) in enumerate(clus):
-        v2 += "".join(f'<circle class="pp" cx="{cx + rnd.randint(-17, 17)}" cy="{cy + rnd.randint(-11, 11)}" r="3.2" fill="{col}" style="--k:2;--o:{n * .3 + m * .08:.2f}s"/>' for m in range(7))
-    v2 += '<line class="dl" x1="-58" y1="34" x2="58" y2="-36" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="2.4" stroke-linecap="round" pathLength="1" style="--k:2;--o:1.1s"/>'
-    # 3 Machine Learning (red que aprende)
-    lay = ((-46, (-30, 0, 30)), (0, (-42, -14, 14, 42)), (46, (-22, 22)))
-    ls, nn = [], []
+        v3 += "".join(f'<circle class="pp" cx="{cx + rnd.randint(-9, 9)}" cy="{cy + rnd.randint(-6, 6)}" r="2.6" fill="{col}" style="--k:3;--o:{n * .25 + m * .07:.2f}s"/>' for m in range(6))
+    lay = ((14, (-26, 0, 26)), (32, (-36, -12, 12, 36)), (50, (-16, 16)))
     for (xa, ya_l), (xb, yb_l) in zip(lay, lay[1:]):
-        for ya in ya_l:
-            for yb in yb_l:
-                ls.append(f'<line class="fd" x1="{xa}" y1="{ya}" x2="{xb}" y2="{yb}" stroke="#6FE3C5" stroke-opacity=".45" stroke-width="1.1" style="--k:3;--o:.2s"/>')
-    for x, ys in lay:
-        for y in ys:
-            nn.append(f'<circle class="pp" cx="{x}" cy="{y}" r="5" fill="#6FE3C5" style="--k:3;--o:{abs(x) * .004 + .1:.2f}s"/><circle cx="{x - 1.4}" cy="{y - 1.6}" r="1.7" fill="#E9FFF8" opacity=".9"/>')
-    pls = "".join(f'<line class="np2" x1="{xa}" y1="{ya}" x2="{xb}" y2="{yb}" pathLength="1" stroke="#E9FFF8" stroke-width="2.2" stroke-linecap="round" style="--k:3;--o:{.9 + n * .22:.2f}s"/>' for n, (xa, ya, xb, yb) in enumerate(((-46, -30, 0, -14), (0, -14, 46, 22), (-46, 30, 0, 42), (0, 42, 46, -22), (-46, 0, 0, 14))))
-    v3 = "".join(ls) + pls + "".join(nn)
+        v3 += "".join(f'<line class="fd" x1="{xa}" y1="{ya}" x2="{xb}" y2="{yb}" stroke="#6FE3C5" stroke-opacity=".45" stroke-width="1" style="--k:3;--o:.3s"/>' for ya in ya_l for yb in yb_l)
+    v3 += "".join(f'<line class="np2" x1="{xa}" y1="{ya}" x2="{xb}" y2="{yb}" pathLength="1" stroke="#E9FFF8" stroke-width="2" stroke-linecap="round" style="--k:3;--o:{1.1 + n * .22:.2f}s"/>' for n, (xa, ya, xb, yb) in enumerate(((14, -26, 32, -12), (32, -12, 50, 16), (14, 26, 32, 36), (32, 36, 50, -16))))
+    v3 += "".join(f'<circle class="pp" cx="{x}" cy="{y}" r="4.2" fill="#6FE3C5" style="--k:3;--o:{.3 + x * .004:.2f}s"/>' for x, ys in lay for y in ys)
     # 4 producto
     v4 = ('<ellipse cx="0" cy="56" rx="48" ry="5" fill="#000" fill-opacity=".4"/><rect x="-46" y="-52" width="92" height="104" rx="13" fill="url(#ex-card)"/><rect x="-45.5" y="-51.5" width="91" height="103" rx="12.5" fill="none" stroke="url(#ex-edge)" stroke-width="1.2"/>'
           '<circle cx="-30" cy="-36" r="6" fill="url(#ex-bar)"/><rect x="-19" y="-40" width="38" height="5" rx="2.5" fill="#E9EDEA" fill-opacity=".9"/><rect x="-19" y="-31" width="24" height="4" rx="2" fill="#98A39E" fill-opacity=".7"/>'
           + "".join(f'<rect class="br" x="{-34 + n * 17}" y="{14 - h}" width="11" height="{h}" rx="3" fill="url(#ex-bar)" style="--k:4;--o:{n * .1:.2f}s"/>' for n, h in enumerate((14, 24, 18, 32)))
           + '<rect x="-34" y="26" width="68" height="14" rx="7" fill="url(#ex-bar)"/><rect x="-18" y="31" width="36" height="4" rx="2" fill="#0F1E1F" fill-opacity=".85"/>'
           '<g class="pp" style="--k:4;--o:1.6s"><circle cx="42" cy="-50" r="10" fill="#6FE3C5"/><path d="M37 -50 l4 4 7 -8" fill="none" stroke="#0F1E1F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>')
-    # 5 medición (indicador con aguja)
-    v5 = ('<path d="M-50 22 A50 50 0 0 1 50 22" fill="none" stroke="#2C3A3A" stroke-width="11" stroke-linecap="round"/>'
-          '<path class="dl" d="M-50 22 A50 50 0 0 1 50 22" fill="none" stroke="url(#ex-bar)" stroke-width="11" stroke-linecap="round" pathLength="1" style="--k:5;--o:.5s;stroke-dasharray:1"/>'
-          '<g class="nd2" style="--k:5;--o:.5s;transform-origin:0px 22px"><line x1="0" y1="22" x2="0" y2="-26" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"/></g>'
-          '<circle cx="0" cy="22" r="7" fill="#E9EDEA"/><circle cx="0" cy="22" r="2.6" fill="#0F1E1F"/>'
-          '<text class="fd" x="0" y="52" text-anchor="middle" fill="#A9F6E2" style="font:600 16px var(--f-ui);--k:5;--o:1.6s">+12 %</text>')
+    # 5 medición: embudo de conversión (cada paso deja pasar a menos personas)
+    anchos, opac = (88, 70, 52, 34), (.25, .45, .7, 1)
+    v5 = "".join(f'<rect class="fd" x="{-a / 2}" y="{-44 + n * 22}" width="{a}" height="17" rx="4" fill="#6FE3C5" fill-opacity="{o}" style="--k:5;--o:{.15 + n * .3:.2f}s"/>' for n, (a, o) in enumerate(zip(anchos, opac)))
+    v5 += "".join(f'<path class="fd" d="M-4 {-24.5 + n * 22} l4 3.4 4 -3.4" fill="none" stroke="#E9EDEA" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="--k:5;--o:{.45 + n * .3:.2f}s"/>' for n in range(3))
     ring = (f'<g class="ring">{track}{arrows}{"".join(nodes)}{"".join(labs)}{vis(0, v0)}{vis(1, v1)}{vis(2, v2)}{vis(3, v3)}{vis(4, v4)}{vis(5, v5)}{orbit}{caps}</g>')
     s4 = f'<g class="sc sc4"><g class="cam">{rumbo_svg(projects, lang, bg=False, uid="x")}</g><text class="cap" x="340" y="334">{esc(t["ex_c4"])}</text></g>'
     vg = '<rect width="680" height="350" rx="12" fill="url(#ex-vg)" pointer-events="none"/>'
     return defs + amb + ground + ring + s4 + vg
+
+
+def crumbs_html(lang, items):
+    t = T[lang]
+    out = "".join((f'<a href="{h}">{esc(lb)}</a><span class="sep" aria-hidden="true">›</span>' if h else f'<span aria-current="page">{esc(lb)}</span>') for lb, h in items)
+    return f'<nav class="crumbs" aria-label="{esc(t["crumbs_label"])}">{out}</nav>'
 
 
 def thumb_html(hero, key):
@@ -468,15 +480,19 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kin
     og = og or f"{BASE}/assets/og/{lang}-home.png"
     head_alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{absu(h)}">' for l, h in {**alts, lang: url}.items())
     head_alts += f'<link rel="alternate" hreflang="x-default" href="{absu(alts.get(LANGS[0], url) if lang != LANGS[0] else url)}">'
+    gsv = f'<meta name="google-site-verification" content="{esc(CFG["google_site_verification"])}">' if CFG.get("google_site_verification") else ""
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     v = hashlib.md5((ROOT / "assets/style.css").read_bytes()).hexdigest()[:8]
-    nav = (f'<a href="{p(lang, pj(lang))}"{" aria-current=page" if active == "projects" else ""}>{t["projects"]}</a>'
-           f'<a href="{p(lang, "blog")}"{" aria-current=page" if active == "blog" else ""}>{t["articles"]}</a>'
-           f'<a href="{p(lang, "about")}"{" aria-current=page" if active == "about" else ""}>{t["about"]}</a>')
+    def li(key, href, label, extra=""):
+        return f'<a{extra} href="{href}"{" aria-current=page" if active == key else ""}>{label}</a>'
+    nav_items = (li("home", p(lang), t["nav_home"]) + li("projects", p(lang, pj(lang)), t["projects"]) + li("blog", p(lang, "blog"), t["articles"])
+                 + li("about", p(lang, "about"), t["about"]) + li("contact", p(lang, t["contact_path"]), t["contact"], ' class="nav-cta"'))
+    nav = nav_items
     cur, oth = lang.upper(), other.upper()
     tools = (f'<div class="head-tools"><a class="lang-switch" href="{other_href}" hreflang="{other}" lang="{other}" data-lang="{other}" aria-label="{esc(t["other"])}" title="{esc(T[other]["name"])}">'
              f'{ICON_GLOBE}<span class="cur">{cur}</span>{ICON_SWAP}<span>{oth}</span></a>'
              f'<button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="{esc(t["theme_label"])}" title="{esc(t["theme_label"])}">{ICON_THEME}</button></div>')
+    foot_nav = "".join(f'<a href="{h}">{lb}</a>' for h, lb in ((p(lang), t["nav_home"]), (p(lang, pj(lang)), t["projects"]), (p(lang, "blog"), t["articles"]), (p(lang, "about"), t["about"]), (p(lang, t["contact_path"]), t["contact"])))
     foot_links = f'<a href="{CFG["linkedin"]}" rel="me noopener" target="_blank">LinkedIn</a> <a href="{p(lang)}rss.xml">RSS</a>'
     if CFG.get("email"):
         foot_links += f' <a href="mailto:{esc(CFG["email"])}">Email</a>'
@@ -490,6 +506,7 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kin
 <script>if('IntersectionObserver' in window){{var d=document.documentElement;d.classList.add('anim');if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('rm')}}</script>
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(desc)}">
+{gsv}
 <link rel="canonical" href="{absu(url)}">
 {head_alts}
 <meta property="og:type" content="{kind}">
@@ -513,14 +530,15 @@ def page(lang, *, title, desc, body, url, alts=None, og=None, accent="aqua", kin
 <header class="site-head"><div class="wrap">
 <span class="brandbox"><a class="brand" href="{p(lang)}">{esc(site_title)}</a><span class="think" id="think" role="status" hidden><canvas aria-hidden="true"></canvas><span>{t['thinking']}</span></span></span>
 {tools}
-<nav class="nav" aria-label="Principal">{nav}</nav>
+<nav class="nav" aria-label="{esc(t["nav_label"])}">{nav}</nav>
 </div></header>
 <main id="main">
 {body}
 </main>
 <footer class="site-foot"><div class="wrap">
 <span>© {dt.date.today().year} {esc(CFG['name'])}</span>
-<span style="display:flex;gap:1.5rem">{foot_links}</span>
+<nav class="foot-nav" aria-label="{esc(t["foot_nav"])}">{foot_nav}</nav>
+<span class="foot-links">{foot_links}</span>
 </div></footer>
 <script src="{BASE}/assets/vendor/thinking-orbs.js?v={hashlib.md5((ROOT / 'assets/vendor/thinking-orbs.js').read_bytes()).hexdigest()[:8]}" defer></script>
 <script src="{BASE}/assets/main.js?v={hashlib.md5((ROOT / 'assets/main.js').read_bytes()).hexdigest()[:8]}" defer></script>
@@ -588,7 +606,7 @@ def main():
     (OUT / ".nojekyll").write_text("")
     if CFG.get("custom_domain"):
         (OUT / "CNAME").write_text(CFG["custom_domain"])
-    for old in (ROOT / "linkedin").glob("*.txt"):
+    for old in (ROOT / "privado" / "linkedin").glob("*.txt"):
         old.unlink()
 
     photo = process_photo()
@@ -654,7 +672,7 @@ def main():
         ex = explainer_svg(projects[l], l)
         kicker = f'{CFG["name"]} · {CFG["job_title"][l]}'
         hero = f"""<section class="hero"><div class="wrap">
-<div class="hero-text"><p class="kicker">{esc(kicker)}</p><h1>{esc(CFG['tagline'][l])}</h1><p class="intro">{esc(CFG['intro'][l])}</p>
+<div class="hero-text"><p class="kicker">{esc(kicker)}</p><h1>{esc(CFG['tagline'][l])}</h1><p class="intro"><span class="lead">{esc(CFG['intro_lead'][l])}</span> {esc(CFG['intro'][l])}</p>
 <p class="cta"><a class="btn" href="{p(l, pj(l))}">{t['see_projects']}</a><a class="btn ghost" href="{p(l, 'about')}">{t['about']}</a></p></div>
 <div class="hero-art"><div class="ex"><svg viewBox="0 0 680 350" role="group" aria-label="{esc(t['ex_alt'])}">{ex}</svg>
 <button class="ex-pause" type="button" aria-pressed="false" data-pause="{esc(t['pause'])}" data-play="{esc(t['play'])}" aria-label="{esc(t['pause'])}" title="{esc(t['pause'])}"><span class="i-pause">{ICON_PAUSE}</span><span class="i-play">{ICON_PLAY}</span></button></div></div></div></section>
@@ -663,7 +681,7 @@ def main():
 <section class="section"><div class="wrap"><h2>{t['latest']}</h2><p class="lede">{t['entries_short']}</p>{rows(posts[l][:5], l)}
 <p class="more"><a href="{p(l, 'blog')}">{t['all']}</a></p></div></section>"""
         write(OUT / l / "index.html", page(l, title=site_title, desc=CFG["description"][l], body=hero, url=p(l),
-                                           alts=alts_for(), jsonld={"@context": "https://schema.org", "@type": "WebSite",
+                                           alts=alts_for(), active="home", jsonld={"@context": "https://schema.org", "@type": "WebSite",
                                            "name": site_title, "url": absu(p(l)), "inLanguage": l,
                                            "author": author_ld(l)}))
 
@@ -696,6 +714,15 @@ def main():
             write(OUT / l / "about" / "index.html", page(l, title=meta.get("seo_title", meta.get("title", t["about"])), desc=meta.get("summary", CFG["description"][l]),
                                                          body=body, url=p(l, "about"), alts=alts_for("about"), active="about", jsonld=ld_about))
 
+        # contacto
+        cslug = t["contact_path"]
+        cbody = (f'<section class="section"><div class="prose-head"><h1 class="page-title">{t["contact"]}</h1></div><article class="prose" style="margin-top:0"><p>{t["contact_lead"]}</p>'
+                 f'<p class="cta"><a class="btn" href="{CFG["linkedin"]}" rel="me noopener" target="_blank">{t["contact_btn"]}</a></p><p>{t["contact_more"]}</p>'
+                 f'<p class="cta"><a class="btn ghost" href="{p(l, pj(l))}">{t["see_projects"]}</a><a class="btn ghost" href="{p(l, "blog")}">{t["read_blog"]}</a></p></article></section>')
+        ld_c = {"@context": "https://schema.org", "@type": "ContactPage", "inLanguage": l, "name": t["contact"], "url": absu(p(l, cslug)), "mainEntity": {**author_ld(l), "sameAs": [CFG["linkedin"]]}}
+        write(OUT / l / cslug / "index.html", page(l, title=t["contact"], desc=t["contact_desc"], body=cbody, url=p(l, cslug),
+                                                   alts={x: p(x, T[x]["contact_path"]) for x in LANGS}, active="contact", jsonld=ld_c))
+
         # proyectos
         for x in projects[l]:
             alts = {ol: pby[ol][x["id"]]["url"] for ol in LANGS if x["id"] in pby[ol]}
@@ -713,7 +740,7 @@ def main():
             others = f'<section class="section related"><div class="wrap"><h2>{t["other_projects"]}</h2>{proj_rows(otros, l)}</div></section>' if otros else ""
             body = f"""<article>
 <header class="post-head"><div class="wrap"><div>
-<div class="post-meta">{status_chip(x, l)}<time datetime="{x['updated'].isoformat()}">{t['updated']} {fmt_date(x['updated'], l)}</time></div>
+{crumbs_html(l, [(t["nav_home"], p(l)), (t["projects"], p(l, pj(l))), (x["title"], None)])}<div class="post-meta">{status_chip(x, l)}<time datetime="{x['updated'].isoformat()}">{t['updated']} {fmt_date(x['updated'], l)}</time></div>
 <h1>{esc(x['title'])}</h1>{sub}<div class="tags">{stack}</div>{enl}</div>{hero_svg(x['hero']) or motif_svg(x['id'])}</div></header>
 <div class="prose">{x['html']}</div>
 {relsec}{others}{author_box(l)}
@@ -726,7 +753,7 @@ def main():
             write(OUT / l / pj(l) / x["slug"] / "index.html", page(l, title=x["seo_title"] or x["title"], desc=x["summary"], body=body, url=x["url"], alts=alts,
                                                                     og=BASE + og_path, accent=x["accent"], kind="article", jsonld=ld, active="projects"))
             hashtags = " ".join("#" + re.sub(r"[^\w]", "", g.title().replace(" ", "")) for g in x["stack"])
-            write(ROOT / "linkedin" / f"{l}-project-{x['slug']}.txt", f"{x['linkedin'] or x['summary']}\n\n{t['cta']}\n{absu(x['url'])}\n\n{hashtags}\n")
+            write(ROOT / "privado" / "linkedin" / f"{l}-project-{x['slug']}.txt", f"{x['linkedin'] or x['summary']}\n\n{t['cta']}\n{absu(x['url'])}\n\n{hashtags}\n")
 
         # artículos
         for x in posts[l]:
@@ -747,7 +774,7 @@ def main():
             seguir = f'<section class="section related"><div class="wrap"><h2>{t["keep_reading"]}</h2>{rows(afines, l)}</div></section>' if afines else ""
             body = f"""<article>
 <header class="post-head"><div class="wrap"><div>
-<div class="post-meta"><time datetime="{x['date'].isoformat()}">{fmt_date(x['date'], l)}</time><span>{x['minutes']} {t['min']}</span>{meta_teacher}{proj_meta}</div>
+{crumbs_html(l, [(t["nav_home"], p(l)), (t["articles"], p(l, "blog")), (x["title"], None)])}<div class="post-meta"><time datetime="{x['date'].isoformat()}">{fmt_date(x['date'], l)}</time><span>{x['minutes']} {t['min']}</span>{meta_teacher}{proj_meta}</div>
 <h1>{esc(x['title'])}</h1><div class="tags">{tags}</div></div>{hero_svg(x['hero']) or motif_svg(x['id'])}</div></header>
 <div class="prose">{x['html']}{credit}</div>
 {seguir}{author_box(l)}
@@ -764,7 +791,7 @@ def main():
             hook = x["linkedin"] or x["summary"]
             hashtags = " ".join("#" + re.sub(r"[^\w]", "", g.title().replace(" ", "")) for g in x["tags"])
             thanks_line = (t["thanks_short"].format(name=x["teacher"]) + "\n\n") if x["teacher"] else ""
-            write(ROOT / "linkedin" / f"{l}-{x['slug']}.txt", f"{hook}\n\n{t['cta']}\n{absu(x['url'])}\n\n{thanks_line}{hashtags}\n")
+            write(ROOT / "privado" / "linkedin" / f"{l}-{x['slug']}.txt", f"{hook}\n\n{t['cta']}\n{absu(x['url'])}\n\n{thanks_line}{hashtags}\n")
 
         # RSS
         items = "".join(
@@ -789,6 +816,7 @@ def main():
                 continue
             entry(p(l, *parts), {x: p(x, *parts) for x in LANGS})
     for l in LANGS:
+        entry(p(l, T[l]["contact_path"]), {x: p(x, T[x]["contact_path"]) for x in LANGS})
         entry(p(l, pj(l)), {x: p(x, pj(x)) for x in LANGS})
         for x in projects[l]:
             entry(x["url"], {ol: pby[ol][x["id"]]["url"] for ol in LANGS if x["id"] in pby[ol]}, x["updated"].isoformat())
@@ -797,6 +825,7 @@ def main():
             entry(x["url"], {ol: by_id[ol][x["id"]]["url"] for ol in LANGS if x["id"] in by_id[ol]}, x["updated"].isoformat())
     write(OUT / "sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
                                'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + "".join(urls) + "</urlset>\n")
+    write(OUT / ".nojekyll", "")  # GitHub Pages no procesa el sitio con Jekyll
     write(OUT / "robots.txt", f"User-agent: *\nAllow: /\n\n# Resumen del sitio para modelos de lenguaje: {absu(BASE)}/llms.txt\nSitemap: {absu(BASE)}/sitemap.xml\n")
 
     # llms.txt y llms-full.txt: el sitio resumido para modelos de lenguaje (https://llmstxt.org)
@@ -812,7 +841,7 @@ def main():
         t = T[l]
         resumen += [f"## {'Español' if l == 'es' else 'English'}", "", f"### {t['projects']}"] + [f"- [{x['title']}]({absu(x['url'])}): {x['summary']}" for x in reversed(projects[l])]
         resumen += ["", f"### {t['articles']}"] + [f"- [{x['title']}]({absu(x['url'])}): {x['summary']}" for x in posts[l]]
-        resumen += ["", f"### {t['about']}", f"- [{t['about']}]({absu(p(l, 'about'))}): {CFG['description'][l]}", ""]
+        resumen += ["", f"### {t['about']}", f"- [{t['about']}]({absu(p(l, 'about'))}): {CFG['description'][l]}", f"- [{t['contact']}]({absu(p(l, t['contact_path']))}): {t['contact_desc']}", ""]
         completo += [f"## {'Español' if l == 'es' else 'English'}", ""]
         for kind, items in (("projects", reversed(projects[l])), ("posts", posts[l])):
             for x in items:
@@ -824,8 +853,9 @@ def main():
 
     # raíz: elige idioma según el navegador
     links = "".join(f'<li><a href="{p(l)}" hreflang="{l}">{T[l]["name"]}</a></li>' for l in LANGS)
+    gsv_root = f'<meta name="google-site-verification" content="{esc(CFG["google_site_verification"])}">' if CFG.get("google_site_verification") else ""
     write(OUT / "index.html", f"""<!doctype html><html lang="{LANGS[0]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(CFG['title'][LANGS[0]])}</title><link rel="canonical" href="{absu(p(LANGS[0]))}">
+<title>{esc(CFG['title'][LANGS[0]])}</title>{gsv_root}<link rel="canonical" href="{absu(p(LANGS[0]))}">
 <link rel="alternate" hreflang="x-default" href="{absu(p(LANGS[0]))}">{"".join(f'<link rel="alternate" hreflang="{l}" href="{absu(p(l))}">' for l in LANGS)}
 <noscript><meta http-equiv="refresh" content="0;url={p(LANGS[0])}"></noscript>
 <script>(function(){{var S={json.dumps(LANGS)},l=null;try{{l=localStorage.getItem('lang')}}catch(e){{}}if(S.indexOf(l)<0){{l=null;var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length&&!l;i++){{var c=(n[i]||'').slice(0,2).toLowerCase();if(S.indexOf(c)>-1)l=c}}}}location.replace('{BASE}/'+(l||'{LANGS[0]}')+'/')}})()</script>

@@ -17,8 +17,8 @@
     "en": "From data to product"
   },
   "intro": {
-    "es": "Soy Isabel. Construyo proyectos con datos e IA y cuento aquí, con ejemplos propios, lo que voy aprendiendo por el camino.",
-    "en": "I'm Isabel. I build projects with data and AI and share here, with my own examples, what I learn along the way."
+    "es": "Soy Isabel: construyo proyectos con datos e IA y cuento aquí, con ejemplos propios, lo que aprendo por el camino.",
+    "en": "I'm Isabel: I build projects with data and AI and share here, with my own examples, what I learn along the way."
   },
   "description": {
     "es": "Isabel Amrein De Luca, Lending Product Manager: proyectos y apuntes sobre datos, IA generativa y producto. Aprender construyendo, con ejemplos propios.",
@@ -69,5 +69,10 @@
         ]
       ]
     }
+  },
+  "google_site_verification": "",
+  "intro_lead": {
+    "es": "Si trabajas en negocio, producto o finanzas y quieres entender los datos y la IA sin jerga, este sitio es para ti.",
+    "en": "If you work in business, product or finance and want to understand data and AI without jargon, this site is for you."
   }
 }

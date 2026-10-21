@@ -101,6 +101,25 @@
   }
   if (figs.length) { pistas(); window.addEventListener('resize', pistas); window.addEventListener('load', pistas); }
 
+  /* ---- Vista alternativa: botones para cambiar entre dos vistas (sin JavaScript se ven las dos) ---- */
+  document.querySelectorAll('[data-vista]').forEach(function (v) {
+    var tabs = Array.prototype.slice.call(v.querySelectorAll('[role="tab"]')), panels = Array.prototype.slice.call(v.querySelectorAll('[role="tabpanel"]'));
+    function elegir(i, foco) {
+      tabs.forEach(function (t, k) { var on = k === i; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; panels[k].hidden = !on; });
+      if (foco) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { elegir(i); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length; else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0; else if (e.key === 'End') n = tabs.length - 1;
+        if (n !== null) { e.preventDefault(); elegir(n, true); }
+      });
+    });
+    v.classList.add('js'); elegir(0);
+  });
+
   /* ---- Orbes vivos junto a los proyectos «en marcha» ---- */
   var vivos = document.querySelectorAll('.orb-live');
   if (vivos.length && window.ThinkingOrbs) {
